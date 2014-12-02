@@ -3,36 +3,38 @@ using System.Collections;
 
 public class Note : MonoBehaviour {
 
-	public string noteName;
+	public double height;
 	public double position;
 	public double duration;
-	private bool hit;
+	public bool sustain;
+	public int pointValue;
 
 	// Use this for initialization
 	void Start () {
-		noteName = "c4";
+		height = 1;
 		position = 1;
 		duration = 1;
-		hit = false;
+		sustain = false;
+		pointValue = 5;
 	}
 
-	void HitNote () {
-		hit = true;
-	}
+//	void HitNote () {
+//		hit = true;
+//	}
 
 	// Update is called once per frame
 	void Update () {
-		if (hit) 
-		{
-			// draw note as explosion or whatever
-			// handle sound playback
-			// handle score
-			// set countdown for Destroy
-		}
-		else 
-		{
-			// draw note as a note
-			//this.transform = whatever;
-		}
+//		if (hit) 
+//		{
+//			// draw note as explosion or whatever
+//			// handle sound playback
+//			// handle score
+//			// set countdown for Destroy
+//		}
+//		else 
+//		{
+//			// draw note as a note
+//			//this.transform = whatever;
+//		}
 	}
 }
