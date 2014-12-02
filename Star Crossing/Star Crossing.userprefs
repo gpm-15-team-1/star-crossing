@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Note.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character.cs">
     <Files>
-      <File FileName="Assets\Scripts\Note.cs" Line="34" Column="26" />
+      <File FileName="Assets\Scripts\Character.cs" Line="25" Column="18" />
+      <File FileName="Assets\Scripts\DialogueManager.cs" Line="97" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
