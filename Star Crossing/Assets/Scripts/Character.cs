@@ -9,6 +9,9 @@ public class Character : MonoBehaviour {
 	public string name;
 	public Material colour;
 
+	bool move = false;
+	Vector2 newPos = new Vector2(0,0);
+
 	// Use this for initialization
 	void Start () {
 		Moods myMoods;
@@ -19,6 +22,14 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(move==true)
+		{
+			if(!transform.position.Equals(newPos))
+				transform.position = Vector2.MoveTowards(transform.position, newPos, 8.0f * Time.deltaTime);
+			else
+				move = false;
+			//move = false;
+		}
 	
 	}
 
@@ -51,9 +62,8 @@ public class Character : MonoBehaviour {
 
 	void Move(Vector2[] args)
 	{
-		Vector2 newPos = args[0];
-		while(transform.position.x != newPos.x)
-			transform.position = Vector2.MoveTowards(transform.position, newPos, 5.0f * Time.deltaTime);
+		newPos = args[0];
+		move = true;
 	}
 
 }

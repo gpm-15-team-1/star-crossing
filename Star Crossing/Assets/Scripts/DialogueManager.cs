@@ -133,20 +133,24 @@ public class DialogueManager : MonoBehaviour {
 		{
 			characters[(int)Chars.Blake].gameObject.SendMessage("MouthClosed");
 			characters[(int)Chars.Nancy].gameObject.SendMessage("Worried");
-			characters[(int)Chars.Nancy].gameObject.SendMessage("Flip");
-
-			Vector2 move = new Vector2(-2, 0);
-			Vector2[] args = new Vector2[1];
-			args[0] = move;
-			characters[(int)Chars.Nancy].gameObject.SendMessage("Move", args);
 		}
 		if(currentIndex==5)
 		{
-			
 		}
 		if(currentIndex==6)
 		{
-			
+			Vector2[] args = new Vector2[1];
+
+			Vector2 move = new Vector2(-2, 0);
+			args[0] = move;
+			characters[(int)Chars.Nancy].gameObject.SendMessage("Move", args);
+			characters[(int)Chars.Nancy].gameObject.SendMessage("Flip");
+			characters[(int)Chars.Nancy].gameObject.SendMessage("MouthClosed");
+
+			move = new Vector2(2, 0);
+			args[0] = move;
+			characters[(int)Chars.Ash].gameObject.SendMessage("Move", args);
+			characters[(int)Chars.Ash].gameObject.SendMessage("MouthOpen");
 		}
 		if(currentIndex==7)
 		{
@@ -154,15 +158,19 @@ public class DialogueManager : MonoBehaviour {
 		}
 		if(currentIndex==8)
 		{
-			
+			characters[(int)Chars.Blake].gameObject.SendMessage("Laughing");
+			characters[(int)Chars.Ash].gameObject.SendMessage("MouthClosed");
 		}
 		if(currentIndex==9)
 		{
-			
+			characters[(int)Chars.Blake].gameObject.SendMessage("MouthClosed");
+			characters[(int)Chars.Nancy].gameObject.SendMessage("MouthOpen");
+			characters[(int)Chars.Ash].gameObject.SendMessage("MouthClosed");
 		}
 		if(currentIndex==10)
 		{
-			
+			characters[(int)Chars.Nancy].gameObject.SendMessage("MouthClosed");
+			characters[(int)Chars.Ash].gameObject.SendMessage("MouthOpen");
 		}
 		if(currentIndex==11)
 		{
@@ -170,11 +178,13 @@ public class DialogueManager : MonoBehaviour {
 		}
 		if(currentIndex==12)
 		{
-			
+			characters[(int)Chars.Ash].gameObject.SendMessage("MouthClosed");
+			characters[(int)Chars.Kim].gameObject.SendMessage("MouthOpen");
 		}
 		if(currentIndex==13)
 		{
-			
+			characters[(int)Chars.Kim].gameObject.SendMessage("MouthClosed");
+			characters[(int)Chars.Blake].gameObject.SendMessage("MouthOpen");
 		}
 	}
 }
