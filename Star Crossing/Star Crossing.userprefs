@@ -2,14 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets\Scripts\Character.cs" Line="25" Column="18" />
-      <File FileName="Assets\Scripts\DialogueManager.cs" Line="97" Column="51" />
-=======
-      <File FileName="Assets\Scripts\Part.cs" Line="9" Column="28" />
-      <File FileName="Assets\Scripts\Song.cs" Line="8" Column="26" />
-      <File FileName="Assets\Scripts\Note.cs" Line="24" Column="2" />
->>>>>>> origin/master
+      <File FileName="Assets\Scripts\DialogueManager.cs" Line="139" Column="36" />
+      <File FileName="Assets\Scripts\Character.cs" Line="55" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

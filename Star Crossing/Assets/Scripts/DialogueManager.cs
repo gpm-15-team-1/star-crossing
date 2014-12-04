@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class DialogueManager : MonoBehaviour {
-	
+
+	enum Chars {Blake, Kim, Nancy, Ash};
+	enum Pos {LeftFront, LeftBack, RightFront, RightBack};
+
 	string[] dialogue;
 	string[] speaker;
 
@@ -11,9 +14,23 @@ public class DialogueManager : MonoBehaviour {
 	int currentIndex;
 
 	public Character[] characters;
+	Vector2[] positions;
 
 	// Use this for initialization
 	void Start () {
+
+		Chars myChars;
+		myChars = Chars.Blake;
+
+		Pos myPos;
+		myPos = Pos.LeftFront;
+
+		positions = new Vector2[4];
+		positions[0] = new Vector2(-4, 0);
+		positions[1] = new Vector2(-2, 0);
+		positions[2] = new Vector2(2, 0);
+		positions[3] = new Vector2(4, 0);
+
 		dialogue = new string[14];
 		speaker = new string[14];
 
@@ -94,23 +111,34 @@ public class DialogueManager : MonoBehaviour {
 	{
 		if(currentIndex==0)
 		{
-			characters[0].gameObject.SendMessage("MouthOpen");
+			characters[(int)Chars.Blake].gameObject.SendMessage("MouthOpen");
+			characters[(int)Chars.Kim].gameObject.SendMessage("MouthClosed");
+			characters[(int)Chars.Nancy].gameObject.SendMessage("MouthClosed");
 		}
 		if(currentIndex==1)
 		{
-			
+			characters[(int)Chars.Blake].gameObject.SendMessage("MouthClosed");
+			characters[(int)Chars.Kim].gameObject.SendMessage("MouthOpen");
 		}
 		if(currentIndex==2)
 		{
-			
+			characters[(int)Chars.Blake].gameObject.SendMessage("Laughing");
+			characters[(int)Chars.Kim].gameObject.SendMessage("MouthClosed");
 		}
 		if(currentIndex==3)
 		{
-			
+			characters[(int)Chars.Blake].gameObject.SendMessage("MouthOpen");
 		}
 		if(currentIndex==4)
 		{
-			
+			characters[(int)Chars.Blake].gameObject.SendMessage("MouthClosed");
+			characters[(int)Chars.Nancy].gameObject.SendMessage("Worried");
+			characters[(int)Chars.Nancy].gameObject.SendMessage("Flip");
+
+			Vector2 move = new Vector2(-2, 0);
+			Vector2[] args = new Vector2[1];
+			args[0] = move;
+			characters[(int)Chars.Nancy].gameObject.SendMessage("Move", args);
 		}
 		if(currentIndex==5)
 		{
