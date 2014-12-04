@@ -3,16 +3,16 @@ using System.Collections;
 
 public class Note : MonoBehaviour {
 
-	public double height;
-	public double position;
+	//public double height;
+	//public double position;
 	public double duration;
 	public bool sustain;
 	public int pointValue;
 
 	// Use this for initialization
 	void Start () {
-		height = 1;
-		position = 1;
+		//height = 1;
+		//position = 1;
 		duration = 1;
 		sustain = false;
 		pointValue = 5;
