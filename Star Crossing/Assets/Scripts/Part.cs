@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Part : MonoBehaviour {
 
-	public string name;
+	public string partName;
 	public Note sampleNote;
 	public ArrayList notes;
 	//public List<Note> notes;
@@ -12,7 +12,7 @@ public class Part : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		name = "melody";
+		partName = "melody";
 		notes = new ArrayList ();
 		playerControlled = true;
 		WritePart ();
