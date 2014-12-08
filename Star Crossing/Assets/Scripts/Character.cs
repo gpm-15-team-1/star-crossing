@@ -5,9 +5,14 @@ public class Character : MonoBehaviour {
 
 	enum Moods {HappyMouthClosed, HappyMouthOpen, Worried, Laughing};
 	public Sprite[] moodSprites;
+	public Texture faceSprite;
 
 	public string name;
+	public string lastName;
 	public Material colour;
+
+	public string page1;
+	public string page2;
 
 	bool move = false;
 	Vector2 newPos = new Vector2(0,0);
@@ -24,9 +29,11 @@ public class Character : MonoBehaviour {
 	void Update () {
 		if(move==true)
 		{
+			//Lerp is considered smoother than MoveTowards, but both work
 			if(!transform.position.Equals(newPos))
 				transform.position = Vector2.MoveTowards(transform.position, newPos, 8.0f * Time.deltaTime);
-			else
+				//transform.position = Quaternion.Lerp(transform.position, newPos, 8.0f * Time.deltaTime);
+				else
 				move = false;
 			//move = false;
 		}

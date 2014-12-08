@@ -3,27 +3,28 @@ using System.Collections;
 
 public class DialogueManager : MonoBehaviour {
 
+	//enums to help organise characters and positions
 	enum Chars {Blake, Kim, Nancy, Ash};
 	enum Pos {LeftFront, LeftBack, RightFront, RightBack};
-
-	string[] dialogue;
-	string[] speaker;
-
-	public GUIText name;
-	public GUIText line;
-	int currentIndex;
-
+	
+	//characters and positions referenced by enums
 	public Character[] characters;
 	Vector2[] positions;
 
+	//arrays to hold dialogue and speaker names for each dialogue
+	//eventually make dynamic
+	string[] dialogue;
+	string[] speaker;
+
+	//text objects to hold name of character and spoken dialogue
+	public GUIText name;
+	public GUIText line;
+
+	//current dialogue
+	int currentIndex;
+
 	// Use this for initialization
 	void Start () {
-
-		Chars myChars;
-		myChars = Chars.Blake;
-
-		Pos myPos;
-		myPos = Pos.LeftFront;
 
 		positions = new Vector2[4];
 		positions[0] = new Vector2(-4, 0);
@@ -33,6 +34,9 @@ public class DialogueManager : MonoBehaviour {
 
 		dialogue = new string[14];
 		speaker = new string[14];
+
+		//for future reference - reads all text from a file into a single string
+		//string text = System.IO.File.ReadAllText("myfile.txt");
 
 		{
 			speaker[0] = "Blake";
