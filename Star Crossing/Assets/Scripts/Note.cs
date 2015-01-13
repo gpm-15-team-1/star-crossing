@@ -16,6 +16,7 @@ public class Note : MonoBehaviour {
 		duration = 1;
 		sustain = false;
 		pointValue = 5;
+		animation.Play ();
 	}
 
 //	void HitNote () {

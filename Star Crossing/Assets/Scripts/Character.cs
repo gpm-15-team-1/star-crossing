@@ -67,10 +67,41 @@ public class Character : MonoBehaviour {
 		transform.localScale = newScale;
 	}
 
-	void Move(Vector2[] args)
+	void Move1Left()
 	{
-		newPos = args[0];
+		newPos = new Vector2(transform.position.x-2, transform.position.y);
 		move = true;
 	}
 
+	void Move1Right()
+	{
+		newPos = new Vector2(transform.position.x+2, transform.position.y);
+		move = true;
+	}
+
+	void Move2Left()
+	{
+		newPos = new Vector2(transform.position.x-4, transform.position.y);
+		move = true;
+	}
+
+	void Move2Right()
+	{
+		newPos = new Vector2(transform.position.x+4, transform.position.y);
+		move = true;
+	}
+
+	void MoveOnScreenLeft()
+	{
+		transform.position = new Vector2(9.0f, transform.position.y);
+		newPos = new Vector2(5.0f, transform.position.y);
+		move = true;
+	}
+
+	void MoveOnScreenRight()
+	{
+		transform.position = new Vector2(-9.0f, transform.position.y);
+		newPos = new Vector2(-5.0f, transform.position.y);
+		move = true;
+	}
 }

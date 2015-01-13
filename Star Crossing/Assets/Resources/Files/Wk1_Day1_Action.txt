@@ -1,0 +1,15 @@
+14
+Blake MouthOpen Kim MouthClosed Nancy MouthClosed
+Blake MouthClosed Kim MouthOpen
+Blake Laughing Kim MouthClosed
+Blake MouthOpen
+Blake MouthClosed Nancy Worried
+null
+Blake Move1Left Nancy Move2Left Nancy Flip Nancy MouthClosed Ash MoveOnScreenLeft Ash MouthOpen
+null
+Blake Laughing Ash MouthClosed
+Blake MouthClosed Nancy MouthOpen Ash MouthClosed
+Nancy MouthClosed Ash MouthOpen
+null
+Ash MouthClosed Kim MouthOpen
+Kim MouthClosed Blake MouthOpen

@@ -1,0 +1,13 @@
+1
+Blake MouthClosed Nancy MouthClosed Kim MouthOpen
+2
+Blake MouthClosed Nancy MouthClosed Kim MouthOpen
+Blake MouthOpen Kim MouthClosed
+2
+Nancy MouthOpen Blake MouthClosed Kim MouthClosed
+Blake MouthOpen Nancy MouthClosed
+2
+Blake Laughing Kim MouthClosed Nancy MouthClosed
+Blake MouthClosed Kim MouthOpen
+1
+Nancy MouthOpen Blake MouthClosed Ash MouthClosed

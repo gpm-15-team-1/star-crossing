@@ -1,16 +1,9 @@
 ﻿<Properties>
-<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\UCSC\Classes\Project\Rehearsal\Assets\Sample Assets\2D\Scripts\CodyControllerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SaveScript.cs">
     <Files>
-      <File FileName="..\..\..\UCSC\Classes\Project\Rehearsal\Assets\Sample Assets\2D\Scripts\InteractScript.cs" Line="57" Column="22" />
-      <File FileName="..\..\..\UCSC\Classes\Project\Rehearsal\Assets\Sample Assets\2D\Scripts\CodyControllerScript.cs" Line="34" Column="10" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Target.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Target.cs" Line="10" Column="17" />
->>>>>>> origin/master
+      <File FileName="Assets\Scripts\Character.cs" Line="96" Column="21" />
+      <File FileName="Assets\Scripts\SaveScript.cs" Line="10" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 
 public class DialogueManager : MonoBehaviour {
 
-	//enums to help organise characters and positions
+	//enums to help organise characters, positions, and scene state
 	enum Chars {Blake, Kim, Nancy, Ash};
 	enum Pos {LeftFront, LeftBack, RightFront, RightBack};
+	enum Scene {Morning, Feedback, Relationship1, Relationship2};
 	
 	//characters and positions referenced by enums
 	public Character[] characters;
@@ -13,8 +16,9 @@ public class DialogueManager : MonoBehaviour {
 
 	//arrays to hold dialogue and speaker names for each dialogue
 	//eventually make dynamic
-	string[] dialogue;
-	string[] speaker;
+	ArrayList dialogue = new ArrayList();
+	ArrayList speaker = new ArrayList();
+	List<List<string>> actions = new List<List<string>>();
 
 	//text objects to hold name of character and spoken dialogue
 	public GUIText name;
@@ -22,6 +26,11 @@ public class DialogueManager : MonoBehaviour {
 
 	//current dialogue
 	int currentIndex;
+
+	//temp currents
+	int currentWeek;
+	int currentDay;
+	int currentScene;
 
 	// Use this for initialization
 	void Start () {
@@ -32,69 +41,240 @@ public class DialogueManager : MonoBehaviour {
 		positions[2] = new Vector2(2, 0);
 		positions[3] = new Vector2(4, 0);
 
-		dialogue = new string[14];
-		speaker = new string[14];
+		currentWeek = GameObject.Find("Save").GetComponent<SaveScript>().currentWeek;
+		currentDay = GameObject.Find("Save").GetComponent<SaveScript>().currentDay;
+		currentScene = GameObject.Find("Save").GetComponent<SaveScript>().currentScene;
 
-		//for future reference - reads all text from a file into a single string
-		//string text = System.IO.File.ReadAllText("myfile.txt");
-
+		//IF MORNING SCENE DO THIS
+		if(currentScene == (int)Scene.Morning)
 		{
-			speaker[0] = "Blake";
-			speaker[1] = "Kim";
-			speaker[2] = "Blake";
-			speaker[3] = "Blake";
-			speaker[4] = "Nancy";
-			speaker[5] = "???";
-			speaker[6] = "Ash";
-			speaker[7] = "Ash";
-			speaker[8] = "Blake";
-			speaker[9] = "Nancy";
-			speaker[10] = "Ash";
-			speaker[11] = "Ash";
-			speaker[12] = "Kim";
-			speaker[13] = "Blake";
-		}
+			//reading from file:
+			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Morning.txt");
+			int size = int.Parse(file.ReadLine());
 
+			//read dialogues from file
+			for(int i=0; i<size; i++)
+			{
+				//name
+				string line1 = file.ReadLine();
+				string item1 = line1.Substring(0, line1.IndexOf(' '));
+				line1 = line1.Remove(0,item1.Length+1);
+				speaker.Add(item1);
+
+				//dialogue
+				string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+				dialogue.Add(item2);                             
+			}
+			file.Close();
+
+			file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Action.txt");
+			size = int.Parse(file.ReadLine());
+			//skip all irrelevant lines
+			for(int i=0; i<size; i++)
+			{
+				List<string> currentActions = new List<string>();
+				string[] actionLine = file.ReadLine().Split();
+				for(int j=0; j<actionLine.Length; j++)
+				{
+					currentActions.Add(actionLine[j]);
+				}
+				actions.Add(currentActions);
+			}
+
+			file.Close();
+		}
+		//IF FEEDBACK SCENE DO THIS
+		else if(currentScene == (int)Scene.Feedback)
 		{
-			dialogue[0] = "So, are we all here?";
-			dialogue[1] = "I'm here...but you knew that already.";
-			dialogue[2] = "Haha! Alright, raise your hand if you aren't here!";
-			dialogue[3] = "Seriously, though. Nancy, did you bring Ash?";
-			dialogue[4] = "Oh, I thought he was right behind me...";
-			dialogue[5] = "I'm here!";
-			dialogue[6] = "Terribly sorry! I wanted to be sure my voice bank was properly calibrated.";
-			dialogue[7] = "Reporting for duty, sir!";
-			dialogue[8] = "Great to see you too, Ash.";
-			dialogue[9] = "I'm glad you're still up for this.";
-			dialogue[10] = "Of course! I'm happy to be of assistance!";
-			dialogue[11] = "And it's a prime opportunity to test my latest syllable samples.";
-			dialogue[12] = "Awesome, so are we all ready? Feeling good? Try pressing ESC to take a look.";
-			dialogue[13] = "Alright, let's do this!";
-		}
+			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Feedback.txt");
+			Debug.Log("Score: "+int.Parse(file.ReadLine()));
 
+			string[] party = new string[4];
+			int[] accuracy = new int[4];
+
+			for(int i=0; i<4; i++)
+			{
+				string line1 = file.ReadLine();
+
+				//party member
+				string item1 = line1.Substring(0, line1.IndexOf(' '));
+				line1 = line1.Remove(0,item1.Length+1);
+				party[i] = item1;
+				
+				//accuracy
+				int item2 = int.Parse(line1);
+				accuracy[i] = item2;
+			}
+
+			file.Close();
+
+			for(int j=0; j<4; j++)
+			{
+				if(accuracy[j]<=80)
+				{
+					//randomise later? or make internal (within file)
+					int feedback = Random.Range(1,5);
+					file = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Negative_Feedback.txt");
+
+					//skip loop
+					for(int i=0; i<feedback-1; i++)
+					{
+						int tempSize = int.Parse(file.ReadLine());
+						Debug.Log("Skipping "+tempSize +" lines");
+						for(int k=0; k<tempSize; k++)
+							file.ReadLine();
+					}
+
+					int size = int.Parse(file.ReadLine());
+
+					//read dialogues from file
+					for(int i=0; i<size; i++)
+					{
+						//name
+						string line1 = file.ReadLine();
+						string item1 = line1.Substring(0, line1.IndexOf(' '));
+						line1 = line1.Remove(0,item1.Length+1);
+						speaker.Add(item1);
+						
+						//dialogue
+						string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+						dialogue.Add (item2);	                             
+					}
+
+					file.Close();
+
+					StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Negative_Action.txt");
+					
+					//skip loop
+					for(int i=0; i<feedback-1; i++)
+					{
+						int tempSize = int.Parse(file2.ReadLine());
+						for(int k=0; k<tempSize; k++)
+							file2.ReadLine();
+					}
+
+					size = int.Parse(file2.ReadLine());
+
+					//skip all irrelevant lines
+					for(int i=0; i<size; i++)
+					{
+						List<string> currentActions = new List<string>();
+						string[] actionLine = file2.ReadLine().Split();
+						for(int k=0; k<actionLine.Length; k++)
+						{
+							currentActions.Add(actionLine[k]);
+						}
+						Debug.Log("Actions this line: "+currentActions.Count);
+						actions.Add(currentActions);
+					}
+					
+					file2.Close();
+				}
+				else if(accuracy[j] >=90)
+				{
+					int feedback = Random.Range(1,5);
+					file = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Positive_Feedback.txt");
+					
+					//skip loop
+					for(int i=0; i<feedback-1; i++)
+					{
+						int tempSize = int.Parse(file.ReadLine());
+						Debug.Log("Skipping "+tempSize +" lines");
+						for(int k=0; k<tempSize; k++)
+							file.ReadLine();
+					}
+
+					int size = int.Parse(file.ReadLine());
+					//read dialogues from file
+					for(int i=0; i<size; i++)
+					{
+						//name
+						string line1 = file.ReadLine();
+						string item1 = line1.Substring(0, line1.IndexOf(' '));
+						line1 = line1.Remove(0,item1.Length+1);
+						speaker.Add(item1);
+						
+						//dialogue
+						string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+						dialogue.Add (item2);                           
+					}
+
+					file.Close();
+
+					StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Positive_Action.txt");
+
+					//skip loop
+					for(int i=0; i<feedback-1; i++)
+					{
+						int tempSize = int.Parse(file2.ReadLine());
+						for(int k=0; k<tempSize; k++)
+							file2.ReadLine();
+					}
+
+					size = int.Parse(file2.ReadLine());
+					//read
+					for(int i=0; i<size; i++)
+					{
+						List<string> currentActions = new List<string>();
+						string[] actionLine = file2.ReadLine().Split();
+						for(int k=0; k<actionLine.Length; k++)
+						{
+							currentActions.Add(actionLine[k]);
+						}
+						actions.Add(currentActions);
+					}
+					
+					file2.Close();
+				}
+			}
+		}
 		currentIndex = 0;
-		name.text = speaker[currentIndex];
-		line.text = dialogue[currentIndex];
+		name.text = (string)speaker[currentIndex];
+		line.text = (string)dialogue[currentIndex];
 		changeSprites();
 		//changeColour(speaker[currentIndex]);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			if(currentIndex+1 < dialogue.Length)
+			if(currentIndex+1 < dialogue.Count)
 			{
 				currentIndex++;
 				changeSprites();
-				name.text = speaker[currentIndex];
-				changeColour(speaker[currentIndex]);
-				line.text = dialogue[currentIndex];
+				name.text = (string)speaker[currentIndex];
+				changeColour((string)speaker[currentIndex]);
+				line.text = (string)dialogue[currentIndex];
 				//AudioSettings.dspTime for future reference
 			}
+			else
+			{
+				if(currentScene==(int)Scene.Relationship2)
+				{
+					//end of week
+					if(currentDay==5)
+					{
+						GameObject.Find("Save").GetComponent<SaveScript>().currentWeek++;
+						GameObject.Find("Save").GetComponent<SaveScript>().currentDay = 1;
+						GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+					}
+					//end of day
+					else
+					{
+						GameObject.Find("Save").GetComponent<SaveScript>().currentDay++;
+						GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+					}
+				}
+				//still same day
+				else
+				{
+					GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
+				}
+				DontDestroyOnLoad(GameObject.Find("Save"));
+				Application.LoadLevel(Application.loadedLevelName);
+			}
 		}
-	
 	}
 
 	void changeColour(string speaker)
@@ -112,6 +292,27 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	void changeSprites()
+	{
+		//Debug.Log("actions[currentIndex][0]: "+actions[currentIndex][0]);
+		if(!actions[currentIndex][0].Equals("null"))
+		{
+			for(int i=0; i<actions[currentIndex].Count; i+=2)
+			{
+				int character = -1;
+				if(actions[currentIndex][i].Equals("Blake"))
+					character = (int) Chars.Blake;
+				else if(actions[currentIndex][i].Equals("Kim"))
+					character = (int) Chars.Kim;
+				else if(actions[currentIndex][i].Equals("Nancy"))
+					character = (int) Chars.Nancy;
+				else if(actions[currentIndex][i].Equals("Ash"))
+					character = (int) Chars.Ash;
+				//Debug.Log("Char: " +actions[currentIndex][i] +", Action: "+actions[currentIndex][i+1]);
+				characters[character].gameObject.SendMessage(actions[currentIndex][i+1]);
+			}
+		}
+	}
+	/*void changeSprites()
 	{
 		if(currentIndex==0)
 		{
@@ -190,5 +391,5 @@ public class DialogueManager : MonoBehaviour {
 			characters[(int)Chars.Kim].gameObject.SendMessage("MouthClosed");
 			characters[(int)Chars.Blake].gameObject.SendMessage("MouthOpen");
 		}
-	}
+	}*/
 }
