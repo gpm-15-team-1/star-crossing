@@ -60,10 +60,10 @@
      <Compile Include="Assets\Scripts\Song.cs" />
      <Compile Include="Assets\Scripts\Target.cs" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Morning.txt" />
-     <None Include="Assets\Resources\Files\Nancy_Negative_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Kim_Positive_Action.txt" />
-     <None Include="Assets\Resources\Files\Kim_Positive_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Nancy_Negative_Action.txt" />
+     <None Include="Assets\Resources\Files\Tani_Negative_Action.txt" />
+     <None Include="Assets\Resources\Files\Julie_Positive_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Julie_Positive_Action.txt" />
+     <None Include="Assets\Resources\Files\Tani_Negative_Feedback.txt" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Feedback.txt" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Action.txt" />
   </ItemGroup>

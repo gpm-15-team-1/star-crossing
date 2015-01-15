@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SaveScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Tani_Negative_Feedback.txt">
     <Files>
-      <File FileName="Assets\Scripts\Character.cs" Line="96" Column="21" />
-      <File FileName="Assets\Scripts\SaveScript.cs" Line="10" Column="2" />
+      <File FileName="Assets\Resources\Files\Tani_Negative_Feedback.txt" Line="7" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

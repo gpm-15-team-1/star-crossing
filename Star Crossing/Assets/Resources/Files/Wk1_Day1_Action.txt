@@ -1,15 +1,15 @@
 14
-Blake MouthOpen Kim MouthClosed Nancy MouthClosed
-Blake MouthClosed Kim MouthOpen
-Blake Laughing Kim MouthClosed
-Blake MouthOpen
-Blake MouthClosed Nancy Worried
+Randall MouthOpen Julie MouthClosed Tani MouthClosed
+Randall MouthClosed Julie MouthOpen
+Randall Laughing Julie MouthClosed
+Randall MouthOpen
+Randall MouthClosed Tani Worried
 null
-Blake Move1Left Nancy Move2Left Nancy Flip Nancy MouthClosed Ash MoveOnScreenLeft Ash MouthOpen
+Randall Move1Left Tani Move2Left Tani Flip Tani MouthClosed Rocky MoveOnScreenLeft Rocky MouthOpen
 null
-Blake Laughing Ash MouthClosed
-Blake MouthClosed Nancy MouthOpen Ash MouthClosed
-Nancy MouthClosed Ash MouthOpen
+Randall Laughing Rocky MouthClosed
+Randall MouthClosed Tani MouthOpen Rocky MouthClosed
+Tani MouthClosed Rocky MouthOpen
 null
-Ash MouthClosed Kim MouthOpen
-Kim MouthClosed Blake MouthOpen
+Rocky MouthClosed Julie MouthOpen
+Julie MouthClosed Randall MouthOpen

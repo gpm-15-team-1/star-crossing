@@ -1,0 +1,14 @@
+3
+Randall Worried Julie Worried Tani Worried
+null
+Randall MouthOpen Julie MouthClosed
+2
+Randall Worried Julie Worried Tani Worried
+Randall MouthClosed Julie MouthOpen
+1
+Randall Worried Tani Worried Julie Worried
+2
+Randall Worried Tani Worried Julie Worried
+null
+1
+Randall Worried Tani Worried Julie Worried
