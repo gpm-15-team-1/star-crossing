@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 
 public class Note : MonoBehaviour {
 
@@ -8,8 +9,11 @@ public class Note : MonoBehaviour {
 	public double duration;
 	public bool sustain;
 	public int pointValue;
+	public Sprite[] sprites;
 	private bool mouseClicked;
 	private bool isActive;
+	private bool hit;
+	private Stopwatch destroyTimer;
 
 	// Use this for initialization
 	void Start () {
@@ -20,20 +24,29 @@ public class Note : MonoBehaviour {
 		pointValue = 5;
 		mouseClicked = false;
 		isActive = true;
-		//animation.Play ();
+		hit = false;
+		destroyTimer = new Stopwatch ();
 	}
-
-//	void HitNote () {
-//		hit = true;
-//	}
 
 	// Update is called once per frame
 	void Update () {
+		// determine click state for available notes
 		if (Input.GetMouseButtonDown (0)) {
 			mouseClicked = true;
 		}
 		else {
 			mouseClicked = false;
+		}
+		// animate hit notes
+		if (hit) {
+			double elapsedTime = destroyTimer.Elapsed.TotalSeconds;
+			SpriteRenderer spriteRenderer = this.GetComponent<SpriteRenderer>() as SpriteRenderer;
+			if (elapsedTime > 0 && elapsedTime <= 0.1) 
+				spriteRenderer.sprite = sprites[0];
+			else if (elapsedTime > 0.1 && elapsedTime <= 0.2)
+				spriteRenderer.sprite = sprites[1];
+			else if (elapsedTime > 0.2)
+				spriteRenderer.sprite = sprites[2];
 		}
 	}
 	
@@ -41,32 +54,22 @@ public class Note : MonoBehaviour {
 	void LateUpdate () {
 		GameObject target = GameObject.Find ("Target");
 		GameObject songManager = GameObject.Find ("SongManager");
-		if (mouseClicked && (target.transform.position.x < this.transform.position.x + .5) && 
+		if (mouseClicked && isActive && 
+		    (target.transform.position.x < this.transform.position.x + .5) && 
 		    (target.transform.position.x > this.transform.position.x - .5) &&
 		    (target.transform.position.y < this.transform.position.y + .5) &&
 		    (target.transform.position.y > this.transform.position.y - .5)) {
 			songManager.GetComponent<SongManager>().PossiblePoints += 5;
 			songManager.GetComponent<SongManager>().AcquiredPoints += 5;
-			Destroy(this.gameObject);
+			hit = true;
+			isActive = false;
+			Destroy(this.gameObject,0.3f);
+			destroyTimer.Start();
 		}
-		else {
-			if (this.transform.position.x < -4 && isActive) {
-				songManager.GetComponent<SongManager>().PossiblePoints += 5;
-				isActive = false;
-				//Destroy(this.gameObject);
-			}
+		else if (this.transform.position.x < -4 && isActive) {
+			songManager.GetComponent<SongManager>().PossiblePoints += 5;
+			isActive = false;
+			//Destroy(this.gameObject);
 		}
-//		if (note was hit just now) 
-//		{
-//			// draw note as explosion or whatever
-//			// handle sound playback
-//			// handle score
-//			// set countdown for Destroy
-//		}
-//		else 
-//		{
-//			// draw note as a note
-//			// if note has passed the target's track (i.e. the player missed it), do score things
-//		}
 	}
 }
