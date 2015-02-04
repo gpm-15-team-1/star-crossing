@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharacterStatManager.cs">
     <Files>
       <File FileName="Assets\Scripts\DialogueManager.cs" Line="495" Column="17" />
@@ -9,6 +10,11 @@
       <File FileName="Assets\Scripts\RelationshipButtonScript.cs" Line="34" Column="37" />
       <File FileName="Assets\Scripts\RelationshipMenuManager.cs" Line="85" Column="1" />
       <File FileName="Assets\Scripts\CharacterStatManager.cs" Line="22" Column="17" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Note.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Note.cs" Line="43" Column="69" />
+>>>>>>> origin/master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
