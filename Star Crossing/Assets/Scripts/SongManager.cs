@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using System.Collections;
 
 public class SongManager : MonoBehaviour {
 
 	public Song sampleSong;
-	public Canvas textCanvas;
+	//public Canvas textCanvas;
 	//public GUIText accuracyText;
 	int possiblePoints;
 	int acquiredPoints;
@@ -32,10 +32,10 @@ public class SongManager : MonoBehaviour {
 	void Update () {
 		if (possiblePoints != 0) {
 			double accuracy = (double)acquiredPoints / (double)possiblePoints;
-			GameObject.Find ("RunningAccuracy").GetComponent<Text> ().text = accuracy.ToString ("P0");
+			//GameObject.Find ("RunningAccuracy").GetComponent<Text> ().text = accuracy.ToString ("P0");
 		}
 		else {
-			GameObject.Find ("RunningAccuracy").GetComponent<Text> ().text = "HI";
+			//GameObject.Find ("RunningAccuracy").GetComponent<Text> ().text = "HI";
 		}
 	}
 }

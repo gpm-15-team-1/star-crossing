@@ -6,7 +6,7 @@ using System.IO;
 public class DialogueManager : MonoBehaviour {
 
 	//enums to help organise characters, positions, and scene state
-	enum Chars {Randall, Julie, Tani, Rocky};
+	enum Chars {Randall, Julie, Tani, Nikolai};
 	enum Pos {LeftFront, LeftBack, RightFront, RightBack};
 	enum Scene {Morning, Feedback, Relationship1, Relationship2};
 	
@@ -31,6 +31,9 @@ public class DialogueManager : MonoBehaviour {
 	int currentWeek;
 	int currentDay;
 	int currentScene;
+
+	//relationship
+	public string chosen = null;
 
 	// Use this for initialization
 	void Start () {
@@ -112,8 +115,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				if(accuracy[j]<=80)
 				{
-					//randomise later? or make internal (within file)
-					int feedback = Random.Range(1,5);
+					int feedback = Random.Range(1,6);
 					file = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Negative_Feedback.txt");
 
 					//skip loop
@@ -137,6 +139,7 @@ public class DialogueManager : MonoBehaviour {
 						speaker.Add(item1);
 						
 						//dialogue
+						line1 = line1.Replace("@", "\n");
 						string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
 						dialogue.Add (item2);	                             
 					}
@@ -172,7 +175,7 @@ public class DialogueManager : MonoBehaviour {
 				}
 				else if(accuracy[j] >=90)
 				{
-					int feedback = Random.Range(1,5);
+					int feedback = Random.Range(1,6);
 					file = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Positive_Feedback.txt");
 					
 					//skip loop
@@ -195,6 +198,7 @@ public class DialogueManager : MonoBehaviour {
 						speaker.Add(item1);
 						
 						//dialogue
+						line1 = line1.Replace("@", "\n");
 						string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
 						dialogue.Add (item2);                           
 					}
@@ -228,51 +232,81 @@ public class DialogueManager : MonoBehaviour {
 				}
 			}
 		}
+		else if(currentScene == (int)Scene.Relationship1)
+		{
+			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Shuffle");
+			speaker.Add("");
+			dialogue.Add("Select a relationship to pursue.");
+
+			//dummy values
+			List<string> currentActions = new List<string>();
+			currentActions.Add("Randall");
+			currentActions.Add("MouthClosed");
+			actions.Add(currentActions);
+
+		}
+		else if(currentScene == (int)Scene.Relationship2)
+		{
+			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Display");
+			speaker.Add("");
+			dialogue.Add("Select a relationship to pursue.");
+
+			//dummy values
+			List<string> currentActions = new List<string>();
+			currentActions.Add("Randall");
+			currentActions.Add("MouthClosed");
+			actions.Add(currentActions);
+		}
 		currentIndex = 0;
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
-		changeSprites();
+		if(currentScene != (int)Scene.Relationship1 && currentScene != (int)Scene.Relationship2)
+			changeSprites();
 		//changeColour(speaker[currentIndex]);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(currentScene==(int)Scene.Morning || currentScene==(int)Scene.Feedback || 
+		   (currentScene==(int)Scene.Relationship1 && chosen!=null) || (currentScene==(int)Scene.Relationship2 && chosen!=null))
 		{
-			if(currentIndex+1 < dialogue.Count)
+			if(Input.GetKeyDown(KeyCode.Space))
 			{
-				currentIndex++;
-				changeSprites();
-				name.text = (string)speaker[currentIndex];
-				changeColour((string)speaker[currentIndex]);
-				line.text = (string)dialogue[currentIndex];
-				//AudioSettings.dspTime for future reference
-			}
-			else
-			{
-				if(currentScene==(int)Scene.Relationship2)
+				if(currentIndex+1 < dialogue.Count)
 				{
-					//end of week
-					if(currentDay==5)
-					{
-						GameObject.Find("Save").GetComponent<SaveScript>().currentWeek++;
-						GameObject.Find("Save").GetComponent<SaveScript>().currentDay = 1;
-						GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
-					}
-					//end of day
-					else
-					{
-						GameObject.Find("Save").GetComponent<SaveScript>().currentDay++;
-						GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
-					}
+					currentIndex++;
+					changeSprites();
+					name.text = (string)speaker[currentIndex];
+					changeColour((string)speaker[currentIndex]);
+					line.text = (string)dialogue[currentIndex];
+					//AudioSettings.dspTime for future reference
 				}
-				//still same day
 				else
 				{
-					GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
+					if(currentScene==(int)Scene.Relationship2)
+					{
+						//end of week
+						if(currentDay==5)
+						{
+							GameObject.Find("Save").GetComponent<SaveScript>().currentWeek++;
+							GameObject.Find("Save").GetComponent<SaveScript>().currentDay = 1;
+							GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+						}
+						//end of day
+						else
+						{
+							GameObject.Find("Save").GetComponent<SaveScript>().currentDay++;
+							GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+						}
+					}
+					//still same day
+					else
+					{
+						GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
+					}
+					DontDestroyOnLoad(GameObject.Find("Save"));
+					Application.LoadLevel(Application.loadedLevelName);
 				}
-				DontDestroyOnLoad(GameObject.Find("Save"));
-				Application.LoadLevel(Application.loadedLevelName);
 			}
 		}
 	}
@@ -285,7 +319,7 @@ public class DialogueManager : MonoBehaviour {
 			name.material = characters[1].colour;
 		else if(speaker.Equals("Tani"))
 			name.material = characters[2].colour;
-		else if(speaker.Equals("Rocky"))
+		else if(speaker.Equals("Nikolai"))
 			name.material = characters[3].colour;
 		else
 			name.material.color = Color.white;
@@ -293,6 +327,7 @@ public class DialogueManager : MonoBehaviour {
 
 	void changeSprites()
 	{
+		Debug.Log("Char: " +actions[0][0] +", Action: "+actions[0][1]);
 		//Debug.Log("actions[currentIndex][0]: "+actions[currentIndex][0]);
 		if(!actions[currentIndex][0].Equals("null"))
 		{
@@ -305,91 +340,164 @@ public class DialogueManager : MonoBehaviour {
 					character = (int) Chars.Julie;
 				else if(actions[currentIndex][i].Equals("Tani"))
 					character = (int) Chars.Tani;
-				else if(actions[currentIndex][i].Equals("Rocky"))
-					character = (int) Chars.Rocky;
+				else if(actions[currentIndex][i].Equals("Nikolai"))
+					character = (int) Chars.Nikolai;
 				//Debug.Log("Char: " +actions[currentIndex][i] +", Action: "+actions[currentIndex][i+1]);
 				characters[character].gameObject.SendMessage(actions[currentIndex][i+1]);
 			}
 		}
 	}
-	/*void changeSprites()
+
+	public void readRelationship(string type)
 	{
-		if(currentIndex==0)
-		{
-			characters[(int)Chars.Randall].gameObject.SendMessage("MouthOpen");
-			characters[(int)Chars.Julie].gameObject.SendMessage("MouthClosed");
-			characters[(int)Chars.Tani].gameObject.SendMessage("MouthClosed");
-		}
-		if(currentIndex==1)
-		{
-			characters[(int)Chars.Randall].gameObject.SendMessage("MouthClosed");
-			characters[(int)Chars.Julie].gameObject.SendMessage("MouthOpen");
-		}
-		if(currentIndex==2)
-		{
-			characters[(int)Chars.Randall].gameObject.SendMessage("Laughing");
-			characters[(int)Chars.Julie].gameObject.SendMessage("MouthClosed");
-		}
-		if(currentIndex==3)
-		{
-			characters[(int)Chars.Randall].gameObject.SendMessage("MouthOpen");
-		}
-		if(currentIndex==4)
-		{
-			characters[(int)Chars.Randall].gameObject.SendMessage("MouthClosed");
-			characters[(int)Chars.Tani].gameObject.SendMessage("Worried");
-		}
-		if(currentIndex==5)
-		{
-		}
-		if(currentIndex==6)
-		{
-			Vector2[] args = new Vector2[1];
+		string char1 = chosen.Substring(0, chosen.IndexOf("/"));
+		chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
+		string char2 = chosen;
 
-			Vector2 move = new Vector2(-2, 0);
-			args[0] = move;
-			characters[(int)Chars.Tani].gameObject.SendMessage("Move", args);
-			characters[(int)Chars.Tani].gameObject.SendMessage("Flip");
-			characters[(int)Chars.Tani].gameObject.SendMessage("MouthClosed");
+		StreamReader file;
+		StreamReader file2;
 
-			move = new Vector2(2, 0);
-			args[0] = move;
-			characters[(int)Chars.Rocky].gameObject.SendMessage("Move", args);
-			characters[(int)Chars.Rocky].gameObject.SendMessage("MouthOpen");
-		}
-		if(currentIndex==7)
+		int speak = Random.Range(1,3);
+		string other;
+		//first character
+		if(speak == 1)
 		{
-			
+			speaker.Add(char1);
+			other = char2;
+			if(type=="free")
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
+			}
 		}
-		if(currentIndex==8)
+		else
 		{
-			characters[(int)Chars.Randall].gameObject.SendMessage("Laughing");
-			characters[(int)Chars.Rocky].gameObject.SendMessage("MouthClosed");
+			speaker.Add(char2);
+			other = char1;
+			if(type=="free")
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
+			}
 		}
-		if(currentIndex==9)
+
+		int feedback = Random.Range(1,5);
+		Debug.Log("Topic: "+feedback);
+
+		//skip loop
+		for(int i=0; i<feedback-1; i++)
 		{
-			characters[(int)Chars.Randall].gameObject.SendMessage("MouthClosed");
-			characters[(int)Chars.Tani].gameObject.SendMessage("MouthOpen");
-			characters[(int)Chars.Rocky].gameObject.SendMessage("MouthClosed");
+			for(int k=0; k<3; k++)
+				file.ReadLine();
 		}
-		if(currentIndex==10)
+
+		string line1 = file.ReadLine();
+		line1 = line1.Replace("@", "\n");
+		string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+		dialogue.Add (item2);
+		
+		file.Close();
+		
+		//skip loop
+		for(int i=0; i<feedback-1; i++)
 		{
-			characters[(int)Chars.Tani].gameObject.SendMessage("MouthClosed");
-			characters[(int)Chars.Rocky].gameObject.SendMessage("MouthOpen");
+			for(int k=0; k<3; k++)
+				file2.ReadLine();
 		}
-		if(currentIndex==11)
+
+		List<string> currentActions = new List<string>();
+		string[] actionLine = file2.ReadLine().Split();
+		currentActions.Add(other);
+		currentActions.Add("MouthClosed");
+		for(int k=0; k<actionLine.Length; k++)
 		{
-			
+			currentActions.Add(actionLine[k]);
 		}
-		if(currentIndex==12)
+		actions.Add(currentActions);
+
+		file2.Close();
+
+		//second character
+		if(speak == 1)
 		{
-			characters[(int)Chars.Rocky].gameObject.SendMessage("MouthClosed");
-			characters[(int)Chars.Julie].gameObject.SendMessage("MouthOpen");
+			speaker.Add(char2);
+			other = char1;
+			if(type=="free")
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
+			}
 		}
-		if(currentIndex==13)
+		else
 		{
-			characters[(int)Chars.Julie].gameObject.SendMessage("MouthClosed");
-			characters[(int)Chars.Randall].gameObject.SendMessage("MouthOpen");
+			speaker.Add(char1);
+			other = char2;
+			if(type=="free")
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
+			}
 		}
-	}*/
+		
+		//skip loop
+		for(int i=0; i<feedback-1; i++)
+		{
+			for(int k=0; k<3; k++)
+				file.ReadLine();
+		}
+
+		file.ReadLine();
+		line1 = file.ReadLine();
+		line1 = line1.Replace("@", "\n");
+		item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+		dialogue.Add (item2);
+		
+		file.Close();
+		
+		//skip loop
+		for(int i=0; i<feedback-1; i++)
+		{
+			for(int k=0; k<3; k++)
+				file2.ReadLine();
+		}
+		
+		currentActions = new List<string>();
+		file2.ReadLine();
+		actionLine = file2.ReadLine().Split();
+		currentActions.Add(other);
+		currentActions.Add("MouthClosed");
+		for(int k=0; k<actionLine.Length; k++)
+		{
+			currentActions.Add(actionLine[k]);
+		}
+		actions.Add(currentActions);
+		
+		file2.Close();
+
+		//it done
+		currentIndex = 1;
+		name.text = (string)speaker[currentIndex];
+		line.text = (string)dialogue[currentIndex];
+		changeSprites();
+	}
 }

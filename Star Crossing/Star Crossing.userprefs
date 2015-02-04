@@ -1,18 +1,14 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Tani_Negative_Feedback.txt">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharacterStatManager.cs">
     <Files>
-      <File FileName="Assets\Resources\Files\Tani_Negative_Feedback.txt" Line="7" Column="45" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Note.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Song.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Part.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SongManager.cs" Line="33" Column="10" />
-      <File FileName="Assets\Scripts\Note.cs" Line="49" Column="64" />
->>>>>>> origin/master
+      <File FileName="Assets\Scripts\DialogueManager.cs" Line="495" Column="17" />
+      <File FileName="Assets\Scripts\SaveScript.cs" Line="35" Column="29" />
+      <File FileName="Assets\Scripts\Relationship.cs" Line="29" Column="12" />
+      <File FileName="Assets\Scripts\Character.cs" Line="33" Column="19" />
+      <File FileName="Assets\Scripts\RelationshipButtonScript.cs" Line="34" Column="37" />
+      <File FileName="Assets\Scripts\RelationshipMenuManager.cs" Line="85" Column="1" />
+      <File FileName="Assets\Scripts\CharacterStatManager.cs" Line="22" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

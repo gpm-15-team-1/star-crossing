@@ -5,11 +5,11 @@ Randall Laughing Julie MouthClosed
 Randall MouthOpen
 Randall MouthClosed Tani Worried
 null
-Randall Move1Left Tani Move2Left Tani Flip Tani MouthClosed Rocky MoveOnScreenLeft Rocky MouthOpen
+Randall Move1Left Tani Move2Left Tani Flip Tani MouthClosed Nikolai MoveOnScreenLeft Nikolai MouthOpen
 null
-Randall Laughing Rocky MouthClosed
-Randall MouthClosed Tani MouthOpen Rocky MouthClosed
-Tani MouthClosed Rocky MouthOpen
+Randall Laughing Nikolai MouthClosed
+Randall MouthClosed Tani MouthOpen Nikolai MouthClosed
+Tani MouthClosed Nikolai MouthOpen
 null
-Rocky MouthClosed Julie MouthOpen
+Nikolai MouthClosed Julie MouthOpen
 Julie MouthClosed Randall MouthOpen

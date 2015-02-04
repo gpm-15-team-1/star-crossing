@@ -1,21 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character : MonoBehaviour {
+public class Character : MonoBehaviour{
 
+	//visualisation
 	enum Moods {HappyMouthClosed, HappyMouthOpen, Worried, Laughing};
 	public Sprite[] moodSprites;
 	public Texture faceSprite;
 
+	//static facts
 	public string name;
 	public string lastName;
+	public string part;
+	public string breakoutFactor;
 	public Material colour;
-
+	
 	public string page1;
 	public string page2;
+	
+	//-50 to +50
+	public int mood;
 
 	bool move = false;
 	Vector2 newPos = new Vector2(0,0);
+
 
 	// Use this for initialization
 	void Start () {
