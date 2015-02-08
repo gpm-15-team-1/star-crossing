@@ -19,7 +19,7 @@ public class SaveScript : MonoBehaviour {
 	void Start () {
 		currentWeek = 1;
 		currentDay = 1;
-		currentScene = 2;
+		currentScene = 0;
 
 		declare ();
 	}
@@ -31,18 +31,45 @@ public class SaveScript : MonoBehaviour {
 			relationships[i] = new Relationship();
 		{
 			relationships[0].setName("Randall/Julie");
-			relationships[0].setChar1Value(2);
-			relationships[0].setChar2Value(2);
+			relationships[0].setChar1Value(1);
+			relationships[0].setChar2Value(1);
 
 			relationships[1].setName("Randall/Tani");
+			relationships[1].setChar1Value(1);
+			relationships[1].setChar2Value(1);
+
 			relationships[2].setName("Randall/Nikolai");
+			relationships[2].setChar1Value(1);
+			relationships[2].setChar2Value(0);
+			relationships[2].setProgress(-4);
+
 			relationships[3].setName("Randall/Carol");
+			relationships[3].setChar1Value(1);
+			relationships[3].setChar2Value(1);
+
 			relationships[4].setName("Julie/Tani");
+			relationships[4].setChar1Value(0);
+			relationships[4].setChar2Value(1);
+
 			relationships[5].setName("Julie/Nikolai");
+			relationships[5].setChar1Value(1);
+			relationships[5].setChar2Value(1);
+
 			relationships[6].setName("Julie/Carol");
+			relationships[6].setChar1Value(1);
+			relationships[6].setChar2Value(1);
+
 			relationships[7].setName("Nikolai/Tani");
+			relationships[7].setChar1Value(1);
+			relationships[7].setChar2Value(1);
+
 			relationships[8].setName("Nikolai/Carol");
+			relationships[8].setChar1Value(1);
+			relationships[8].setChar2Value(1);
+
 			relationships[9].setName("Tani/Carol");
+			relationships[9].setChar1Value(1);
+			relationships[9].setChar2Value(1);
 		}
 
 		{

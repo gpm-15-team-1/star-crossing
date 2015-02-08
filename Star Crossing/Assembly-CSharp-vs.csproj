@@ -64,11 +64,13 @@
      <Compile Include="Assets\Scripts\Target.cs" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Morning.txt" />
      <None Include="Assets\Resources\Files\Randall_Free.txt" />
+     <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1_Action.txt" />
      <None Include="Assets\Resources\Files\Tani_Negative_Action.txt" />
      <None Include="Assets\Resources\Files\Randall_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Nikolai_Free.txt" />
      <None Include="Assets\Resources\Files\Julie_Positive_Feedback.txt" />
      <None Include="Assets\Resources\Files\Julie_Positive_Action.txt" />
+     <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1.txt" />
      <None Include="Assets\Resources\Files\Tani_Negative_Feedback.txt" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Feedback.txt" />
      <None Include="Assets\Resources\Files\Nikolai_Free_Action.txt" />

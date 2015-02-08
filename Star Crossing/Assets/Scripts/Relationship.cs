@@ -4,18 +4,18 @@ using System.Collections;
 public class Relationship {
 
 	string name;
-	//-5 to +5
+	//0 OR 1 DOES NOT CHANGE UNLESS REDEMPTION
 	int char1Value;
 	int char2Value;
 
-	//-30 - +30
+	//-30 - +30 CHANGES
 	int progress;
 
 	public Relationship()
 	{
 		name = null;
-		char1Value = 0;
-		char2Value = 0;
+		char1Value = 1;
+		char2Value = 1;
 		progress = 0;
 	}
 

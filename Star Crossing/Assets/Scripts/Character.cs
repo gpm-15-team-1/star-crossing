@@ -18,7 +18,7 @@ public class Character : MonoBehaviour{
 	public string page1;
 	public string page2;
 	
-	//-50 to +50
+	//-50 to +50 CHANGES
 	public int mood;
 
 	bool move = false;

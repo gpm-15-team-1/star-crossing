@@ -28,14 +28,30 @@ public class RelationshipButtonScript : MonoBehaviour {
 			if(myText.text.Equals(tempRelationships[i].getName()))
 			{
 				//metrics for relationship progression
-				if(tempRelationships[i].getProgress()==10 || tempRelationships[i].getProgress()==20 || tempRelationships[i].getProgress()==30)
+				switch(tempRelationships[i].getProgress())
 				{
-					Debug.Log("scripted");
-					//it is a scripted conversation
+				case -12:
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-3);
+					break;
+				case -8:
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-2);
+					break;
+				case -4:
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-1);
+					break;
+				case 4:
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(1);
+					break;
+				case 8:
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(2);
+					break;
+				case 12:
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(3);
+					break;
+				default:
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readFreeRelationship();
+					break;
 				}
-				else
-					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readRelationship("free");
-
 			}
 		}
 

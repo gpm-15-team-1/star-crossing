@@ -38,6 +38,10 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		for(int i=0; i<characters.Length; i++)
+			characters[i].mood = GameObject.Find("Save").GetComponent<SaveScript>().characters[i].mood;
+		Debug.Log("Randall mood: " +characters[0].mood);
+
 		positions = new Vector2[4];
 		positions[0] = new Vector2(-4, 0);
 		positions[1] = new Vector2(-2, 0);
@@ -304,6 +308,8 @@ public class DialogueManager : MonoBehaviour {
 					{
 						GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
 					}
+					GameObject.Find("Save").GetComponent<SaveScript>().characters = characters;
+
 					DontDestroyOnLoad(GameObject.Find("Save"));
 					Application.LoadLevel(Application.loadedLevelName);
 				}
@@ -348,8 +354,18 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 
-	public void readRelationship(string type)
+	public void readFreeRelationship()
 	{
+		Relationship current = new Relationship();
+		Relationship[] all = GameObject.Find("Save").GetComponent<SaveScript>().relationships;
+
+		//save current relationship
+		for(int i=0; i<all.Length; i++)
+		{
+			if(all[i].getName().Equals(chosen))
+				current = all[i];
+		}
+
 		string char1 = chosen.Substring(0, chosen.IndexOf("/"));
 		chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
 		string char2 = chosen;
@@ -364,31 +380,15 @@ public class DialogueManager : MonoBehaviour {
 		{
 			speaker.Add(char1);
 			other = char2;
-			if(type=="free")
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
-			}
-			else
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
-			}
+			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
+			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
 		}
 		else
 		{
 			speaker.Add(char2);
 			other = char1;
-			if(type=="free")
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
-			}
-			else
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
-			}
+			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
+			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
 		}
 
 		int feedback = Random.Range(1,5);
@@ -432,31 +432,15 @@ public class DialogueManager : MonoBehaviour {
 		{
 			speaker.Add(char2);
 			other = char1;
-			if(type=="free")
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
-			}
-			else
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
-			}
+			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
+			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
 		}
 		else
 		{
 			speaker.Add(char1);
 			other = char2;
-			if(type=="free")
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
-			}
-			else
-			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted.txt");
-				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Scripted_Action.txt");
-			}
+			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
+			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
 		}
 		
 		//skip loop
@@ -494,10 +478,220 @@ public class DialogueManager : MonoBehaviour {
 		
 		file2.Close();
 
-		//it done
+		Character c1 = characters[0];
+		Character c2 = characters[1];
+
+		List<string> nullActions = new List<string>();
+		//update characters' mood and relationship progress
+		bool hasProgressed = false;
+		for(int i=0; i<characters.Length; i++)
+		{
+			if(characters[i].name.Equals(char1))
+			{
+				c1 = characters[i];
+				freeUpdate(c1, current.getChar1Value(), nullActions);
+				if(hasProgressed==false)
+				{
+					if(characters[i].mood > 0)
+					{
+						//progress +1
+						current.setProgress(current.getProgress()+1);
+					}
+					else
+					{
+						//progress -1
+						current.setProgress(current.getProgress()-1);
+					}
+					hasProgressed = true;
+				}
+			}
+			if(characters[i].name.Equals(char2))
+			{
+				c2 = characters[i];
+				freeUpdate(c2, current.getChar2Value(), nullActions);
+				if(hasProgressed==false)
+				{
+					if(characters[i].mood > 0)
+					{
+						//progress +1
+						current.setProgress(current.getProgress()+1);
+					}
+					else
+					{
+						//progress -1
+						current.setProgress(current.getProgress()-1);
+					}
+					hasProgressed = true;
+				}
+			}
+		}
+
+		actions.Add(nullActions);
 		currentIndex = 1;
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
 		changeSprites();
+	}
+
+	public void readScriptedRelationship(int level)
+	{
+		Relationship current = new Relationship();
+		Relationship[] all = GameObject.Find("Save").GetComponent<SaveScript>().relationships;
+		
+		//save current relationship
+		for(int i=0; i<all.Length; i++)
+		{
+			if(all[i].getName().Equals(chosen))
+				current = all[i];
+		}
+		
+		string char1 = chosen.Substring(0, chosen.IndexOf("/"));
+		chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
+		string char2 = chosen;
+		
+		StreamReader file;
+		StreamReader file2;
+
+		if(level<0)
+		{
+			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_"+char2+"_Rivalry_"+(-level)+".txt");
+			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_"+char2+"_Rivalry_"+(-level)+"_Action.txt");
+		}
+		else
+		{
+			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_"+char2+"_Friendship_"+level+".txt");
+			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_"+char2+"_Friendship_"+level+"_Action.txt");
+		}
+
+		int size = int.Parse(file.ReadLine());
+		
+		//read dialogues from file
+		for(int i=0; i<size; i++)
+		{
+			//name
+			string line1 = file.ReadLine();
+			string item1 = line1.Substring(0, line1.IndexOf(' '));
+			line1 = line1.Remove(0,item1.Length+1);
+			speaker.Add(item1);
+			
+			//dialogue
+			string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+			item2 = item2.Replace("@", "\n");
+			dialogue.Add(item2);                             
+		}
+		file.Close();
+
+		size = int.Parse(file2.ReadLine());
+		//skip all irrelevant lines
+		for(int i=0; i<size; i++)
+		{
+			List<string> currentActions = new List<string>();
+			string[] actionLine = file2.ReadLine().Split();
+			for(int j=0; j<actionLine.Length; j++)
+			{
+				currentActions.Add(actionLine[j]);
+			}
+			actions.Add(currentActions);
+		}
+		
+		file2.Close();
+
+		Character c1 = characters[0];
+		Character c2 = characters[1];
+		
+		List<string> nullActions = new List<string>();
+		//find characters
+		for(int i=0; i<characters.Length; i++)
+		{
+			if(characters[i].name.Equals(char1))
+			{
+				c1 = characters[i];
+			}
+			if(characters[i].name.Equals(char2))
+			{
+				c2 = characters[i];
+			}
+		} 
+
+		scriptedUpdate(c1, c2, current.getChar1Value(), current.getChar2Value(), level, nullActions);
+		//if either char is upset, negative, else positive
+		if(c1.mood < 0 || c2.mood < 0)
+		{
+			//progress -1
+			current.setProgress(current.getProgress()-1);
+		}
+		else
+		{
+			//progress +1
+			current.setProgress(current.getProgress()+1);
+		}
+		
+		actions.Add(nullActions);
+		currentIndex = 1;
+		name.text = (string)speaker[currentIndex];
+		line.text = (string)dialogue[currentIndex];
+		changeSprites();
+	}
+
+	void freeUpdate(Character c, int value, List<string> nullActions)
+	{
+		//if the character is feeling positive about the interaction
+		if(value == 1)
+		{
+			speaker.Add("");
+			dialogue.Add(c +"'s mood +" +2);
+			c.mood +=2;
+			nullActions.Add("null");
+		}
+	}
+
+	void scriptedUpdate(Character c1, Character c2, int v1, int v2, int level, List<string> nullActions)
+	{
+		//Debug.Log("Scripted mood update");
+		//friendship
+		if(level > 0)
+		{
+			speaker.Add("");
+			dialogue.Add(c1.name +"'s mood +" +10 +"\n" +c2.name +"'s mood +" +10);
+			c1.mood += 10;
+			c2.mood += 10;
+			nullActions.Add("null");
+		}
+		//rivalry
+		else
+		{
+			int small = 5;
+			int large = 15;
+			switch(level)
+			{
+			case -12:
+				large = 35;
+				break;
+			case -8:
+				large = 25;
+				break;
+			case -4:
+				large = 15;
+				break;
+			}
+
+			//give the "happier" one a smaller mood decrement
+			if(v1==1)
+			{
+				speaker.Add("");
+				dialogue.Add(c1.name +"'s mood -" +small +"\n" +c2.name +"'s mood -" +large);
+				c1.mood -= small;
+				c2.mood -= large;
+				nullActions.Add("null");
+			}
+			else
+			{
+				speaker.Add("");
+				dialogue.Add(c1.name +"'s mood -" +large +"\n" +c2.name +"'s mood -" +small);
+				c1.mood -= large;
+				c2.mood -= small;
+				nullActions.Add("null");
+			}
+		}
 	}
 }
