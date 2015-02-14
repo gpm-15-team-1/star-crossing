@@ -42,6 +42,7 @@ public class SaveScript : MonoBehaviour {
 			relationships[2].setName("Randall/Nikolai");
 			relationships[2].setChar1Value(1);
 			relationships[2].setChar2Value(0);
+			//for testing
 			relationships[2].setProgress(-4);
 
 			relationships[3].setName("Randall/Carol");
