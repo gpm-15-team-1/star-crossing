@@ -1,7 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{0FF4B873-2F02-FADA-E2E1-4AE462496D75}") = "Star Crossing", "Assembly-CSharp-firstpass.csproj", "{9CDA844E-2BE0-4E29-1CB9-7C3A810CF2F5}"
+EndProject
 Project("{0FF4B873-2F02-FADA-E2E1-4AE462496D75}") = "Star Crossing", "Assembly-CSharp.csproj", "{9A354B57-432B-9753-8821-DF534ED89FE4}"
+EndProject
+Project("{0FF4B873-2F02-FADA-E2E1-4AE462496D75}") = "Star Crossing", "Assembly-UnityScript-firstpass.unityproj", "{5ED77900-2D73-8DAA-AD31-2D29573D9ECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +13,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CDA844E-2BE0-4E29-1CB9-7C3A810CF2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CDA844E-2BE0-4E29-1CB9-7C3A810CF2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CDA844E-2BE0-4E29-1CB9-7C3A810CF2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CDA844E-2BE0-4E29-1CB9-7C3A810CF2F5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9A354B57-432B-9753-8821-DF534ED89FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A354B57-432B-9753-8821-DF534ED89FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A354B57-432B-9753-8821-DF534ED89FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A354B57-432B-9753-8821-DF534ED89FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ED77900-2D73-8DAA-AD31-2D29573D9ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED77900-2D73-8DAA-AD31-2D29573D9ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED77900-2D73-8DAA-AD31-2D29573D9ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED77900-2D73-8DAA-AD31-2D29573D9ECC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																GlobalSection(MonoDevelopProperties) = preSolution
 																																																																						GlobalSection(MonoDevelopProperties) = preSolution
 																																																																								GlobalSection(MonoDevelopProperties) = preSolution
 																																									GlobalSection(MonoDevelopProperties) = preSolution
