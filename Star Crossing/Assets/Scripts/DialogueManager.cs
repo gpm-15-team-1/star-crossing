@@ -6,7 +6,7 @@ using System.IO;
 public class DialogueManager : MonoBehaviour {
 
 	//enums to help organise characters, positions, and scene state
-	enum Chars {Randall, Julie, Tani, Nikolai};
+	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
 	enum Pos {LeftFront, LeftBack, RightFront, RightBack};
 	enum Scene {Morning, Feedback, Relationship1, Relationship2};
 	
@@ -35,12 +35,14 @@ public class DialogueManager : MonoBehaviour {
 	//relationship
 	public string chosen = null;
 
+	//"pause" space action
+	public bool pause = false;
+
 	// Use this for initialization
 	void Start () {
 
 		for(int i=0; i<characters.Length; i++)
 			characters[i].mood = GameObject.Find("Save").GetComponent<SaveScript>().characters[i].mood;
-		Debug.Log("Randall mood: " +characters[0].mood);
 
 		positions = new Vector2[4];
 		positions[0] = new Vector2(-4, 0);
@@ -55,6 +57,7 @@ public class DialogueManager : MonoBehaviour {
 		//IF MORNING SCENE DO THIS
 		if(currentScene == (int)Scene.Morning)
 		{
+			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			//reading from file:
 			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Morning.txt");
 			int size = int.Parse(file.ReadLine());
@@ -93,13 +96,15 @@ public class DialogueManager : MonoBehaviour {
 		//IF FEEDBACK SCENE DO THIS
 		else if(currentScene == (int)Scene.Feedback)
 		{
+			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Feedback.txt");
 			Debug.Log("Score: "+int.Parse(file.ReadLine()));
 
-			string[] party = new string[4];
-			int[] accuracy = new int[4];
+			int n = characters.Length-2;
+			string[] party = new string[n];
+			int[] accuracy = new int[n];
 
-			for(int i=0; i<4; i++)
+			for(int i=0; i<n; i++)
 			{
 				string line1 = file.ReadLine();
 
@@ -115,7 +120,7 @@ public class DialogueManager : MonoBehaviour {
 
 			file.Close();
 
-			for(int j=0; j<4; j++)
+			for(int j=0; j<n; j++)
 			{
 				if(accuracy[j]<=80)
 				{
@@ -235,10 +240,13 @@ public class DialogueManager : MonoBehaviour {
 					file2.Close();
 				}
 			}
+			save ();
 		}
 		else if(currentScene == (int)Scene.Relationship1)
 		{
+			pause=true;
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Shuffle");
+			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().enable();
 			speaker.Add("");
 			dialogue.Add("Select a relationship to pursue.");
 
@@ -251,7 +259,9 @@ public class DialogueManager : MonoBehaviour {
 		}
 		else if(currentScene == (int)Scene.Relationship2)
 		{
+			pause=true;
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Display");
+			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().enable();
 			speaker.Add("");
 			dialogue.Add("Select a relationship to pursue.");
 
@@ -265,8 +275,10 @@ public class DialogueManager : MonoBehaviour {
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
 		if(currentScene != (int)Scene.Relationship1 && currentScene != (int)Scene.Relationship2)
+		{
 			changeSprites();
-		//changeColour(speaker[currentIndex]);
+			changeColour((string)speaker[currentIndex]);
+		}
 	}
 	
 	// Update is called once per frame
@@ -274,47 +286,58 @@ public class DialogueManager : MonoBehaviour {
 		if(currentScene==(int)Scene.Morning || currentScene==(int)Scene.Feedback || 
 		   (currentScene==(int)Scene.Relationship1 && chosen!=null) || (currentScene==(int)Scene.Relationship2 && chosen!=null))
 		{
-			if(Input.GetKeyDown(KeyCode.Space))
-			{
-				if(currentIndex+1 < dialogue.Count)
+			if(Input.GetKeyDown(KeyCode.Space)){
+				if(pause==true)
 				{
-					currentIndex++;
-					changeSprites();
-					name.text = (string)speaker[currentIndex];
-					changeColour((string)speaker[currentIndex]);
-					line.text = (string)dialogue[currentIndex];
-					//AudioSettings.dspTime for future reference
+					//do nothing
 				}
 				else
 				{
-					if(currentScene==(int)Scene.Relationship2)
+					if(currentIndex+1 < dialogue.Count)
 					{
-						//end of week
-						if(currentDay==5)
-						{
-							GameObject.Find("Save").GetComponent<SaveScript>().currentWeek++;
-							GameObject.Find("Save").GetComponent<SaveScript>().currentDay = 1;
-							GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
-						}
-						//end of day
-						else
-						{
-							GameObject.Find("Save").GetComponent<SaveScript>().currentDay++;
-							GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
-						}
+						currentIndex++;
+						changeSprites();
+						name.text = (string)speaker[currentIndex];
+						changeColour((string)speaker[currentIndex]);
+						line.text = (string)dialogue[currentIndex];
+						//AudioSettings.dspTime for future reference
 					}
-					//still same day
 					else
 					{
-						GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
+						if(currentScene==(int)Scene.Relationship2)
+						{
+							//end of week
+							if(currentDay==5)
+							{
+								GameObject.Find("Save").GetComponent<SaveScript>().currentWeek++;
+								GameObject.Find("Save").GetComponent<SaveScript>().currentDay = 1;
+								GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+							}
+							//end of day
+							else
+							{
+								GameObject.Find("Save").GetComponent<SaveScript>().currentDay++;
+								GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+							}
+						}
+						//still same day
+						else
+						{
+							GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
+						}
+						DontDestroyOnLoad(GameObject.Find("Save"));
+						Application.LoadLevel(Application.loadedLevelName);
 					}
-					GameObject.Find("Save").GetComponent<SaveScript>().characters = characters;
-
-					DontDestroyOnLoad(GameObject.Find("Save"));
-					Application.LoadLevel(Application.loadedLevelName);
 				}
 			}
 		}
+	}
+
+	void save()
+	{
+		for(int i=0; i<characters.Length; i++)
+			GameObject.Find("Save").GetComponent<SaveScript>().characters[i] = characters[i];
+		GameObject.Find("Save").GetComponent<SaveScript>().saveFile(1);
 	}
 
 	void changeColour(string speaker)
@@ -327,6 +350,10 @@ public class DialogueManager : MonoBehaviour {
 			name.material = characters[2].colour;
 		else if(speaker.Equals("Nikolai"))
 			name.material = characters[3].colour;
+		else if(speaker.Equals("Carol"))
+			name.material = characters[4].colour;
+		else if(speaker.Equals("Rusty"))
+			name.material = characters[5].colour;
 		else
 			name.material.color = Color.white;
 	}
@@ -348,6 +375,10 @@ public class DialogueManager : MonoBehaviour {
 					character = (int) Chars.Tani;
 				else if(actions[currentIndex][i].Equals("Nikolai"))
 					character = (int) Chars.Nikolai;
+				else if(actions[currentIndex][i].Equals("Carol"))
+					character = (int) Chars.Carol;
+				else if(actions[currentIndex][i].Equals("Rusty"))
+					character = (int) Chars.Rusty;
 				//Debug.Log("Char: " +actions[currentIndex][i] +", Action: "+actions[currentIndex][i+1]);
 				characters[character].gameObject.SendMessage(actions[currentIndex][i+1]);
 			}
@@ -530,6 +561,7 @@ public class DialogueManager : MonoBehaviour {
 		currentIndex = 1;
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
+		changeColour((string)speaker[currentIndex]);
 		changeSprites();
 	}
 
@@ -630,6 +662,7 @@ public class DialogueManager : MonoBehaviour {
 		currentIndex = 1;
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
+		changeColour((string)speaker[currentIndex]);
 		changeSprites();
 	}
 
@@ -639,12 +672,14 @@ public class DialogueManager : MonoBehaviour {
 		if(value == 1)
 		{
 			speaker.Add("");
-			dialogue.Add(c +"'s mood +" +2);
+			dialogue.Add(c.name +"'s mood: +" +2+"%");
 			c.mood +=2;
 			nullActions.Add("null");
 		}
+		save ();
 	}
 
+	//see if I can change the colour of inc/dec
 	void scriptedUpdate(Character c1, Character c2, int v1, int v2, int level, List<string> nullActions)
 	{
 		//Debug.Log("Scripted mood update");
@@ -652,7 +687,7 @@ public class DialogueManager : MonoBehaviour {
 		if(level > 0)
 		{
 			speaker.Add("");
-			dialogue.Add(c1.name +"'s mood +" +10 +"\n" +c2.name +"'s mood +" +10);
+			dialogue.Add(c1.name +"'s mood: +" +10 +"%\n" +c2.name +"'s mood: +" +10+"%");
 			c1.mood += 10;
 			c2.mood += 10;
 			nullActions.Add("null");
@@ -679,7 +714,7 @@ public class DialogueManager : MonoBehaviour {
 			if(v1==1)
 			{
 				speaker.Add("");
-				dialogue.Add(c1.name +"'s mood -" +small +"\n" +c2.name +"'s mood -" +large);
+				dialogue.Add(c1.name +"'s mood: -" +small +"%\n" +c2.name +"'s mood: -" +large+"%");
 				c1.mood -= small;
 				c2.mood -= large;
 				nullActions.Add("null");
@@ -687,11 +722,12 @@ public class DialogueManager : MonoBehaviour {
 			else
 			{
 				speaker.Add("");
-				dialogue.Add(c1.name +"'s mood -" +large +"\n" +c2.name +"'s mood -" +small);
+				dialogue.Add(c1.name +"'s mood: -" +large +"%\n" +c2.name +"'s mood: -" +small+"%");
 				c1.mood -= large;
 				c2.mood -= small;
 				nullActions.Add("null");
 			}
 		}
+		save ();
 	}
 }

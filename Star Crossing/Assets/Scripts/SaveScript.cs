@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 public class SaveScript : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class SaveScript : MonoBehaviour {
 
 	//relationship values
 	public Relationship[] relationships;
-	enum Chars {Randall, Julie, Tani, Nikolai};
+	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
 	public Character[] characters;
 	public List<int> shuffled;
 
@@ -73,29 +74,115 @@ public class SaveScript : MonoBehaviour {
 		}
 
 		{
-			characters[0].mood = 0;
-			characters[1].mood = 0;
-			characters[2].mood = 0;
-			characters[3].mood = 0;
+			characters[(int)Chars.Randall].mood = 0;
+			characters[(int)Chars.Julie].mood = 0;
+			characters[(int)Chars.Tani].mood = 0;
+			characters[(int)Chars.Nikolai].mood = 0;
+			characters[(int)Chars.Carol].mood = 0;
+			characters[(int)Chars.Rusty].mood = 0;
 
+			characters[(int)Chars.Randall].breakoutFactor = "0";
+			characters[(int)Chars.Julie].breakoutFactor = "0";
+			characters[(int)Chars.Tani].breakoutFactor = "0";
+			characters[(int)Chars.Nikolai].breakoutFactor = "0";
+			characters[(int)Chars.Carol].breakoutFactor = "0";
+			characters[(int)Chars.Rusty].breakoutFactor = "0";
 			/*characters[4].name = "Randall";
 			characters[4].lastName = "Creed";
 			//assign part and breakout factor
 			characters[4].mood = 0;*/
 		}
+
+		try
+		{
+			//argument can be replaced with player's chosen save file
+			loadFile(1);
+		}
+		catch (FileNotFoundException ex)
+		{
+			//do nothing as file will always not exist during first run
+		}
 	}
 
 	//streamwriter to save all these values to file
-	public void saveFile()
+	public void saveFile(int n)
 	{
+		StreamWriter file = new StreamWriter(Application.dataPath + "/Resources/Files/Saves/Save"+n+".txt", false);
+		for(int i=0; i<characters.Length-1; i++)
+		{
+			//mood, breakout factor
+			file.WriteLine(characters[i].mood +" "+characters[i].breakoutFactor);
+		}
+		for(int i=0; i<relationships.Length; i++)
+		{
+			//char1value, char2value, progress
+			file.WriteLine(relationships[i].getChar1Value() +" "+relationships[i].getChar2Value() +" "+relationships[i].getProgress());
+		}
+		file.Close();
 	}
 
 	//streamreader to populate this class once main menu has been created
-	public void loadFile()
+	public bool loadFile(int n)
 	{
+		StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Saves/Save"+n+".txt");
+		if(file==null)
+				return false;
+		for(int i=0; i<characters.Length-1; i++)
+		{
+			//mood
+			string line = file.ReadLine();
+			string item1 = line.Substring(0, line.IndexOf(' '));
+			characters[i].mood = int.Parse(item1);
+			line = line.Remove(0,item1.Length+1);
+			Debug.Log("Read mood: "+item1);
+			
+			//breakout factor
+			string item2 = line;
+			characters[i].breakoutFactor = item2;
+			Debug.Log("Read bf: "+item2);
+		}
+		for(int i=0; i<relationships.Length; i++)
+		{
+			//char1value
+			string line = file.ReadLine();
+			string item1 = line.Substring(0, line.IndexOf(' '));
+			relationships[i].setChar1Value(int.Parse(item1));
+			line = line.Remove(0,item1.Length+1);
+			
+			//char2value
+			string item2 = line.Substring(0, line.IndexOf(' '));
+			relationships[i].setChar2Value(int.Parse(item2));
+			line = line.Remove(0,item2.Length+1);
+
+			string item3 = line;
+			relationships[i].setProgress(int.Parse(item3));
+		}
+		file.Close();
+		return true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+	}
+	
+	public int getIndexByName(string name)
+	{
+		for(int i=0; i<relationships.Length; i++)
+		{
+			if(relationships[i].getName().Equals(name))
+			   return i;
+		}
+		return -1;
+	}
+
+	public Relationship getRelationshipByName(string name)
+	{
+		for(int i=0; i<relationships.Length; i++)
+		{
+			if(relationships[i].getName().Equals(name))
+				return relationships[i];
+		}
+		return null;
 	}
 }

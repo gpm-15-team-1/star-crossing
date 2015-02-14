@@ -4,7 +4,7 @@ using System.Collections;
 public class MenuManager : MonoBehaviour {
 
 	//enums are used to represent each character in Character array
-	enum Chars {Blake, Kim, Nancy, Ash};
+	enum Chars {Randall, Julie, Tani, Nikolai, Carol};
 	public Character[] characters;
 
 	//UI static components
@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour {
 		currentCharacter = (int)Chars.Blake;*/
 
 		//starting character details
-		getCharacter();
+		//getCharacter();
 		//showMenu();
 	}
 	

@@ -31,6 +31,7 @@ public class MenuCharacterButtonScript : MonoBehaviour {
 				otherButtons[0].color = Color.gray;
 				otherButtons[1].color = Color.gray;
 				otherButtons[2].color = Color.gray;
+				otherButtons[3].color = Color.gray;
 				break;
 			}
 		}

@@ -27,6 +27,7 @@ public class RelationshipButtonScript : MonoBehaviour {
 		{
 			if(myText.text.Equals(tempRelationships[i].getName()))
 			{
+				GameObject.Find("DialogueManager").GetComponent<DialogueManager>().pause = false;;
 				//metrics for relationship progression
 				switch(tempRelationships[i].getProgress())
 				{

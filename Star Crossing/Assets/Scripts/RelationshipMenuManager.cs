@@ -81,4 +81,14 @@ public class RelationshipMenuManager : MonoBehaviour {
 		}
 		this.guiTexture.enabled = false;
 	}
+
+	public void enable()
+	{
+		for(int i=0; i<toShow.Length; i++)
+		{
+			toShow[i].enabled = true;
+			buttons[i].enabled = true;
+		}
+		this.guiTexture.enabled = true;
+	}
 }
