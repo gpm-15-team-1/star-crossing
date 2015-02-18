@@ -24,6 +24,7 @@ public class MenuCharacterButtonScript : MonoBehaviour {
 	{
 		for(int i=0; i<characters.Length; i++)
 		{
+			Debug.Log(characters.ToString());
 			if(name.Equals(characters[i].name))
 			{
 			    GameObject.Find("Menu").GetComponent<MenuManager>().setCurrentCharacter(i);
