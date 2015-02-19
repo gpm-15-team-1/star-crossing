@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharSelectMenuScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\CharSelectMenuScript.cs" Line="18" Column="3" />
-      <File FileName="Assets\Scripts\SaveScript.cs" Line="111" Column="110" />
+      <File FileName="Assets\Scripts\CharSelectMenuScript.cs" Line="59" Column="47" />
+      <File FileName="Assets\Scripts\CharMenuAccuracyScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SaveScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

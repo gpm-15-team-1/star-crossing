@@ -1,1 +1,5 @@
-Julie
+NPC Randall 83%
+NPC Tani 85%
+NPC Carol 85%
+NPC Julie 85%
+PLAY Nikolai -15

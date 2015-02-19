@@ -159,6 +159,14 @@ public class SaveScript : MonoBehaviour {
 			relationships[i].setProgress(int.Parse(item3));
 		}
 		file.Close();
+		
+		// If the current scene is the char select scene, tell the accuracies that it's okay to calculate!
+		if (Application.loadedLevelName == "CharSelectScreen") {
+			GameObject[] accuracies = GameObject.FindGameObjectsWithTag("MenuAccuracies");
+			foreach (GameObject accuracy in accuracies) {
+				accuracy.GetComponent<CharMenuAccuracyScript>().CalculateAccuracy();
+			}
+		}
 		return true;
 	}
 	
