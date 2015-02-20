@@ -20,7 +20,7 @@ public class SaveScript : MonoBehaviour {
 	void Start () {
 		currentWeek = 1;
 		currentDay = 1;
-		currentScene = 0;
+		currentScene = 2;
 
 		declare ();
 	}
@@ -103,6 +103,7 @@ public class SaveScript : MonoBehaviour {
 		{
 			//do nothing as file will always not exist during first run
 		}
+		relationships[2].setProgress(-4);
 	}
 
 	//streamwriter to save all these values to file
@@ -159,6 +160,14 @@ public class SaveScript : MonoBehaviour {
 			relationships[i].setProgress(int.Parse(item3));
 		}
 		file.Close();
+		
+		// If the current scene is the char select scene, tell the accuracies that it's okay to calculate!
+		if (Application.loadedLevelName == "CharSelectScreen") {
+			GameObject[] accuracies = GameObject.FindGameObjectsWithTag("MenuAccuracies");
+			foreach (GameObject accuracy in accuracies) {
+				accuracy.GetComponent<CharMenuAccuracyScript>().CalculateAccuracy();
+			}
+		}
 		return true;
 	}
 	
