@@ -1,9 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharSelectMenuScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DialogueManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\CharSelectMenuScript.cs" Line="18" Column="3" />
-      <File FileName="Assets\Scripts\SaveScript.cs" Line="111" Column="110" />
+      <File FileName="Assets\Scripts\SaveScript.cs" Line="190" Column="1" />
+      <File FileName="Assets\Scripts\RelationshipMenuManager.cs" Line="76" Column="36" />
+      <File FileName="Assets\Scripts\RelationshipButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CharSelectMenuScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Character.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DialogueManager.cs" Line="59" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
