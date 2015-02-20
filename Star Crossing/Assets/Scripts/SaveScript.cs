@@ -20,7 +20,7 @@ public class SaveScript : MonoBehaviour {
 	void Start () {
 		currentWeek = 1;
 		currentDay = 1;
-		currentScene = 0;
+		currentScene = 2;
 
 		declare ();
 	}
@@ -103,6 +103,7 @@ public class SaveScript : MonoBehaviour {
 		{
 			//do nothing as file will always not exist during first run
 		}
+		relationships[2].setProgress(-4);
 	}
 
 	//streamwriter to save all these values to file
