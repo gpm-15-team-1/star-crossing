@@ -1,0 +1,13 @@
+1
+Randall MouthClosed Tani MouthClosed Julie MouthOpen
+2
+Randall MouthClosed Tani MouthClosed Julie MouthOpen
+Randall MouthOpen Julie MouthClosed
+2
+Tani MouthOpen Randall MouthClosed Julie MouthClosed
+Randall MouthOpen Tani MouthClosed
+2
+Randall Laughing Julie MouthClosed Tani MouthClosed
+Randall MouthClosed Julie MouthOpen
+1
+Tani MouthOpen Randall MouthClosed Julie MouthClosed

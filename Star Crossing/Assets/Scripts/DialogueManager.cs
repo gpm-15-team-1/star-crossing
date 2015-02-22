@@ -7,7 +7,6 @@ public class DialogueManager : MonoBehaviour {
 
 	//enums to help organise characters, positions, and scene state
 	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
-	enum Pos {LeftFront, LeftBack, RightFront, RightBack};
 	enum Scene {Morning, Feedback, Relationship1, Relationship2};
 	
 	//characters and positions referenced by enums
@@ -120,74 +119,91 @@ public class DialogueManager : MonoBehaviour {
 
 			file.Close();
 
-			for(int j=0; j<n; j++)
+			//for(int j=0; j<n; j++)
 			{
-				if(accuracy[j]<=80)
+				int feedback = Random.Range(1,6);
+				StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
+				//terrible
+				if(accuracy[0]<64)
 				{
-					int feedback = Random.Range(1,6);
-					file = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Negative_Feedback.txt");
-
-					//skip loop
-					for(int i=0; i<feedback-1; i++)
-					{
-						int tempSize = int.Parse(file.ReadLine());
-						Debug.Log("Skipping "+tempSize +" lines");
-						for(int k=0; k<tempSize; k++)
-							file.ReadLine();
-					}
-
-					int size = int.Parse(file.ReadLine());
-
-					//read dialogues from file
-					for(int i=0; i<size; i++)
-					{
-						//name
-						string line1 = file.ReadLine();
-						string item1 = line1.Substring(0, line1.IndexOf(' '));
-						line1 = line1.Remove(0,item1.Length+1);
-						speaker.Add(item1);
-						
-						//dialogue
-						line1 = line1.Replace("@", "\n");
-						string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
-						dialogue.Add (item2);	                             
-					}
-
-					file.Close();
-
-					StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Negative_Action.txt");
-					
-					//skip loop
-					for(int i=0; i<feedback-1; i++)
-					{
-						int tempSize = int.Parse(file2.ReadLine());
-						for(int k=0; k<tempSize; k++)
-							file2.ReadLine();
-					}
-
-					size = int.Parse(file2.ReadLine());
-
-					//skip all irrelevant lines
-					for(int i=0; i<size; i++)
-					{
-						List<string> currentActions = new List<string>();
-						string[] actionLine = file2.ReadLine().Split();
-						for(int k=0; k<actionLine.Length; k++)
-						{
-							currentActions.Add(actionLine[k]);
-						}
-						Debug.Log("Actions this line: "+currentActions.Count);
-						actions.Add(currentActions);
-					}
-					
-					file2.Close();
+					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Feedback.txt");
+					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
 				}
-				else if(accuracy[j] >=90)
+				//bad
+				else if(accuracy[0]<73)
 				{
-					int feedback = Random.Range(1,6);
-					file = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Positive_Feedback.txt");
+					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Feedback.txt");
+					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Action.txt");
+				}
+				//awesome
+				else if(accuracy[0]>92)
+				{
+					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Awesome_Feedback.txt");
+					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Awesome_Action.txt");
+				}
+				//neutral
+				else
+				{
+					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Neutral_Feedback.txt");
+					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Neutral_Action.txt");
+				}
+
+				//skip loop
+				for(int i=0; i<feedback-1; i++)
+				{
+					int tempSize = int.Parse(file.ReadLine());
+					Debug.Log("Skipping "+tempSize +" lines");
+					for(int k=0; k<tempSize; k++)
+						file.ReadLine();
+				}
+
+				int size = int.Parse(file.ReadLine());
+
+				//read dialogues from file
+				for(int i=0; i<size; i++)
+				{
+					//name
+					string line1 = file.ReadLine();
+					string item1 = line1.Substring(0, line1.IndexOf(' '));
+					line1 = line1.Remove(0,item1.Length+1);
+					speaker.Add(item1);
+
+					//dialogue
+					line1 = line1.Replace("@", "\n");
+					Debug.Log(line1);
+					string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+					dialogue.Add (item2);	                             
+				}
+
+				file.Close();
+
+				//skip loop
+				for(int i=0; i<feedback-1; i++)
+				{
+					int tempSize = int.Parse(file2.ReadLine());
+					for(int k=0; k<tempSize; k++)
+						file2.ReadLine();
+				}
+
+				size = int.Parse(file2.ReadLine());
+
+				//skip all irrelevant lines
+				for(int i=0; i<size; i++)
+				{
+					List<string> currentActions = new List<string>();
+					string[] actionLine = file2.ReadLine().Split();
+					for(int k=0; k<actionLine.Length; k++)
+					{
+						currentActions.Add(actionLine[k]);
+					}
+					Debug.Log("Actions this line: "+currentActions.Count);
+					actions.Add(currentActions);
+				}
+				
+				file2.Close();
+			}
 					
-					//skip loop
+					/*//skip loop
 					for(int i=0; i<feedback-1; i++)
 					{
 						int tempSize = int.Parse(file.ReadLine());
@@ -237,9 +253,7 @@ public class DialogueManager : MonoBehaviour {
 						actions.Add(currentActions);
 					}
 					
-					file2.Close();
-				}
-			}
+					file2.Close();*/
 			save ();
 		}
 		else if(currentScene == (int)Scene.Relationship1)

@@ -20,7 +20,7 @@ public class SaveScript : MonoBehaviour {
 	void Start () {
 		currentWeek = 1;
 		currentDay = 1;
-		currentScene = 2;
+		currentScene = 1;
 
 		declare ();
 	}
