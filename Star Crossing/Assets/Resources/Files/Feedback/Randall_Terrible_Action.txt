@@ -1,0 +1,19 @@
+3
+Nikolai Worried Nikolai RightMid Randall LeftMid Randall MouthClosed
+Randall Worried Nikolai Worried
+Nikolai MouthClosed
+2
+Tani RightBack Tani Worried Randall LeftMid Randall MouthClosed
+Randall Worried
+1
+Randall RightBack Randall Worried Julie RightMid Julie Worried Tani LeftFront Tani Worried Nikolai LeftMid Nikolai Worried
+5
+Julie Worried Julie RightMid Randall LeftMid Randall MouthClosed Tani RightBack Tani MouthClosed Nikolai LeftFront Nikolai MouthClosed
+Nikolai Worried
+Tani Angry
+Tani Curious Randall Worried
+Nikolai MouthClosed Julie MouthClosed Tani Sad
+3
+Randall Worried Randall RightBack Julie LeftMid Julie MouthClosed
+Julie Worried
+Julie MouthOpen

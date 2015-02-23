@@ -1,5 +1,5 @@
 150000
-Tani 95
-Nikolai 55
-Randall 91
-Julie 94
+Randall 55
+Nikolai 95
+Tani 86
+Julie 91
