@@ -1,0 +1,14 @@
+3
+Julie "Tani, are you doing okay?"
+Tani "I guess I'm a little sleepy...maybe I should practice some more..."
+Randall "If you need help, don't hesitate to ask!"
+2
+Tani "I wasn't very happy with my performance today..."
+Julie "I'm sure you'll do better next time!"
+1
+Tani "I didn't do too well today..."
+2
+Randall "Tani, was it just me or did you sound a little...off today?"
+Tani "No, you're right. I should probably practice more."
+1
+Tani "That performance...definitely wasn't one of my better ones."

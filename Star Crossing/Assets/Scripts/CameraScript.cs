@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
 	private bool isRotating;
 	private Ray ray;
 	private RaycastHit hit;
-
+	private GameObject temporaryObject;
 
 	void Update () 
 	{
@@ -26,9 +26,16 @@ public class CameraScript : MonoBehaviour
 		//ray = camera.ViewportPointToRay(new Vector3(10.0F, 10.0F, 0));
 		//Debug.DrawRay (transform.position, ray);
 		Debug.DrawRay(transform.position, transform.forward * 20, Color.green);
-		if (Physics.Raycast(transform.position, transform.forward, out hit, 20))
-			print("I'm looking at " + hit.transform.name);
-		else
-			print("I'm looking at nothing!");
+		if (Physics.Raycast (transform.position, transform.forward, out hit, 20)) {
+						temporaryObject = hit.collider.gameObject;
+						temporaryObject.light.enabled = true;
+						print ("I'm looking at " + hit.collider.gameObject.name);
+				} else if (temporaryObject != null) {
+				temporaryObject.light.enabled = false;
+				temporaryObject = null;
+				print("I'm looking at nothing!");
+				
+		}
+			
 	}
 }

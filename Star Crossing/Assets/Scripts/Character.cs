@@ -4,7 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour{
 
 	//visualisation
-	enum Moods {HappyMouthClosed, HappyMouthOpen, Worried, Laughing};
+	enum Moods {HappyMouthClosed, HappyMouthOpen, Worried, Laughing, Sad, Angry, Curious};
 	public Sprite[] moodSprites;
 	public Texture faceSprite;
 
@@ -22,6 +22,7 @@ public class Character : MonoBehaviour{
 	public int mood;
 
 	bool move = false;
+	public string facing = null;
 	Vector2 newPos = new Vector2(0,0);
 
 
@@ -68,6 +69,21 @@ public class Character : MonoBehaviour{
 		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Laughing];
 	}
 
+	void Sad()
+	{
+		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Sad];
+	}
+
+	void Angry()
+	{
+		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Angry];
+	}
+
+	void Curious()
+	{
+		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Curious];
+	}
+
 	void Flip()
 	{
 		Vector3 newScale = transform.localScale;
@@ -102,14 +118,62 @@ public class Character : MonoBehaviour{
 	void MoveOnScreenLeft()
 	{
 		transform.position = new Vector2(9.0f, transform.position.y);
-		newPos = new Vector2(5.0f, transform.position.y);
+		newPos = new Vector2(5.5f, transform.position.y);
 		move = true;
 	}
 
 	void MoveOnScreenRight()
 	{
 		transform.position = new Vector2(-9.0f, transform.position.y);
-		newPos = new Vector2(-5.0f, transform.position.y);
+		newPos = new Vector2(-5.5f, transform.position.y);
 		move = true;
+	}
+
+	void RightFront()
+	{
+		if(facing == "right")
+			Flip();
+		transform.position = new Vector2(5.5f, transform.position.y);
+		this.renderer.sortingOrder = 0;
+	}
+
+	void RightMid()
+	{
+		if(facing == "right")
+			Flip();
+		transform.position = new Vector2(3.5f, transform.position.y);
+		this.renderer.sortingOrder = -1;
+	}
+
+	void RightBack()
+	{
+		if(facing == "right")
+			Flip();
+		transform.position = new Vector2(1.5f, transform.position.y);
+		this.renderer.sortingOrder = -2;
+	}
+
+	void LeftFront()
+	{
+		if(facing == "left")
+			Flip();
+		transform.position = new Vector2(-5.5f, transform.position.y);
+		this.renderer.sortingOrder = 0;
+	}
+
+	void LeftMid()
+	{
+		if(facing == "left")
+			Flip();
+		transform.position = new Vector2(-3.5f, transform.position.y);
+		this.renderer.sortingOrder = -1;
+	}
+
+	void LeftBack()
+	{
+		if(facing == "left")
+			Flip();
+		transform.position = new Vector2(-1.5f, transform.position.y);
+		this.renderer.sortingOrder = -2;
 	}
 }
