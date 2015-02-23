@@ -1,0 +1,20 @@
+"I am documenting my friends' likes and dislikes. What is your favorite@kind of pizza?"
+"My synthetic taste buds provide the highest pleasure output in response to@barbecue chicken. I do not know why."
+
+"I am documenting my friends' likes and dislikes. Do you prefer cats or dogs?"
+"Both species have their pros and cons. I have no favorite."
+
+"I believe the weather is pleasant today by most humans' standards."
+"That would seem to be the case."
+
+"I could not locate you last night. If I may ask, where were you, and what@were you doing?"
+"I was browsing Mimicry, my favorite forum. It is devoted to the modding of@my line of android. There are many interesting discussions and projects."
+
+"I am documenting my friends' likes and dislikes. What is your favorite@genre of music?"
+"I am not yet confident in my aural aesthetic preferences. I do enjoy@what we perform."
+
+"I have noticed that an advertisement for a certain fantasy film has been@playing a lot online recently. Is that something we might enjoy as a group?"
+"If you think the average human will enjoy it, I would like to come along."
+
+"I overheard a few members of one of our rival bands discussing a local@restaurant. Might our group enjoy dining there?"
+"I am happy to submit my synthetic taste buds to a variety of cuisines."
