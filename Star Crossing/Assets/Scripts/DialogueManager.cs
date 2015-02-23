@@ -97,7 +97,8 @@ public class DialogueManager : MonoBehaviour {
 		{
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Feedback.txt");
-			Debug.Log("Score: "+int.Parse(file.ReadLine()));
+			int score = int.Parse(file.ReadLine());
+			//Debug.Log("Score: "+score);
 
 			int n = characters.Length-2;
 			string[] party = new string[n];
@@ -152,7 +153,7 @@ public class DialogueManager : MonoBehaviour {
 				for(int i=0; i<feedback-1; i++)
 				{
 					int tempSize = int.Parse(file.ReadLine());
-					Debug.Log("Skipping "+tempSize +" lines");
+					//Debug.Log("Skipping "+tempSize +" lines");
 					for(int k=0; k<tempSize; k++)
 						file.ReadLine();
 				}
@@ -170,7 +171,7 @@ public class DialogueManager : MonoBehaviour {
 
 					//dialogue
 					line1 = line1.Replace("@", "\n");
-					Debug.Log(line1);
+					//Debug.Log(line1);
 					string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
 					dialogue.Add (item2);	                             
 				}
@@ -196,7 +197,7 @@ public class DialogueManager : MonoBehaviour {
 					{
 						currentActions.Add(actionLine[k]);
 					}
-					Debug.Log("Actions this line: "+currentActions.Count);
+					//Debug.Log("Actions this line: "+currentActions.Count);
 					actions.Add(currentActions);
 				}
 				
@@ -374,7 +375,7 @@ public class DialogueManager : MonoBehaviour {
 
 	void changeSprites()
 	{
-		Debug.Log("Char: " +actions[0][0] +", Action: "+actions[0][1]);
+		//Debug.Log("Char: " +actions[0][0] +", Action: "+actions[0][1]);
 		//Debug.Log("actions[currentIndex][0]: "+actions[currentIndex][0]);
 		if(!actions[currentIndex][0].Equals("null"))
 		{
@@ -535,6 +536,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				c1 = characters[i];
 				freeUpdate(c1, current.getChar1Value(), nullActions);
+				Debug.Log(c1.name +" is happy!");
 				if(hasProgressed==false)
 				{
 					if(characters[i].mood > 0)
@@ -554,6 +556,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				c2 = characters[i];
 				freeUpdate(c2, current.getChar2Value(), nullActions);
+				Debug.Log(c2.name +" is happy!");
 				if(hasProgressed==false)
 				{
 					if(characters[i].mood > 0)
