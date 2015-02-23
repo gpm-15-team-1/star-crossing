@@ -20,7 +20,7 @@ public class SaveScript : MonoBehaviour {
 	void Start () {
 		currentWeek = 1;
 		currentDay = 1;
-		currentScene = 2;
+		currentScene = 1;
 
 		declare ();
 	}
@@ -136,12 +136,12 @@ public class SaveScript : MonoBehaviour {
 			string item1 = line.Substring(0, line.IndexOf(' '));
 			characters[i].mood = int.Parse(item1);
 			line = line.Remove(0,item1.Length+1);
-			Debug.Log("Read mood: "+item1);
+			//Debug.Log("Read mood: "+item1);
 			
 			//breakout factor
 			string item2 = line;
 			characters[i].breakoutFactor = item2;
-			Debug.Log("Read bf: "+item2);
+			//Debug.Log("Read bf: "+item2);
 		}
 		for(int i=0; i<relationships.Length; i++)
 		{

@@ -213,3 +213,45 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+[Ll]ibrary
+sysinfo.txt
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+Star Crossing/Assembly-UnityScript-firstpass.unityproj
+Star Crossing/Library/CurrentLayout.dwlt
+*.dwlt
+Star Crossing/Library/guidmapper
+Star Crossing/Library/metadata/99/99446232d19a59b438912a6b7c9a1c35
+Star Crossing/Library/metadata/d3/d3fd82154cdf6d842874f54cb54b3953
+Star Crossing/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+Star Crossing/Library/guidmapper
+Star Crossing/Library/metadata/a2/a2e1f813c3c532144832c5f29c93244e

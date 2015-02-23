@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class RelationshipMenuManager : MonoBehaviour {
 
 	Relationship[] relationships;
-	public GUIText[] toShow;
-	public GUITexture[] buttons;
+	public Text[] toShow;
+	public Button[] buttons;
 	List<int> shuffled;
 
 	string chosen;
 
 	// Use this for initialization
 	void Start () {
-
 	}
 	
 	// Update is called once per frame
@@ -73,13 +73,13 @@ public class RelationshipMenuManager : MonoBehaviour {
 
 	public void disable()
 	{
-
+		Debug.Log("Relationships disabled.");
 		for(int i=0; i<toShow.Length; i++)
 		{
 			toShow[i].enabled = false;
 			buttons[i].enabled = false;
+			buttons[i].gameObject.SetActive(false);
 		}
-		this.guiTexture.enabled = false;
 	}
 
 	public void enable()
@@ -88,7 +88,7 @@ public class RelationshipMenuManager : MonoBehaviour {
 		{
 			toShow[i].enabled = true;
 			buttons[i].enabled = true;
+			buttons[i].gameObject.SetActive(true);
 		}
-		this.guiTexture.enabled = true;
 	}
 }

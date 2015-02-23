@@ -1,0 +1,129 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+Conflicts:
+	Star Crossing/Assets/Resources/Files/Saves/Save1.txt
+	Star Crossing/Assets/Scenes/StoryScene01.unity
+	Star Crossing/Library/CurrentLayout.dwlt
+	Star Crossing/Library/CurrentMaximizeLayout.dwlt
+	Star Crossing/Library/ScriptAssemblies/Assembly-CSharp.dll
+	Star Crossing/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+	Star Crossing/Library/assetDatabase3
+	Star Crossing/Library/expandedItems
+	Star Crossing/Library/guidmapper
+	Star Crossing/Library/metadata/0b/0bda1212a9a7605439750dbce2b3c78d
+	Star Crossing/Library/metadata/27/2768e1c5dec76e844abbcd1462b651b9
+	Star Crossing/Library/metadata/52/521a4987631ce7140a4559a5ed9bbcab
+	Star Crossing/Library/metadata/58/5826ef4e047c2ba48ab24e47e906a969
+	Star Crossing/Library/metadata/a2/a2e1f813c3c532144832c5f29c93244e
+	Star Crossing/Library/metadata/aa/aafc477dcd4e37d46b9ca31b87ab06e5
+	Star Crossing/Library/metadata/ae/ae5e0e4257253654aae93eeefbd29db2
+	Star Crossing/Library/metadata/e2/e261e4e7e3d01b14199291c9d36b8da7
+	Star Crossing/Library/metadata/ee/ee4ce44a4b02231428f09ce81947ee28
+	Star Crossing/Star Crossing.userprefs
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 3 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Star Crossing/Assembly-CSharp-firstpass-vs.csproj
+#	modified:   Star Crossing/Assembly-CSharp-firstpass.csproj
+#	modified:   Star Crossing/Assembly-CSharp-vs.csproj
+#	modified:   Star Crossing/Assembly-CSharp.csproj
+#	modified:   Star Crossing/Assembly-UnityScript-firstpass-vs.unityproj
+#	modified:   Star Crossing/Assembly-UnityScript-firstpass.unityproj
+#	modified:   Star Crossing/Assets/Resources/Files/Feedback.txt
+#	modified:   Star Crossing/Assets/Resources/Files/Saves/Save1.txt
+#	modified:   Star Crossing/Assets/Scenes/Rhythm Mode Prototype.unity
+#	modified:   Star Crossing/Assets/Scripts/CameraScript.cs
+#	new file:   Star Crossing/Assets/Scripts/CharMenuAccuracyScript.cs
+#	modified:   Star Crossing/Assets/Scripts/CharSelectMenuScript.cs
+#	modified:   Star Crossing/Assets/Scripts/SaveScript.cs
+#	new file:   Star Crossing/Assets/Sprites/Interaction sprites/Crowd-Silhouettes-.jpg
+#	new file:   Star Crossing/Assets/Sprites/Interaction sprites/Guy-1.png
+#	new file:   Star Crossing/Assets/Sprites/Interaction sprites/Silhouette_of_man_standing_and_facing_forward.svg.png
+#	new file:   Star Crossing/Assets/Sprites/Interaction sprites/movies_quotes_audience_humens_look_1920x1080_wallpaper_Wallpaper-HD_1920x1080_www.paperhi.com_.jpg
+#	new file:   Star Crossing/Assets/Sprites/Interaction sprites/the-audience1.png
+#	modified:   Star Crossing/Library/AssetServerCacheV3
+#	modified:   Star Crossing/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+#	modified:   Star Crossing/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll.mdb
+#	modified:   Star Crossing/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll
+#	modified:   Star Crossing/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll.mdb
+#	modified:   Star Crossing/Library/ScriptMapper
+#	modified:   Star Crossing/Library/metadata/00/00000000000000002000000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000003000000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000004000000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000004100000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000005000000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000005100000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000006000000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000006100000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000007000000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000008000000000000000
+#	modified:   Star Crossing/Library/metadata/00/00000000000000009000000000000000
+#	modified:   Star Crossing/Library/metadata/00/0000000000000000a000000000000000
+#	modified:   Star Crossing/Library/metadata/00/0000000000000000b000000000000000
+#	modified:   Star Crossing/Library/metadata/00/0000000000000000c000000000000000
+#	modified:   Star Crossing/Library/metadata/03/03f2fd8ea30128249871a44c18af3ffa
+#	new file:   Star Crossing/Library/metadata/04/049f514c0aa3bb940912b89bfcb5b378
+#	modified:   Star Crossing/Library/metadata/05/054a31a99d11e49d110086ba44295342
+#	modified:   Star Crossing/Library/metadata/09/09ed0b6c395d65c4aa6372c3fdb52d87
+#	modified:   Star Crossing/Library/metadata/0b/0bfe4760a41e5dd4ebc7d374fbf4ded4
+#	modified:   Star Crossing/Library/metadata/12/12b6c8f1717dc2642b1cc7366d03be16
+#	modified:   Star Crossing/Library/metadata/19/194188782f59a524cb3aa8661b8400cf
+#	modified:   Star Crossing/Library/metadata/25/25953f6d26014d9429f4407c83ac5ebf
+#	modified:   Star Crossing/Library/metadata/2c/2c2961022ec33984c8d0ac7812a5c529
+#	modified:   Star Crossing/Library/metadata/2d/2d2612b59032b27439e17a43154aa8e5
+#	modified:   Star Crossing/Library/metadata/3a/3a83bee75455a7745b76aabd1942b1c6
+#	modified:   Star Crossing/Library/metadata/48/48dca5b99d113b8d11006bab44295342
+#	modified:   Star Crossing/Library/metadata/4e/4ec4b41579c4b694582703d6c4d785d7
+#	modified:   Star Crossing/Library/metadata/52/521257714fc9e437a9163df2d37f2ea2
+#	modified:   Star Crossing/Library/metadata/52/5273cf41de20842a5917d8346dffe707
+#	modified:   Star Crossing/Library/metadata/57/577928f704b23b74ea43ffbd2422833b
+#	modified:   Star Crossing/Library/metadata/59/59f0abae35c46394780d999f9ba211c4
+#	modified:   Star Crossing/Library/metadata/5a/5a09dad89d11389ed000e82b8d76c639
+#	modified:   Star Crossing/Library/metadata/62/622742819567a214eb877635525f9527
+#	modified:   Star Crossing/Library/metadata/66/662cb79ca79b0a24fbc94eab5723617e
+#	new file:   Star Crossing/Library/metadata/78/7893d45e60a66a1449d97b89468397d9
+#	modified:   Star Crossing/Library/metadata/7c/7c7ff577b38496740aecd54a2fceadfe
+#	new file:   Star Crossing/Library/metadata/7e/7ee0e12e9f8fa554a9622cd8236e7938
+#	modified:   Star Crossing/Library/metadata/80/80a3616ca19596e4da0f10f14d241e9f
+#	modified:   Star Crossing/Library/metadata/83/83971dbd72d836b4bb0c467ce7d2df51
+#	modified:   Star Crossing/Library/metadata/85/8535f451d0c3ba04681e53f1d8f854dd
+#	modified:   Star Crossing/Library/metadata/93/93cb45d44c16f45a4bbd5099fe096c20
+#	new file:   Star Crossing/Library/metadata/95/957f82ac1c59cd04ca359d3d3c30f89a
+#	modified:   Star Crossing/Library/metadata/96/96c04583a2e19af4d95e8fd935c4fa05
+#	modified:   Star Crossing/Library/metadata/99/99446232d19a59b438912a6b7c9a1c35
+#	modified:   Star Crossing/Library/metadata/aa/aa196ce3f57fc2e46a3f8d9c512b52ac
+#	new file:   Star Crossing/Library/metadata/ac/ac0880c0ff5728747bcf7ce78111152d
+#	modified:   Star Crossing/Library/metadata/ad/adb8d63f2a8e47a40939957642091263
+#	new file:   Star Crossing/Library/metadata/ae/ae5e0e4257253654aae93eeefbd29db2
+#	modified:   Star Crossing/Library/metadata/ae/ae63ef900788bf24b805039e6ec3cab1
+#	modified:   Star Crossing/Library/metadata/b5/b57f2f945131aa445a88b55551fa1598
+#	modified:   Star Crossing/Library/metadata/b6/b6b104e4752ecdc42980c4d0d4e06bb9
+#	new file:   Star Crossing/Library/metadata/bd/bd3dd31574d00ef48851e6f6a428aad4
+#	modified:   Star Crossing/Library/metadata/c7/c775e509a771b1d4dbc0a1603707888c
+#	modified:   Star Crossing/Library/metadata/c9/c9716d5109be1c243a141de934be983c
+#	modified:   Star Crossing/Library/metadata/d2/d29b52e1f84a6d646b5a6fb2a989a6c1
+#	new file:   Star Crossing/Library/metadata/d3/d3fd82154cdf6d842874f54cb54b3953
+#	modified:   Star Crossing/Library/metadata/d6/d6bc01eb564f142a1ada6ced5215636a
+#	modified:   Star Crossing/Library/metadata/d6/d6bd559247219624eb36a37a5952b158
+#	modified:   Star Crossing/Library/metadata/df/dfa0764359a1cc54abf90b0a2c50c7e8
+#	modified:   Star Crossing/Library/metadata/e7/e7e47dae4ae6cac49839cf5d4ae7ee1d
+#	modified:   Star Crossing/Library/metadata/ea/ea78906b85a86354a891da614a32f7bb
+#	modified:   Star Crossing/Library/metadata/f5/f5f67c52d1564df4a8936ccd202a3bd8
+#	modified:   Star Crossing/ProjectSettings/TagManager.asset
+#	modified:   Star Crossing/Star Crossing.userprefs
+#
+

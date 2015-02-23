@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class RelationshipButtonScript : MonoBehaviour {
 
-	public GUIText myText;
+	public Text myText;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,7 @@ public class RelationshipButtonScript : MonoBehaviour {
 	
 	}
 
-	void OnMouseUp()
+	public void OnMouseUp()
 	{
 		GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen = myText.text;
 		Relationship[] tempRelationships = new Relationship[10];
