@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
 
 	//enums to help organise characters, positions, and scene state
 	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
 	enum Scene {Morning, Feedback, Relationship1, Relationship2};
-	
+
 	//characters and positions referenced by enums
 	public Character[] characters;
 	Vector2[] positions;
@@ -20,8 +21,8 @@ public class DialogueManager : MonoBehaviour {
 	List<List<string>> actions = new List<List<string>>();
 
 	//text objects to hold name of character and spoken dialogue
-	public GUIText name;
-	public GUIText line;
+	public Text name;
+	public Text line;
 
 	//current dialogue
 	int currentIndex;
