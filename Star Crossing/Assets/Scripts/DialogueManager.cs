@@ -437,7 +437,7 @@ public class DialogueManager : MonoBehaviour {
 			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
 		}
 
-		int feedback = Random.Range(1,5);
+		int feedback = Random.Range(1,8);
 		Debug.Log("Topic: "+feedback);
 
 		//skip loop
@@ -536,7 +536,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				c1 = characters[i];
 				freeUpdate(c1, current.getChar1Value(), nullActions);
-				Debug.Log(c1.name +" is happy!");
+				actions.Add(nullActions);
 				if(hasProgressed==false)
 				{
 					if(characters[i].mood > 0)
@@ -556,7 +556,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				c2 = characters[i];
 				freeUpdate(c2, current.getChar2Value(), nullActions);
-				Debug.Log(c2.name +" is happy!");
+				actions.Add(nullActions);
 				if(hasProgressed==false)
 				{
 					if(characters[i].mood > 0)
@@ -574,7 +574,7 @@ public class DialogueManager : MonoBehaviour {
 			}
 		}
 
-		actions.Add(nullActions);
+		//actions.Add(nullActions);
 		currentIndex = 1;
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
