@@ -117,15 +117,15 @@ public class Character : MonoBehaviour{
 
 	void MoveOnScreenLeft()
 	{
-		transform.position = new Vector2(9.0f, transform.position.y);
-		newPos = new Vector2(5.5f, transform.position.y);
+		transform.position = new Vector2(15.0f, transform.position.y);
+		newPos = new Vector2(6f, transform.position.y);
 		move = true;
 	}
 
 	void MoveOnScreenRight()
 	{
-		transform.position = new Vector2(-9.0f, transform.position.y);
-		newPos = new Vector2(-5.5f, transform.position.y);
+		transform.position = new Vector2(-15.0f, transform.position.y);
+		newPos = new Vector2(-6f, transform.position.y);
 		move = true;
 	}
 
@@ -133,7 +133,7 @@ public class Character : MonoBehaviour{
 	{
 		if(facing == "right")
 			Flip();
-		transform.position = new Vector2(5.5f, transform.position.y);
+		transform.position = new Vector2(6f, transform.position.y);
 		this.renderer.sortingOrder = 0;
 	}
 
@@ -141,7 +141,7 @@ public class Character : MonoBehaviour{
 	{
 		if(facing == "right")
 			Flip();
-		transform.position = new Vector2(3.5f, transform.position.y);
+		transform.position = new Vector2(4f, transform.position.y);
 		this.renderer.sortingOrder = -1;
 	}
 
@@ -149,7 +149,7 @@ public class Character : MonoBehaviour{
 	{
 		if(facing == "right")
 			Flip();
-		transform.position = new Vector2(1.5f, transform.position.y);
+		transform.position = new Vector2(2f, transform.position.y);
 		this.renderer.sortingOrder = -2;
 	}
 
@@ -157,7 +157,7 @@ public class Character : MonoBehaviour{
 	{
 		if(facing == "left")
 			Flip();
-		transform.position = new Vector2(-5.5f, transform.position.y);
+		transform.position = new Vector2(-6f, transform.position.y);
 		this.renderer.sortingOrder = 0;
 	}
 
@@ -165,7 +165,7 @@ public class Character : MonoBehaviour{
 	{
 		if(facing == "left")
 			Flip();
-		transform.position = new Vector2(-3.5f, transform.position.y);
+		transform.position = new Vector2(-4f, transform.position.y);
 		this.renderer.sortingOrder = -1;
 	}
 
@@ -173,7 +173,7 @@ public class Character : MonoBehaviour{
 	{
 		if(facing == "left")
 			Flip();
-		transform.position = new Vector2(-1.5f, transform.position.y);
+		transform.position = new Vector2(-2f, transform.position.y);
 		this.renderer.sortingOrder = -2;
 	}
 }

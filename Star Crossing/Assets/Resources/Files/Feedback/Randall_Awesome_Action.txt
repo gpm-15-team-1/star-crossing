@@ -1,0 +1,19 @@
+2
+Tani Laughing Tani RightMid Randall LeftMid Randall MouthClosed
+Randall Laughing
+3
+Julie LeftBack Julie MouthOpen Randall RightMid Randall MouthClosed
+Randall Worried Julie MouthClosed
+Julie MouthOpen Randall MouthClosed
+1
+Randall Laughing Randall RightBack Nikolai MouthClosed Nikolai LeftMid Tani MouthClosed Tani RightMid Julie LeftBack Julie MouthClosed
+5
+Randall RightMid Randall MouthOpen Nikolai MouthClosed Nikolai LeftMid
+Nikolai MouthOpen Randall MouthClosed
+Nikolai MouthClosed
+Nikolai Worried Randall Laughing
+Randall MouthOpen
+3
+Tani RightMid Tani Laughing Julie RightFront Julie MouthClosed Randall LeftBack Randall MouthClosed
+Julie MouthOpen
+Julie MouthClosed Randall Laughing

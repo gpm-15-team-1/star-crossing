@@ -1,0 +1,16 @@
+2
+Tani "Good job today, Carol."
+Carol "Thank you, Tani!"
+3
+Julie "Carol, you seem to be enjoying yourself!"
+Randall "Yeah, you're doing just fine."
+Carol "Thank you both! It is a pleasure to perform alongside you!"
+2
+Nikolai "Um, good job, or whatever."
+Carol "Thank you, Nikolai! Your feedback is appreciated."
+2
+Julie "I've said this enough times, but I'm glad I decided to bring you along to our practices."
+Carol "And I am glad as well! Singing brings me great pleasure!"
+2
+Carol "Was my performance today up to standard?"
+Randall "Looks that way! Keep it up."

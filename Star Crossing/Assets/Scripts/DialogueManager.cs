@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
 
 	//enums to help organise characters, positions, and scene state
 	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
 	enum Scene {Morning, Feedback, Relationship1, Relationship2};
-	
+
 	//characters and positions referenced by enums
 	public Character[] characters;
 	Vector2[] positions;
@@ -20,8 +21,8 @@ public class DialogueManager : MonoBehaviour {
 	List<List<string>> actions = new List<List<string>>();
 
 	//text objects to hold name of character and spoken dialogue
-	public GUIText name;
-	public GUIText line;
+	public Text name;
+	public Text line;
 
 	//current dialogue
 	int currentIndex;
@@ -97,7 +98,7 @@ public class DialogueManager : MonoBehaviour {
 		{
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Feedback.txt");
-			int score = int.Parse(file.ReadLine());
+			//int score = int.Parse(file.ReadLine());
 			//Debug.Log("Score: "+score);
 
 			int n = characters.Length-2;
@@ -131,7 +132,7 @@ public class DialogueManager : MonoBehaviour {
 					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
 				}
 				//bad
-				else if(accuracy[0]<73)
+				else if(accuracy[0]<73 && accuracy[0]>=64)
 				{
 					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Feedback.txt");
 					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Action.txt");
@@ -171,7 +172,7 @@ public class DialogueManager : MonoBehaviour {
 
 					//dialogue
 					line1 = line1.Replace("@", "\n");
-					//Debug.Log(line1);
+					Debug.Log(line1);
 					string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
 					dialogue.Add (item2);	                             
 				}
@@ -437,7 +438,7 @@ public class DialogueManager : MonoBehaviour {
 			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
 		}
 
-		int feedback = Random.Range(1,5);
+		int feedback = Random.Range(1,8);
 		Debug.Log("Topic: "+feedback);
 
 		//skip loop
@@ -536,7 +537,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				c1 = characters[i];
 				freeUpdate(c1, current.getChar1Value(), nullActions);
-				Debug.Log(c1.name +" is happy!");
+				actions.Add(nullActions);
 				if(hasProgressed==false)
 				{
 					if(characters[i].mood > 0)
@@ -556,7 +557,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				c2 = characters[i];
 				freeUpdate(c2, current.getChar2Value(), nullActions);
-				Debug.Log(c2.name +" is happy!");
+				actions.Add(nullActions);
 				if(hasProgressed==false)
 				{
 					if(characters[i].mood > 0)
@@ -574,7 +575,7 @@ public class DialogueManager : MonoBehaviour {
 			}
 		}
 
-		actions.Add(nullActions);
+		//actions.Add(nullActions);
 		currentIndex = 1;
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
