@@ -1,0 +1,19 @@
+2
+Tani "Good job today, Julie."
+Julie "Thanks, Tani!"
+3
+Julie "So, what'd you think, Carol? Was I okay?"
+Carol "Yes! Your performance today was at a satisfactory level!"
+Julie "'Satisfactory', huh? I guess it'll do."
+3
+Julie "How was my singing today?"
+Nikolai "Pretty good, I guess. Nothing special."
+Julie "..."
+2
+Julie "...was my performance okay?"
+Randall "Yup! Nothing to report."
+4
+Randall "I'd say Julie was the 'epitome of neutrality' today, wouldn't you, Nikolai?"
+Nikolai "...I guess."
+Julie "I don't get it..."
+Nikolai "I guess he just means 'keep doing what you're doing'."
