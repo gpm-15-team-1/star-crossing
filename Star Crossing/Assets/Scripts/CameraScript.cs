@@ -27,6 +27,7 @@ public class CameraScript : MonoBehaviour
 		//Debug.DrawRay (transform.position, ray);
 		Debug.DrawRay(transform.position, transform.forward * 20, Color.green);
 		if (Physics.Raycast (transform.position, transform.forward, out hit, 20)) {
+						if(hit.collider.gameObject.transform.name != "Note")
 						temporaryObject = hit.collider.gameObject;
 						temporaryObject.light.enabled = true;
 						print ("I'm looking at " + hit.collider.gameObject.name);
