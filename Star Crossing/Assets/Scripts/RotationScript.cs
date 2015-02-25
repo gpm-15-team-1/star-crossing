@@ -34,7 +34,7 @@ public class RotationScript : MonoBehaviour {
 			//Sphere2.rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
 			PivotObj.transform.Rotate(0,0, 2);
 		}
-		if(Input.GetKey(KeyCode.W)){
+		if(Input.GetKey(KeyCode.S)){
 			//Sphere1.rigidbody.MoveRotation(rigidbody.rotation * mindeltaRotation);
 			//Sphere2.rigidbody.MoveRotation(rigidbody.rotation * mindeltaRotation);
 			if(distance > 0.5f)
@@ -44,7 +44,7 @@ public class RotationScript : MonoBehaviour {
 			}
 
 		}
-		if(Input.GetKey(KeyCode.S)){
+		if(Input.GetKey(KeyCode.W)){
 			//Sphere1.rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
 			//Sphere2.rigidbody.MoveRotation(rigidbody.rotation * deltaRotation);
 			if(distance < 2.5f)
