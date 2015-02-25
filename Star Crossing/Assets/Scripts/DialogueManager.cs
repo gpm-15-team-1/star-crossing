@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour {
 		{
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Feedback.txt");
-			int score = int.Parse(file.ReadLine());
+			//int score = int.Parse(file.ReadLine());
 			//Debug.Log("Score: "+score);
 
 			int n = characters.Length-2;
@@ -132,7 +132,7 @@ public class DialogueManager : MonoBehaviour {
 					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
 				}
 				//bad
-				else if(accuracy[0]<73)
+				else if(accuracy[0]<73 && accuracy[0]>=64)
 				{
 					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Feedback.txt");
 					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Action.txt");
@@ -172,7 +172,7 @@ public class DialogueManager : MonoBehaviour {
 
 					//dialogue
 					line1 = line1.Replace("@", "\n");
-					//Debug.Log(line1);
+					Debug.Log(line1);
 					string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
 					dialogue.Add (item2);	                             
 				}

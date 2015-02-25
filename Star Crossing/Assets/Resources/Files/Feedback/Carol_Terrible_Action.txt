@@ -1,0 +1,17 @@
+1
+Carol RightBack Carol Sad Randall Worried Randall LeftMid Tani Worried Tani RightMid Julie Worried Julie LeftBack
+3
+Carol Worried Carol RightMid Randall LeftBack Randall MouthClosed
+Randall MouthOpen
+Randall Worried Carol Sad
+2
+Nikolai Worried Nikolai LeftMid Carol Worried Carol RightMid
+Carol Sad
+3
+Carol Sad Carol LeftMid Julie RightBack Julie Worried
+null
+Carol Worried Julie MouthClosed
+3
+Tani RightMid Tani Worried Carol LeftMid Carol MouthClosed
+null
+Carol Worried Tani Sad

@@ -1,0 +1,17 @@
+1
+Carol "I'm afraid my efficiency was very low today..."
+3
+Carol "Randall, what do you have to say about my performance today?"
+Randall "Well...it's kinda hard to criticize a robot, y'know?"
+Carol "I know you are just being kind. And I will try to be more efficient during our next performance."
+2
+Nikolai "Wow...you really sucked today."
+Carol "One word does not compute...but your meaning is clear. I must work harder."
+3
+Carol "Julie, my sensors indicate that I have disappointed you."
+Julie "Ah, I'm sorry Carol. I shouldn't blame you or anything, but..."
+Carol "But it is my fault. And I will do my best not to disappoint you again."
+3
+Tani "Carol...how should I put this..."
+Tani "Would you like Nikolai or Julie to take a look at your circuitry?"
+Carol "It is alright, Tani, I understand. My circuits are fine, but my voice bank needs improvement."

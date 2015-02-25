@@ -1,0 +1,19 @@
+2
+Julie "Good job, Nikolai."
+Nikolai "Thanks, Julie."
+2
+Tani "You're doing a pretty good job out there."
+Nikolai "...thanks."
+4
+Carol "I sensed that your performance was at a neutral standard today, Nikolai."
+Nikolai "...and is that supposed to be a good thing?"
+Carol "Absolutely! Neutrality is difficult for humans to maintain!"
+Carol "Keep it up."
+2
+Nikolai "I hope I'm not dragging the group down."
+Randall "Nah, you're doing just fine."
+4
+Julie "Carol, what did you think of Nikolai's performance today?"
+Carol "He did a very good job!"
+Nikolai "It's hard taking compliments from a robot..."
+Nikolai "...but thanks."

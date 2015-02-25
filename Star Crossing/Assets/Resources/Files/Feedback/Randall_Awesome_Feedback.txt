@@ -1,19 +1,19 @@
-3
-Nikolai "Amazing job, oh great leader."
-Nikolai "And by that, I mean you sucked."
-Randall "Hey! I know I was bad, but you don't have to be such a jerk about it..."
 2
-Tani "What's wrong, Rands? You're never this bad..."
-Randall "I know, I'm sorry..."
-1
-Randall "Sorry for letting you down, guys. I'll do better next time."
-5
-Julie "Randy! You've gotta pull it together!"
-Nikolai "Can't have our leader chickening out on us after messing up big-time."
-Tani "Nikolai, be nice."
-Randall "No, Tani, he's right."
-Randall "I did a terrible job, and I won't let it happen again."
+Tani "You did a great job out there today, Randall."
+Randall "Ah, you think so? Just...y'know, doing my part."
 3
-Randall "I was terrible today...so terrible..."
-Julie "Who went and turned you into Nikolai? Jeez."
-Julie "Where's that optimism, huh? Do better next time!"
+Julie "And he doesn't disappoint! This is why you're our leader, Randall."
+Randall "But I thought I was the leader because I brought us all together in the first place..."
+Julie "Same thing. Keep singing like that, and we'll follow you anywhere!"
+1
+Randall "Not to brag, but I was pretty happy with my performance today."
+5
+Randall "Nik, what'd you think of my performance?"
+Nikolai "Impressive, as always."
+Nikolai "....."
+Nikolai "...and don't call me that."
+Randall "Now THAT'S the reaction I was looking for!"
+3
+Tani "Randall sounded exceptionally good today, didn't he?"
+Julie "Totally! He's like...a lean, mean, singing machine! ...or something."
+Randall "Aw shucks, you're making me blush..."
