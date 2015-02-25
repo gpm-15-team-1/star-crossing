@@ -1,10 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Wk1_Day1_Feedback.txt">
     <Files>
       <File FileName="Assets\Resources\Files\Wk1_Day1_Feedback.txt" Line="2" Column="8" />
       <File FileName="Assets\Scripts\DialogueManager.cs" Line="104" Column="32" />
       <File FileName="Assets\Scripts\Character.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SaveScript.cs">
+    <Files>
+      <File FileName="Assets\Scripts\CharSelectMenuScript.cs" Line="9" Column="33" />
+      <File FileName="Assets\Scripts\DialogueManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CharMenuAccuracyScript.cs" Line="23" Column="1" />
+      <File FileName="Assets\Scripts\SaveScript.cs" Line="1" Column="1" />
+>>>>>>> origin/master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

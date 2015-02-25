@@ -54,6 +54,7 @@
      <None Include="Assets\Resources\Files\Randall_Free.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Bad_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Terrible_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Awesome_Feedback.txt" />
@@ -75,6 +76,17 @@
      <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Carol_Free.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Randall_Free_Action.txt" />
+     <None Include="Assets\Resources\Files\Nikolai_Free.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback.txt" />
      <None Include="Assets\Resources\Files\Carol_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Terrible_Feedback.txt" />
@@ -83,11 +95,9 @@
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Terrible_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Terrible_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Action.txt" />
      <None Include="Assets\Resources\Files\Tani_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Neutral_Feedback.txt" />
@@ -95,6 +105,9 @@
      <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Awesome_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1.txt" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Feedback.txt" />
      <None Include="Assets\Resources\Files\Saves\Save1.txt" />
      <None Include="Assets\Resources\Files\Julie_Free.txt" />
@@ -103,7 +116,6 @@
      <None Include="Assets\Resources\Files\Julie_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Nikolai_Free_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Action.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
