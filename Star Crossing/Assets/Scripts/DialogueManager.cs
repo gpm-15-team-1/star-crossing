@@ -97,7 +97,7 @@ public class DialogueManager : MonoBehaviour {
 		else if(currentScene == (int)Scene.Feedback)
 		{
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
-			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Feedback.txt");
+			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback.txt");
 			//int score = int.Parse(file.ReadLine());
 			//Debug.Log("Score: "+score);
 
@@ -113,9 +113,12 @@ public class DialogueManager : MonoBehaviour {
 				string item1 = line1.Substring(0, line1.IndexOf(' '));
 				line1 = line1.Remove(0,item1.Length+1);
 				party[i] = item1;
-				
+				Debug.Log(party[i]);
+
 				//accuracy
-				int item2 = int.Parse(line1);
+				Debug.Log(line1);
+				float f = float.Parse(line1);
+				int item2 = (int)f;
 				accuracy[i] = item2;
 			}
 
@@ -309,6 +312,7 @@ public class DialogueManager : MonoBehaviour {
 				}
 				else
 				{
+					string toLoad = Application.loadedLevelName;
 					if(currentIndex+1 < dialogue.Count)
 					{
 						currentIndex++;
@@ -336,13 +340,21 @@ public class DialogueManager : MonoBehaviour {
 								GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
 							}
 						}
+						//go to rhythm mode select menu
+						else if(currentScene==(int)Scene.Morning)
+						{
+							GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
+							toLoad = "CharSelectScreen";
+						}
 						//still same day
 						else
 						{
 							GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
 						}
-						DontDestroyOnLoad(GameObject.Find("Save"));
-						Application.LoadLevel(Application.loadedLevelName);
+						
+						save ();
+						//DontDestroyOnLoad(GameObject.Find("Save"));
+						Application.LoadLevel(toLoad);
 					}
 				}
 			}
