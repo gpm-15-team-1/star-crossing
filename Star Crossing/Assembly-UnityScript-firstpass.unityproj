@@ -60,6 +60,7 @@
      <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Feedback.txt" />
      <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Terrible_Feedback.txt" />
@@ -72,6 +73,7 @@
      <None Include="Assets\Resources\Files\Nikolai_Free.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Neutral_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback.txt" />
      <None Include="Assets\Resources\Files\Carol_Free_Action.txt" />

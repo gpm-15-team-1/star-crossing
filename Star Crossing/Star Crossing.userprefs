@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SaveScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Wk1_Day1_Feedback.txt">
     <Files>
+      <File FileName="Assets\Resources\Files\Wk1_Day1_Feedback.txt" Line="1" Column="8" />
+      <File FileName="Assets\Resources\Files\Feedback.txt" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SaveScript.cs" Line="23" Column="19" />
       <File FileName="Assets\Scripts\DialogueManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Files\Wk1_Day1_Feedback.txt" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Character.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SaveScript.cs" Line="138" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

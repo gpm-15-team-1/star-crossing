@@ -14,6 +14,6 @@ Nikolai "I hope I'm not dragging the group down."
 Randall "Nah, you're doing just fine."
 4
 Julie "Carol, what did you think of Nikolai's performance today?"
-Carol "He did a very good job!"
+Carol "He did a good job!"
 Nikolai "It's hard taking compliments from a robot..."
 Nikolai "...but thanks."

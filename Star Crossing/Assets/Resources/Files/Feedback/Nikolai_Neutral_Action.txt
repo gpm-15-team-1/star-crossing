@@ -1,19 +1,19 @@
 2
-Julie LeftMid Julie MouthOpen Nikolai RightMid Nikolai MouthClosed
-Julie MouthClosed Nikolai MouthOpen
+Julie MouthOpen Julie LeftBack Nikolai RightMid Nikolai MouthClosed
+Nikolai MouthOpen Julie MouthClosed
 2
-Tani RightMid Tani MouthOpen Nikolai LeftMid Nikolai MouthClosed
-Nikolai MouthOpen Tani MouthClosed
+Tani MouthOpen Tani RightMid Nikolai LeftMid Nikolai MouthClosed
+Tani MouthClosed Nikolai MouthOpen
 4
-Carol RightBack Carol MouthOpen Nikolai LeftMid Nikolai MouthClosed
+Carol MouthOpen Carol LeftBack Nikolai RightMid Nikolai MouthClosed
 Nikolai Worried Carol MouthClosed
-Carol MouthOpen
-Nikolai MouthClosed Carol Laughing
+Carol Laughing
+Carol Curious Nikolai MouthClosed
 2
-Nikolai Worried Nikolai RightMid Randall LeftMid Randall Worried
+Nikolai RightMid Nikolai Worried Randall LeftMid Randall Worried
 Randall MouthOpen Nikolai MouthClosed
 4
-Julie LeftBack Julie MouthOpen Carol LeftMid Carol MouthClosed Nikolai RightMid Nikolai MouthClosed
+Julie LeftMid Julie MouthOpen Carol LeftBack Carol MouthClosed Nikolai MouthClosed Nikolai RightMid
 Carol MouthOpen Julie MouthClosed
 Carol MouthClosed Nikolai Worried
 Nikolai MouthOpen
