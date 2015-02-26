@@ -104,6 +104,9 @@ public class SaveScript : MonoBehaviour {
 			//do nothing as file will always not exist during first run
 		}
 		relationships[2].setProgress(-4);
+
+		if(currentScene==3)
+			loadChosen();
 	}
 
 	//streamwriter to save all these values to file
@@ -184,6 +187,26 @@ public class SaveScript : MonoBehaviour {
 			}
 		}
 		return true;
+	}
+
+	public void saveChosen()
+	{
+		StreamWriter file = new StreamWriter(Application.dataPath + "/Resources/Files/Chosen.txt", false);
+		for(int i=0; i<shuffled.Count; i++)
+		{
+			file.WriteLine(shuffled[i]);
+		}
+		file.Close();
+	}
+
+	public void loadChosen()
+	{
+		StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Chosen.txt");
+		for(int i=0; i<5; i++)
+		{
+			shuffled.Add(int.Parse(file.ReadLine()));
+		}
+		file.Close();
 	}
 	
 	// Update is called once per frame

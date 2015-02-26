@@ -36,6 +36,7 @@ public class RelationshipMenuManager : MonoBehaviour {
 			GameObject.Find("Save").GetComponent<SaveScript>().shuffled.Add(shuffled[i]);
 			toShow[i].text = GameObject.Find("Save").GetComponent<SaveScript>().relationships[shuffled[i]].getName ();
 		}
+		GameObject.Find("Save").GetComponent<SaveScript>().saveChosen();
 	}
 
 	public void Display()

@@ -20,7 +20,6 @@
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
 	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -76,10 +75,8 @@
      <Compile Include="Assets\Scripts\Target.cs" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Morning.txt" />
      <None Include="Assets\Resources\Files\Randall_Free.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Bad_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Nikolai_Awesome_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Nikolai_Awesome_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Terrible_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Awesome_Feedback.txt" />
@@ -87,40 +84,32 @@
      <None Include="Assets\Resources\Files\Feedback\Julie_Neutral_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Wk1_Day1_Action_temp.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Nikolai_Neutral_Feedback.txt" />
      <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Terrible_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Carol_Bad_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Carol_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Carol_Free.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Bad_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Terrible_Action.txt" />
      <None Include="Assets\Resources\Files\Randall_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Nikolai_Free.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Chosen.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Neutral_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Nikolai_Neutral_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback.txt" />
      <None Include="Assets\Resources\Files\Carol_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Terrible_Feedback.txt" />
      <None Include="Assets\Resources\Files\Tani_Free.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Action.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
-     <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Randall_Terrible_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Randall_Terrible_Feedback.txt" />
@@ -129,29 +118,25 @@
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Action.txt" />
      <None Include="Assets\Resources\Files\Tani_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Neutral_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Wk1_Day1_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Wk1_Day1_Feedback.txt" />
      <None Include="Assets\Resources\Files\Saves\Save1.txt" />
      <None Include="Assets\Resources\Files\Julie_Free.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Neutral_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Carol_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Feedback.txt" />
      <None Include="Assets\Resources\Files\Julie_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Julie_Bad_Feedback.txt" />
-     <None Include="Assets\Resources\Files\Julie_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Nikolai_Free_Action.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Feedback.txt" />
      <None Include="Assets\Resources\Files\Wk1_Day1_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Carol_Bad_Action.txt" />
-     <None Include="Assets\Resources\Files\Feedback\Carol_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Wk1_Day1_Morning_temp.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>C:/Users/Swati Mallya/Documents/GitHub/star-crossing/Star Crossing/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- <HintPath>C:/Users/Deep/Documents/Star Crossing/star-crossing/Star Crossing/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

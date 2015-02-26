@@ -312,7 +312,6 @@ public class DialogueManager : MonoBehaviour {
 				}
 				else
 				{
-					string toLoad = Application.loadedLevelName;
 					if(currentIndex+1 < dialogue.Count)
 					{
 						currentIndex++;
@@ -324,6 +323,7 @@ public class DialogueManager : MonoBehaviour {
 					}
 					else
 					{
+						string toLoad = Application.loadedLevelName;
 						if(currentScene==(int)Scene.Relationship2)
 						{
 							//end of week
