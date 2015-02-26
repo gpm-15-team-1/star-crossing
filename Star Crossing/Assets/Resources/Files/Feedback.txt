@@ -1,5 +1,13 @@
+<<<<<<< HEAD
+Nikolai 73.91304
+Randall 85
+Julie 85
+Tani 85
+Carol 85
+=======
 Nikolai -123
 Randall 72
 Julie 87
 Tani 89
 Carol 88
+>>>>>>> origin/master

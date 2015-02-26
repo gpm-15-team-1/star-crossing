@@ -20,7 +20,7 @@ public class SaveScript : MonoBehaviour {
 	void Start () {
 		currentWeek = 1;
 		currentDay = 1;
-		currentScene = 1;
+		currentScene = 0;
 
 		declare ();
 	}
@@ -110,6 +110,7 @@ public class SaveScript : MonoBehaviour {
 	public void saveFile(int n)
 	{
 		StreamWriter file = new StreamWriter(Application.dataPath + "/Resources/Files/Saves/Save"+n+".txt", false);
+		file.WriteLine (currentWeek + " " + currentDay + " " + currentScene);
 		for(int i=0; i<characters.Length-1; i++)
 		{
 			//mood, breakout factor
@@ -129,6 +130,20 @@ public class SaveScript : MonoBehaviour {
 		StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Saves/Save"+n+".txt");
 		if(file==null)
 				return false;
+		string state = file.ReadLine ();
+
+		string cWeek = state.Substring(0, state.IndexOf(' '));
+		currentWeek = int.Parse (cWeek);
+		state = state.Remove(0,cWeek.Length+1);
+
+		string cDay = state.Substring(0, state.IndexOf(' '));
+		currentDay = int.Parse (cDay);
+		state = state.Remove(0,cDay.Length+1);
+
+		string cScene = state;
+		currentScene = int.Parse (cScene);
+
+		Debug.Log (currentWeek + "+" + currentDay + "+" + currentScene);
 		for(int i=0; i<characters.Length-1; i++)
 		{
 			//mood

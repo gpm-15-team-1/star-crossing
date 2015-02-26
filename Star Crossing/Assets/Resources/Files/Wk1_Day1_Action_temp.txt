@@ -1,0 +1,51 @@
+50
+Randall MouthOpen Randall LeftFront Tani MouthClosed Tani LeftBack Julie MouthClosed Julie RightBack Carol MouthClosed Carol RightFront
+Randall MouthClosed Julie MouthOpen
+Julie MouthClosed Carol MouthOpen
+Tani MouthOpen Carol MouthClosed
+Randall MouthOpen Tani MouthClosed
+Randall Worried
+Tani Worried
+Tani Flip Tani Angry
+Randall Flip Randall MouthClosed Randall Move1Right Nikolai MoveOnScreenRight Nikolai MouthOpen
+Nikolai MouthClosed Randall MouthOpen
+Nikolai MouthOpen Randall MouthClosed
+Randall Laughing Nikolai MouthClosed
+Randall Flip Randall MouthOpen Tani Flip Tani MouthClosed
+Randall MouthClosed Julie MouthOpen
+Julie MouthClosed Carol MouthOpen
+Julie MouthOpen Carol MouthClosed
+Nikolai MouthOpen Julie MouthClosed
+Nikolai MouthClosed Tani Annoyed
+Julie Worried
+Tani MouthOpen Julie MouthClosed
+Tani MouthClosed Julie MouthOpen
+Julie MouthClosed Carol MouthOpen
+Julie Flip Julie Worried Carol MouthClosed
+Randall Worried Julie Flip Julie MouthClosed
+Tani Annoyed
+null
+Randall MouthOpen
+Randall MouthClosed Tani MouthOpen
+Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Julie MouthOpen
+Julie MouthClosed Carol Laughing
+Nikolai MouthOpen Carol MouthClosed
+Nikolai MouthClosed Randall Worried
+Randall MouthOpen
+Randall MouthClosed Julie Worried
+Carol MouthOpen
+Randall MouthOpen Julie MouthClosed Carol MouthClosed
+null
+Randall MouthClosed Julie MouthOpen
+null
+Nikolai Worried Julie MouthClosed
+Nikolai MouthClosed Tani Laughing
+Randall Laughing Tani MouthClosed
+Randall MouthOpen
+Randall MouthClosed
+Randall MouthOpen
+Randall MouthClosed
+Randall Worried
+Randall MouthClosed
+Julie MouthOpen
