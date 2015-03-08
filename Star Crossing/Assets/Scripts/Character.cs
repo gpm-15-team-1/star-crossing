@@ -93,62 +93,83 @@ public class Character : MonoBehaviour{
 
 	void Move1Left()
 	{
-		newPos = new Vector2(transform.position.x-2, transform.position.y);
+		newPos = new Vector2(transform.position.x-2.5f, transform.position.y);
 		move = true;
 	}
 
 	void Move1Right()
 	{
-		newPos = new Vector2(transform.position.x+2, transform.position.y);
+		newPos = new Vector2(transform.position.x+2.5f, transform.position.y);
 		move = true;
 	}
 
 	void Move2Left()
 	{
-		newPos = new Vector2(transform.position.x-4, transform.position.y);
+		newPos = new Vector2(transform.position.x-5, transform.position.y);
 		move = true;
 	}
 
 	void Move2Right()
 	{
-		newPos = new Vector2(transform.position.x+4, transform.position.y);
+		newPos = new Vector2(transform.position.x+5, transform.position.y);
 		move = true;
 	}
 
 	void MoveOnScreenLeft()
 	{
+		if(facing == "right")
+		{
+			Flip();
+			facing = "left";
+		}
 		transform.position = new Vector2(15.0f, transform.position.y);
-		newPos = new Vector2(6f, transform.position.y);
+		newPos = new Vector2(7f, transform.position.y);
 		move = true;
+		this.renderer.sortingOrder = 0;
 	}
 
 	void MoveOnScreenRight()
 	{
+		if(facing == "left")
+		{
+			Flip();
+			facing = "right";
+		}
 		transform.position = new Vector2(-15.0f, transform.position.y);
-		newPos = new Vector2(-6f, transform.position.y);
+		newPos = new Vector2(-7f, transform.position.y);
 		move = true;
+		this.renderer.sortingOrder = 0;
 	}
 
 	void RightFront()
 	{
 		if(facing == "right")
+		{
 			Flip();
-		transform.position = new Vector2(6f, transform.position.y);
+			facing = "left";
+		}
+		transform.position = new Vector2(7f, transform.position.y);
 		this.renderer.sortingOrder = 0;
 	}
 
 	void RightMid()
 	{
 		if(facing == "right")
+		{
 			Flip();
-		transform.position = new Vector2(4f, transform.position.y);
+			facing = "left";
+		}
+		transform.position = new Vector2(4.5f, transform.position.y);
 		this.renderer.sortingOrder = -1;
 	}
 
 	void RightBack()
 	{
 		if(facing == "right")
+		{
 			Flip();
+			facing = "left";
+		}
 		transform.position = new Vector2(2f, transform.position.y);
 		this.renderer.sortingOrder = -2;
 	}
@@ -156,23 +177,32 @@ public class Character : MonoBehaviour{
 	void LeftFront()
 	{
 		if(facing == "left")
+		{
 			Flip();
-		transform.position = new Vector2(-6f, transform.position.y);
+			facing = "right";
+		}
+		transform.position = new Vector2(-7f, transform.position.y);
 		this.renderer.sortingOrder = 0;
 	}
 
 	void LeftMid()
 	{
 		if(facing == "left")
+		{
 			Flip();
-		transform.position = new Vector2(-4f, transform.position.y);
+			facing = "right";
+		}
+		transform.position = new Vector2(-4.5f, transform.position.y);
 		this.renderer.sortingOrder = -1;
 	}
 
 	void LeftBack()
 	{
 		if(facing == "left")
+		{
 			Flip();
+			facing = "right";
+		}
 		transform.position = new Vector2(-2f, transform.position.y);
 		this.renderer.sortingOrder = -2;
 	}

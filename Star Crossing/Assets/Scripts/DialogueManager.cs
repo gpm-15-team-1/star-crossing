@@ -32,14 +32,31 @@ public class DialogueManager : MonoBehaviour {
 	int currentDay;
 	int currentScene;
 
+	//mood updates
+	public Image updatePanel;
+	public Text updateText;
+	public Material goodMaterial;
+	public Material badMaterial;
+	public AudioClip goodSound;
+	public AudioClip badSound;
+
 	//relationship
 	public string chosen = null;
 
 	//"pause" space action
 	public bool pause = false;
 
+	//fading transition
+	public GameObject fade;
+	Animator anim;
+
+	int fadeTime = 0;
+	int fadeCounter = 1;
+
 	// Use this for initialization
 	void Start () {
+
+		fade.SetActive(false);
 
 		for(int i=0; i<characters.Length; i++)
 			characters[i].mood = GameObject.Find("Save").GetComponent<SaveScript>().characters[i].mood;
@@ -53,6 +70,8 @@ public class DialogueManager : MonoBehaviour {
 		currentWeek = GameObject.Find("Save").GetComponent<SaveScript>().currentWeek;
 		currentDay = GameObject.Find("Save").GetComponent<SaveScript>().currentDay;
 		currentScene = GameObject.Find("Save").GetComponent<SaveScript>().currentScene;
+
+		hideUpdate();
 
 		//IF MORNING SCENE DO THIS
 		if(currentScene == (int)Scene.Morning)
@@ -73,6 +92,7 @@ public class DialogueManager : MonoBehaviour {
 
 				//dialogue
 				string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+				Debug.Log(item2);
 				dialogue.Add(item2);                             
 			}
 			file.Close();
@@ -96,12 +116,14 @@ public class DialogueManager : MonoBehaviour {
 		//IF FEEDBACK SCENE DO THIS
 		else if(currentScene == (int)Scene.Feedback)
 		{
+			//player feedback
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback.txt");
 			//int score = int.Parse(file.ReadLine());
 			//Debug.Log("Score: "+score);
 
-			int n = characters.Length-2;
+			int n = characters.Length-1;
+			Debug.Log("Number of characters: "+n);
 			string[] party = new string[n];
 			int[] accuracy = new int[n];
 
@@ -124,141 +146,78 @@ public class DialogueManager : MonoBehaviour {
 
 			file.Close();
 
-			//for(int j=0; j<n; j++)
+			int feedback = Random.Range(1,6);
+			StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
+			//terrible
+			if(accuracy[0]<64)
 			{
-				int feedback = Random.Range(1,6);
-				StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Feedback.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
+			}
+			//bad
+			else if(accuracy[0]<73 && accuracy[0]>=64)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Feedback.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Action.txt");
+			}
+			//awesome
+			else if(accuracy[0]>92)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Awesome_Feedback.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Awesome_Action.txt");
+			}
+			//neutral
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Neutral_Feedback.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Neutral_Action.txt");
+			}
+
+			readRandomDialogue(file, file2, feedback);
+
+			//status of any one other character who may be a concern
+			bool concern = false;
+			for(int i=1; i<n-1; i++)
+			{
+				feedback = Random.Range(1,6);
 				//terrible
-				if(accuracy[0]<64)
+				if(accuracy[i]<64)
 				{
-					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Feedback.txt");
-					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Terrible_Action.txt");
+					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[i]+"_Terrible_Feedback.txt");
+					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[i]+"_Terrible_Action.txt");
+					readRandomDialogue(file, file2, feedback);
+					concern = true;
+					break;
 				}
 				//bad
-				else if(accuracy[0]<73 && accuracy[0]>=64)
+				else if(accuracy[i]<73 && accuracy[i]>=64)
 				{
-					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Feedback.txt");
-					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Bad_Action.txt");
+					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[i]+"_Bad_Feedback.txt");
+					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[i]+"_Bad_Action.txt");
+					readRandomDialogue(file, file2, feedback);
+					concern = true;
+					break;
 				}
 				//awesome
-				else if(accuracy[0]>92)
+				else if(accuracy[i]>92)
 				{
-					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Awesome_Feedback.txt");
-					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Awesome_Action.txt");
+					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[i]+"_Awesome_Feedback.txt");
+					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[i]+"_Awesome_Action.txt");
+					readRandomDialogue(file, file2, feedback);
+					concern = true;
+					break;
 				}
-				//neutral
-				else
-				{
-					file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Neutral_Feedback.txt");
-					file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/"+party[0]+"_Neutral_Action.txt");
-				}
-
-				//skip loop
-				for(int i=0; i<feedback-1; i++)
-				{
-					int tempSize = int.Parse(file.ReadLine());
-					//Debug.Log("Skipping "+tempSize +" lines");
-					for(int k=0; k<tempSize; k++)
-						file.ReadLine();
-				}
-
-				int size = int.Parse(file.ReadLine());
-
-				//read dialogues from file
-				for(int i=0; i<size; i++)
-				{
-					//name
-					string line1 = file.ReadLine();
-					string item1 = line1.Substring(0, line1.IndexOf(' '));
-					line1 = line1.Remove(0,item1.Length+1);
-					speaker.Add(item1);
-
-					//dialogue
-					line1 = line1.Replace("@", "\n");
-					Debug.Log(line1);
-					string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
-					dialogue.Add (item2);	                             
-				}
-
-				file.Close();
-
-				//skip loop
-				for(int i=0; i<feedback-1; i++)
-				{
-					int tempSize = int.Parse(file2.ReadLine());
-					for(int k=0; k<tempSize; k++)
-						file2.ReadLine();
-				}
-
-				size = int.Parse(file2.ReadLine());
-
-				//skip all irrelevant lines
-				for(int i=0; i<size; i++)
-				{
-					List<string> currentActions = new List<string>();
-					string[] actionLine = file2.ReadLine().Split();
-					for(int k=0; k<actionLine.Length; k++)
-					{
-						currentActions.Add(actionLine[k]);
-					}
-					//Debug.Log("Actions this line: "+currentActions.Count);
-					actions.Add(currentActions);
-				}
-				
-				file2.Close();
 			}
-					
-					/*//skip loop
-					for(int i=0; i<feedback-1; i++)
-					{
-						int tempSize = int.Parse(file.ReadLine());
-						Debug.Log("Skipping "+tempSize +" lines");
-						for(int k=0; k<tempSize; k++)
-							file.ReadLine();
-					}
 
-					int size = int.Parse(file.ReadLine());
-					//read dialogues from file
-					for(int i=0; i<size; i++)
-					{
-						//name
-						string line1 = file.ReadLine();
-						string item1 = line1.Substring(0, line1.IndexOf(' '));
-						line1 = line1.Remove(0,item1.Length+1);
-						speaker.Add(item1);
-						
-						//dialogue
-						line1 = line1.Replace("@", "\n");
-						string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
-						dialogue.Add (item2);                           
-					}
+			if(concern==false)
+			{
+				feedback = Random.Range(1,8);
+				//provide generic feedback
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/Generic_Feedback.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/Feedback/Generic_Action.txt");
+				readRandomDialogue(file, file2, feedback);
+			}
 
-					file.Close();
-
-					StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+party[j]+"_Positive_Action.txt");
-
-					//skip loop
-					for(int i=0; i<feedback-1; i++)
-					{
-						int tempSize = int.Parse(file2.ReadLine());
-						for(int k=0; k<tempSize; k++)
-							file2.ReadLine();
-					}
-
-					size = int.Parse(file2.ReadLine());
-					//read
-					for(int i=0; i<size; i++)
-					{
-						List<string> currentActions = new List<string>();
-						string[] actionLine = file2.ReadLine().Split();
-						for(int k=0; k<actionLine.Length; k++)
-						{
-							currentActions.Add(actionLine[k]);
-						}
-						actions.Add(currentActions);
-					}
-					
-					file2.Close();*/
 			save ();
 		}
 		else if(currentScene == (int)Scene.Relationship1)
@@ -314,12 +273,50 @@ public class DialogueManager : MonoBehaviour {
 				{
 					if(currentIndex+1 < dialogue.Count)
 					{
-						currentIndex++;
-						changeSprites();
-						name.text = (string)speaker[currentIndex];
-						changeColour((string)speaker[currentIndex]);
-						line.text = (string)dialogue[currentIndex];
-						//AudioSettings.dspTime for future reference
+						//not the "select relationship" statement
+						if(((string)speaker[currentIndex+1]).Equals("") && currentIndex!=0)
+						{
+							currentIndex++;
+							updateText.text = (string)dialogue[currentIndex];
+							showUpdate();
+							if(updateText.material == goodMaterial)
+							{
+								audio.clip = goodSound;
+								audio.Play();
+							}
+							else if(updateText.material == badMaterial)
+							{
+								audio.clip = badSound;
+								audio.Play();
+							}
+						}
+						else
+						{
+							hideUpdate();
+							currentIndex++;
+							changeSprites();
+							name.text = (string)speaker[currentIndex];
+							changeColour((string)speaker[currentIndex]);
+							line.text = (string)dialogue[currentIndex];
+						}
+						if(currentScene==(int)Scene.Feedback)
+						{
+							Debug.Log("Fade counter:" +fadeCounter);
+							Debug.Log("Fade time:" +fadeTime);
+							if(fadeCounter!=fadeTime)
+							{
+								fadeCounter++;
+							}
+							else
+							{
+								//fade
+								fade.SetActive(true);
+								fade.GetComponent<FadeScript>().fadeOut();
+								fade.GetComponent<FadeScript>().fadeIn();
+								fadeCounter = 1;
+								fadeTime = 0;
+							}
+						}
 					}
 					else
 					{
@@ -354,6 +351,7 @@ public class DialogueManager : MonoBehaviour {
 						
 						save ();
 						//DontDestroyOnLoad(GameObject.Find("Save"));
+						//insert fading transition here
 						Application.LoadLevel(toLoad);
 					}
 				}
@@ -365,7 +363,7 @@ public class DialogueManager : MonoBehaviour {
 	{
 		for(int i=0; i<characters.Length; i++)
 			GameObject.Find("Save").GetComponent<SaveScript>().characters[i] = characters[i];
-		GameObject.Find("Save").GetComponent<SaveScript>().saveFile(1);
+		GameObject.Find("Save").GetComponent<SaveScript>().saveFile();
 	}
 
 	void changeColour(string speaker)
@@ -705,6 +703,7 @@ public class DialogueManager : MonoBehaviour {
 			dialogue.Add(c.name +"'s mood: +" +2+"%");
 			c.mood +=2;
 			nullActions.Add("null");
+			updateText.material = goodMaterial;
 		}
 		save ();
 	}
@@ -717,10 +716,14 @@ public class DialogueManager : MonoBehaviour {
 		if(level > 0)
 		{
 			speaker.Add("");
-			dialogue.Add(c1.name +"'s mood: +" +10 +"%\n" +c2.name +"'s mood: +" +10+"%");
+			speaker.Add("");
+			dialogue.Add(c1.name +"'s mood: +" +10 +"%");
+			dialogue.Add(c2.name +"'s mood: +" +10+"%");
 			c1.mood += 10;
 			c2.mood += 10;
 			nullActions.Add("null");
+			nullActions.Add("null");
+			updateText.material = goodMaterial;
 		}
 		//rivalry
 		else
@@ -744,20 +747,101 @@ public class DialogueManager : MonoBehaviour {
 			if(v1==1)
 			{
 				speaker.Add("");
-				dialogue.Add(c1.name +"'s mood: -" +small +"%\n" +c2.name +"'s mood: -" +large+"%");
+				speaker.Add("");
+				dialogue.Add(c1.name +"'s mood: -" +small +"%");
+				dialogue.Add (c2.name +"'s mood: -" +large+"%");
 				c1.mood -= small;
 				c2.mood -= large;
 				nullActions.Add("null");
+				nullActions.Add("null");
+				updateText.material = badMaterial;
 			}
 			else
 			{
 				speaker.Add("");
-				dialogue.Add(c1.name +"'s mood: -" +large +"%\n" +c2.name +"'s mood: -" +small+"%");
+				speaker.Add("");
+				dialogue.Add(c1.name +"'s mood: -" +large +"%");
+				dialogue.Add(c2.name +"'s mood: -" +small+"%");
 				c1.mood -= large;
 				c2.mood -= small;
 				nullActions.Add("null");
+				nullActions.Add("null");
+				updateText.material = badMaterial;
 			}
 		}
 		save ();
+	}
+
+	void showUpdate()
+	{
+		updatePanel.enabled = true;
+		updateText.enabled = true;
+	}
+
+	
+	void hideUpdate()
+	{
+		updatePanel.enabled = false;
+		updateText.enabled = false;
+	}
+
+	//reads from file where a random section of dialogue must be chosen
+	void readRandomDialogue(StreamReader file, StreamReader file2, int feedback)
+	{
+		//skip loop
+		for(int i=0; i<feedback-1; i++)
+		{
+			int tempSize = int.Parse(file.ReadLine());
+			//Debug.Log("Skipping "+tempSize +" lines");
+			for(int k=0; k<tempSize; k++)
+				file.ReadLine();
+		}
+		
+		int size = int.Parse(file.ReadLine());
+		if(currentScene==(int)Scene.Feedback && fadeTime==0)
+			fadeTime+=size;
+		
+		//read dialogues from file
+		for(int i=0; i<size; i++)
+		{
+			//name
+			string line1 = file.ReadLine();
+			string item1 = line1.Substring(0, line1.IndexOf(' '));
+			line1 = line1.Remove(0,item1.Length+1);
+			speaker.Add(item1);
+			
+			//dialogue
+			line1 = line1.Replace("@", "\n");
+			Debug.Log(line1);
+			string item2 = line1.Substring(1,line1.LastIndexOf('"')-1);
+			dialogue.Add (item2);	                             
+		}
+		
+		file.Close();
+		
+		//skip loop
+		for(int i=0; i<feedback-1; i++)
+		{
+			int tempSize = int.Parse(file2.ReadLine());
+			for(int k=0; k<tempSize; k++)
+				file2.ReadLine();
+		}
+		
+		size = int.Parse(file2.ReadLine());
+		
+		//skip all irrelevant lines
+		for(int i=0; i<size; i++)
+		{
+			List<string> currentActions = new List<string>();
+			string[] actionLine = file2.ReadLine().Split();
+			for(int k=0; k<actionLine.Length; k++)
+			{
+				currentActions.Add(actionLine[k]);
+			}
+			//Debug.Log("Actions this line: "+currentActions.Count);
+			actions.Add(currentActions);
+		}
+		
+		file2.Close();
 	}
 }

@@ -5,6 +5,8 @@ using System.Collections;
 public class RelationshipButtonScript : MonoBehaviour {
 
 	public Text myText;
+	public AudioClip blocked;
+	public AudioClip click;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +20,18 @@ public class RelationshipButtonScript : MonoBehaviour {
 
 	public void OnMouseUp()
 	{
+		if(!this.GetComponent<Button>().enabled)
+		{
+			audio.clip = blocked;
+			audio.PlayOneShot(blocked);
+		}
+		else
+		{
+			audio.clip = click;
+			audio.PlayOneShot(click);
+		}
 		GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen = myText.text;
+		GameObject.Find("Save").GetComponent<SaveScript>().saveChosen();
 		Relationship[] tempRelationships = new Relationship[10];
 
 		for(int i=0; i<GameObject.Find("Save").GetComponent<SaveScript>().relationships.Length; i++)

@@ -10,10 +10,16 @@ public class RelationshipMenuManager : MonoBehaviour {
 	public Button[] buttons;
 	List<int> shuffled;
 
+	Color basic = new Color(0.20f, 0.20f, 0.20f);
+	Color selected = new Color(0.50f, 0.50f, 0.50f);
+
 	string chosen;
 
 	// Use this for initialization
 	void Start () {
+		
+		setChosen(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen);
+
 	}
 	
 	// Update is called once per frame
@@ -36,7 +42,6 @@ public class RelationshipMenuManager : MonoBehaviour {
 			GameObject.Find("Save").GetComponent<SaveScript>().shuffled.Add(shuffled[i]);
 			toShow[i].text = GameObject.Find("Save").GetComponent<SaveScript>().relationships[shuffled[i]].getName ();
 		}
-		GameObject.Find("Save").GetComponent<SaveScript>().saveChosen();
 	}
 
 	public void Display()
@@ -53,15 +58,15 @@ public class RelationshipMenuManager : MonoBehaviour {
 			toShow[i].text = GameObject.Find("Save").GetComponent<SaveScript>().relationships[shuffled[i]].getName();
 		}
 
-		chosen = GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen;
-
 		if(chosen!=null)
 		{
 			for(int i=0; i<shuffled.Count; i++)
 			{
 				if(chosen.Equals(GameObject.Find("Save").GetComponent<SaveScript>().relationships[shuffled[i]].getName()))
 				{
-					toShow[i].material.color = Color.gray;
+					//Debug.Log("Chosen disabled");
+					buttons[i].enabled = false;
+					buttons[i].gameObject.SetActive(false);
 				}
 			}
 		}
@@ -72,24 +77,40 @@ public class RelationshipMenuManager : MonoBehaviour {
 		return chosen;
 	}
 
+	public void setChosen(string c)
+	{
+		chosen = c;
+	}
+
 	public void disable()
 	{
 		Debug.Log("Relationships disabled.");
 		for(int i=0; i<toShow.Length; i++)
 		{
 			toShow[i].enabled = false;
-			buttons[i].enabled = false;
+			//buttons[i].enabled = false;
 			buttons[i].gameObject.SetActive(false);
+			buttons[i].GetComponent<Button>().interactable = false;
 		}
 	}
 
 	public void enable()
 	{
+		setChosen(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen);
 		for(int i=0; i<toShow.Length; i++)
 		{
 			toShow[i].enabled = true;
-			buttons[i].enabled = true;
+			toShow[i].color = basic;
+			//buttons[i].enabled = true;
 			buttons[i].gameObject.SetActive(true);
+			buttons[i].GetComponent<Button>().interactable = true;
+			if(toShow[i].text.Equals(chosen))
+			{
+				//buttons[i].enabled = false;
+				toShow[i].color = selected;
+				buttons[i].GetComponent<Button>().interactable = false;
+				//buttons[i].gameObject.SetActive(false);
+			}
 		}
 	}
 }

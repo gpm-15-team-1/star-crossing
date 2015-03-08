@@ -1,0 +1,15 @@
+14
+Randall MouthOpen Julie MouthClosed Tani MouthClosed
+Randall MouthClosed Julie MouthOpen
+Randall Laughing Julie MouthClosed
+Randall MouthOpen
+Randall MouthClosed Tani Worried
+null
+Randall Move1Left Tani Move2Left Tani Flip Tani MouthClosed Nikolai MoveOnScreenLeft Nikolai MouthOpen
+null
+Randall Laughing Nikolai MouthClosed
+Randall MouthClosed Tani MouthOpen Nikolai MouthClosed
+Tani MouthClosed Nikolai MouthOpen
+null
+Nikolai MouthClosed Julie MouthOpen
+Julie MouthClosed Randall MouthOpen
