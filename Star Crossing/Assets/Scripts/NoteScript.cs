@@ -35,6 +35,7 @@ public class NoteScript : MonoBehaviour {
 			hit.Play();
 			StatScript.notes_hit++;
 			StatScript.number_of_notes++;
+			StatScript.current_run++;
 			//print("HIT!");
 		}
 	}
@@ -44,6 +45,7 @@ public class NoteScript : MonoBehaviour {
 		corot = true;
 		gameObject.GetComponent<Renderer>().material.color = Color.red;
 		miss.Play();
+		StatScript.current_run = 0;
 		StatScript.number_of_notes++;
 		yield return new WaitForSeconds (5.0f);
 		Destroy(gameObject);
