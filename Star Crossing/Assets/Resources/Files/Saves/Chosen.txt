@@ -1,6 +1,14 @@
+<<<<<<< HEAD
+Nikolai/Carol
+8
+6
+1
+4
+=======
 Randall/Julie
 0
 5
+>>>>>>> origin/master
 3
 2
 8
