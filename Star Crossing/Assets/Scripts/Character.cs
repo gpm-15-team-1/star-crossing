@@ -4,8 +4,13 @@ using System.Collections;
 public class Character : MonoBehaviour{
 
 	//visualisation
-	enum Moods {HappyMouthClosed, HappyMouthOpen, Worried, Laughing, Sad, Angry, Curious};
-	public Sprite[] moodSprites;
+	//enum Moods {HappyMouthClosed, HappyMouthOpen, Worried, Laughing, Sad, Angry, Curious};
+	enum Moods {Neutral, Happy, Sad, Angry, Confused, Thinking};
+	enum Variations {MouthClosed, MouthOpen};
+	int currentMood;
+	//default
+	public Sprite[] moodSpritesClosed;
+	public Sprite[] moodSpritesOpen;
 	public Texture faceSprite;
 
 	//static facts
@@ -29,7 +34,7 @@ public class Character : MonoBehaviour{
 	// Use this for initialization
 	void Start () {
 		Moods myMoods;
-		myMoods = Moods.HappyMouthClosed;
+		myMoods = Moods.Neutral;
 		//GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.HappyMouthOpen];
 		//Debug.Log(name + ": " +GetComponent<SpriteRenderer>().sortingOrder);
 	}
@@ -51,37 +56,48 @@ public class Character : MonoBehaviour{
 
 	void MouthOpen()
 	{
-		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.HappyMouthOpen];
+		GetComponent<SpriteRenderer>().sprite = moodSpritesOpen[currentMood];
 	}
 
 	void MouthClosed()
 	{
-		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.HappyMouthClosed];
+		GetComponent<SpriteRenderer>().sprite = moodSpritesClosed[currentMood];
 	}
 
-	void Worried()
+	void Neutral()
 	{
-		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Worried];
+		currentMood = (int)Moods.Neutral;
+		GetComponent<SpriteRenderer>().sprite = moodSpritesClosed[currentMood];
 	}
 
-	void Laughing()
+	void Happy()
 	{
-		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Laughing];
+		currentMood = (int)Moods.Happy;
+		GetComponent<SpriteRenderer>().sprite = moodSpritesClosed[currentMood];
 	}
 
 	void Sad()
 	{
-		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Sad];
+		currentMood = (int)Moods.Sad;
+		GetComponent<SpriteRenderer>().sprite = moodSpritesClosed[currentMood];
 	}
 
 	void Angry()
 	{
-		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Angry];
+		currentMood = (int)Moods.Angry;
+		GetComponent<SpriteRenderer>().sprite = moodSpritesClosed[currentMood];
 	}
 
-	void Curious()
+	void Confused()
 	{
-		GetComponent<SpriteRenderer>().sprite = moodSprites[(int)Moods.Curious];
+		currentMood = (int)Moods.Confused;
+		GetComponent<SpriteRenderer>().sprite = moodSpritesClosed[currentMood];
+	}
+
+	void Thinking()
+	{
+		currentMood = (int)Moods.Thinking;
+		GetComponent<SpriteRenderer>().sprite = moodSpritesClosed[currentMood];
 	}
 
 	void Flip()

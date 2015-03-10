@@ -4,16 +4,16 @@ Julie MouthOpen Tani MouthClosed
 3
 Julie LeftMid Julie MouthOpen Carol RightMid Carol MouthClosed
 Carol MouthOpen Julie MouthClosed
-Carol MouthClosed Julie Worried
+Carol MouthClosed Julie Sad Julie MouthOpen
 3
 Julie MouthOpen Julie RightBack Nikolai LeftMid Nikolai MouthClosed
 Nikolai MouthOpen Julie MouthClosed
-Nikolai MouthClosed Julie Worried
+Nikolai MouthClosed Julie Sad Julie MouthOpen
 2
-Julie Worried Julie LeftMid Randall RightBack Randall MouthClosed
-Randall MouthOpen Julie MouthClosed
+Julie Sad Julie MouthOpen Julie LeftMid Randall RightBack Randall MouthClosed
+Randall MouthOpen Julie Neutral Julie MouthClosed
 4
 Randall LeftMid Randall MouthOpen Nikolai RightMid Nikolai MouthClosed Julie RightBack Julie MouthClosed
 Nikolai MouthOpen Randall MouthClosed
-Julie Worried Nikolai MouthClosed
-Nikolai MouthOpen
+Julie Sad Julie MouthOpen Nikolai MouthClosed
+Nikolai MouthOpen Julie Neutral Julie MouthClosed

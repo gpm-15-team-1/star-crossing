@@ -4,48 +4,48 @@ Randall MouthClosed Julie MouthOpen
 Julie MouthClosed Carol MouthOpen
 Tani MouthOpen Carol MouthClosed
 Randall MouthOpen Tani MouthClosed
-Randall Worried
-Tani Worried
-Tani Flip Tani Angry
+Randall Angry Randall MouthOpen
+Tani Sad Tani MouthOpen
+Tani Flip Tani Angry Tani MouthOpen
 Randall Flip Randall MouthClosed Randall Move1Right Nikolai MoveOnScreenRight Nikolai MouthOpen
-Nikolai MouthClosed Randall MouthOpen
+Nikolai MouthClosed Randall Neutral Randall MouthOpen Tani Neutral
 Nikolai MouthOpen Randall MouthClosed
-Randall Laughing Nikolai MouthClosed
-Randall Flip Randall MouthOpen Tani Flip Tani MouthClosed
-Randall MouthClosed Julie MouthOpen
+Randall Happy Randall MouthOpen Nikolai MouthClosed
+Randall Flip Randall Happy Randall MouthOpen Tani Flip Tani MouthClosed
+Randall MouthClosed Julie Happy Julie MouthOpen
 Julie MouthClosed Carol MouthOpen
-Julie MouthOpen Carol MouthClosed
+Julie Neutral Julie MouthOpen Carol MouthClosed
 Nikolai MouthOpen Julie MouthClosed
 Nikolai MouthClosed Tani Angry
-Julie Worried
+Julie Angry Julie MouthOpen
 Tani MouthOpen Julie MouthClosed
-Tani MouthClosed Julie MouthOpen
+Tani MouthClosed Julie Neutral Julie MouthOpen
 Julie MouthClosed Carol MouthOpen
-Julie Flip Julie Worried Carol MouthClosed
-Randall Worried Julie Flip Julie MouthClosed
-Tani Angry
-null
-Randall MouthOpen
-Randall MouthClosed Tani MouthOpen
+Julie Flip Julie Angry Julie MouthOpen Carol MouthClosed
+Randall Angry Randall MouthOpen Julie Flip Julie Neutral Julie MouthClosed
+Randall MouthClosed Tani Flip Tani Angry Tani MouthOpen
 Randall MouthOpen Tani MouthClosed
-Randall MouthClosed Julie MouthOpen
-Julie MouthClosed Carol Laughing
-Nikolai MouthOpen Carol MouthClosed
-Nikolai MouthClosed Randall Worried
-Randall MouthOpen
-Randall MouthClosed Julie Worried
-Carol MouthOpen
-Randall MouthOpen Julie MouthClosed Carol MouthClosed
+Randall Neutral Randall MouthOpen
+Randall MouthClosed Tani Neutral Tani MouthOpen
+Randall Happy Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Julie Happy Julie MouthOpen
+Julie MouthClosed Carol Happy Carol MouthOpen
+Nikolai MouthOpen Julie Neutral Carol Neutral Carol MouthClosed
+Nikolai MouthClosed Randall Angry Randall MouthOpen
+Randall Neutral Randall MouthOpen
+Randall MouthClosed Julie Thinking Julie MouthOpen
+Julie MouthClosed Carol MouthOpen
+Randall Thinking Randall MouthOpen Julie MouthClosed Carol MouthClosed
 null
-Randall MouthClosed Julie MouthOpen
+Randall MouthClosed Julie Happy Julie MouthOpen
 null
-Nikolai Worried Julie MouthClosed
-Nikolai MouthClosed Tani Laughing
-Randall Laughing Tani MouthClosed
-Randall MouthOpen
+Nikolai Angry Nikolai MouthOpen Julie MouthClosed
+Nikolai MouthClosed Randall Neutral Tani Happy Tani MouthOpen
+Randall Happy Randall MouthOpen Tani MouthClosed
+Nikolai Neutral Randall Neutral Randall MouthOpen Tani Neutral Julie Neutral
 Randall MouthClosed
 Randall MouthOpen
 Randall MouthClosed
-Randall Worried
+Randall Angry Randall MouthOpen
 Randall MouthClosed
-Julie MouthOpen
+Randall Neutral Julie Happy Julie MouthOpen

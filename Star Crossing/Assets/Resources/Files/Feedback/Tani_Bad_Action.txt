@@ -1,14 +1,14 @@
 3
-Randall Worried Julie Worried Tani Worried
-null
-Randall MouthOpen Julie MouthClosed
+Randall Sad Julie Sad Julie MouthOpen Tani Sad
+Julie MouthClosed Tani MouthOpen
+Randall Neutral Randall MouthOpen Julie Neutral Julie MouthClosed
 2
-Randall Worried Julie Worried Tani Worried
-Randall MouthClosed Julie MouthOpen
+Randall Sad Julie Sad Tani Sad Tani MouthOpen
+Randall MouthClosed Julie MouthOpen Tani MouthClosed
 1
-Randall Worried Tani Worried Julie Worried
+Randall Sad Tani Sad Tani MouthOpen Julie Sad
 2
-Randall Worried Tani Worried Julie Worried
-null
+Randall Sad Randall MouthOpen Tani Sad Julie Sad
+Randall MouthClosed Tani MouthOpen
 1
-Randall Worried Tani Worried Julie Worried
+Randall Sad Tani Sad Tani MouthOpen Julie Sad

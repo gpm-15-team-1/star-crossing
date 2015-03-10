@@ -1,16 +1,16 @@
 2
 Randall LeftMid Randall MouthOpen Tani RightBack Tani MouthClosed
-Randall MouthClosed Tani Laughing
+Randall MouthClosed Tani Happy Tani MouthOpen
 2
 Nikolai LeftMid Nikolai MouthOpen Tani RightBack Tani MouthClosed
-Nikolai MouthClosed Tani Laughing
+Nikolai MouthClosed Tani Happy Tani MouthOpen
 2
 Julie RightMid Julie MouthOpen Tani LeftMid Tani MouthClosed
-Julie MouthClosed Tani Laughing
+Julie MouthClosed Tani Happy Tani MouthOpen
 3
 Julie MouthOpen Julie RightMid Tani MouthClosed Tani LeftMid
-Tani Sad Julie Worried
-Julie MouthOpen Tani Curious
+Tani Sad Tani MouthOpen Julie Sad Julie MouthClosed
+Julie Neutral Julie MouthOpen Tani Neutral Tani MouthClosed
 2
-Tani RightMid Tani Curious Randall MouthClosed
-Randall MouthOpen Tani Laughing
+Tani RightMid Tani Neutral Tani MouthOpen Randall MouthClosed
+Randall MouthOpen Tani Happy Tani MouthClosed

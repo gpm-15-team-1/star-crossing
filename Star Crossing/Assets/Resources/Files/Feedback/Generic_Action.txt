@@ -1,21 +1,21 @@
 1
-Randall LeftFront Randall MouthOpen Julie LeftMid Julie MouthClosed Nikolai RightFront Nikolai MouthClosed Tani RightMid Tani MouthClosed Carol RightBack Carol MouthClosed
+Randall LeftFront Randall Neutral Randall MouthOpen Julie LeftMid Julie Neutral Julie MouthClosed Nikolai RightFront Nikolai Neutral Nikolai MouthClosed Tani RightMid Tani Neutral Tani MouthClosed Carol RightBack Carol Neutral Carol MouthClosed
 2
-Randall LeftFront Randall MouthOpen Julie LeftMid Julie MouthClosed Nikolai RightFront Nikolai MouthClosed Tani RightMid Tani MouthClosed Carol RightBack Carol MouthClosed
+Randall LeftFront Randall Neutral Randall MouthOpen Julie LeftMid Julie Neutral Julie MouthClosed Nikolai RightFront Nikolai Neutral Nikolai MouthClosed Tani RightMid Tani Neutral Tani MouthClosed Carol RightBack Carol Neutral Carol MouthClosed
 Randall MouthClosed Nikolai MouthOpen
 1
-Randall LeftFront Randall MouthOpen Julie LeftMid Julie MouthClosed Nikolai RightFront Nikolai MouthClosed Tani RightMid Tani MouthClosed Carol RightBack Carol MouthClosed
+Randall LeftFront Randall Neutral Randall MouthOpen Julie LeftMid Julie Neutral Julie MouthClosed Nikolai RightFront Nikolai Neutral Nikolai MouthClosed Tani RightMid Tani Neutral Tani MouthClosed Carol RightBack Carol Neutral Carol MouthClosed
 4
-Randall LeftFront Randall MouthOpen Julie LeftMid Julie MouthClosed Nikolai RightFront Nikolai MouthClosed Tani RightMid Tani MouthClosed Carol RightBack Carol MouthClosed
-Randall MouthClosed Carol MouthOpen
+Randall LeftFront Randall Neutral Randall MouthOpen Julie LeftMid Julie Neutral Julie MouthClosed Nikolai RightFront Nikolai Neutral Nikolai MouthClosed Tani RightMid Tani Neutral Tani MouthClosed Carol RightBack Carol Neutral Carol MouthClosed
+Randall MouthClosed Carol Happy Carol MouthOpen
 null
-Carol MouthClosed Randall Laughing
+Carol Neutral Carol MouthClosed Randall Happy Randall MouthOpen
 2
-Randall LeftMid Randall MouthOpen Julie RightMid Julie MouthClosed Nikolai RightFront Nikolai MouthClosed Tani LeftBack Tani MouthClosed Carol RightBack Carol MouthClosed
+Randall LeftFront Randall Neutral Randall MouthOpen Julie LeftMid Julie Neutral Julie MouthClosed Nikolai RightFront Nikolai Neutral Nikolai MouthClosed Tani RightMid Tani Neutral Tani MouthClosed Carol RightBack Carol Neutral Carol MouthClosed
 Randall MouthClosed Julie MouthOpen
 3
-Randall LeftFront Randall MouthOpen Julie LeftMid Julie MouthClosed Nikolai RightFront Nikolai MouthClosed Tani RightMid Tani MouthClosed Carol RightBack Carol MouthClosed
-Randall MouthClosed Tani Curious
-Randall Worried
+Randall LeftFront Randall Neutral Randall MouthOpen Julie LeftMid Julie Neutral Julie MouthClosed Nikolai RightFront Nikolai Neutral Nikolai MouthClosed Tani RightMid Tani Neutral Tani MouthClosed Carol RightBack Carol Neutral Carol MouthClosed
+Randall MouthClosed Tani Thinking Tani MouthOpen
+Randall Sad Randall MouthOpen Tani MouthClosed
 1
-Randall LeftFront Randall MouthOpen Julie LeftMid Julie MouthClosed Nikolai RightFront Nikolai MouthClosed Tani RightMid Tani MouthClosed Carol RightBack Carol MouthClosed
+Randall LeftFront Randall Neutral Randall MouthOpen Julie LeftMid Julie Neutral Julie MouthClosed Nikolai RightFront Nikolai Neutral Nikolai MouthClosed Tani RightMid Tani Neutral Tani MouthClosed Carol RightBack Carol Neutral Carol MouthClosed

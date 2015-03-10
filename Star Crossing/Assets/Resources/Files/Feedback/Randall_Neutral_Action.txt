@@ -7,11 +7,11 @@ Julie MouthClosed Nikolai MouthOpen
 Nikolai MouthClosed Randall MouthOpen
 2
 Carol LeftMid Carol MouthOpen Randall RightMid Randall MouthClosed
-Carol MouthClosed Randall Laughing
+Carol MouthClosed Randall Happy Randall MouthOpen
 3
 Randall MouthOpen Randall RightMid Nikolai LeftMid Nikolai MouthClosed
 Randall MouthClosed Nikolai MouthOpen
-Nikolai MouthClosed Randall Worried
+Nikolai MouthClosed Randall Sad Randall MouthOpen
 2
 Randall MouthOpen Randall LeftMid Tani RightBack Tani MouthClosed
-Tani Laughing Randall MouthClosed
+Tani Happy Tani MouthOpen Randall MouthClosed

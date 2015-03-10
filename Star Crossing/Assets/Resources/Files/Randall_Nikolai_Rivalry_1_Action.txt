@@ -1,9 +1,9 @@
 8
-Randall MouthOpen Nikolai MouthClosed
+Randall Angry Randall MouthOpen Nikolai MouthClosed
 Nikolai MouthOpen Randall MouthClosed
 Randall MouthOpen Nikolai MouthClosed
 Nikolai MouthOpen Randall MouthClosed
 Randall MouthOpen Nikolai MouthClosed
 Nikolai MouthOpen Randall MouthClosed
 Randall MouthOpen Nikolai MouthClosed
-Nikolai MouthOpen Randall MouthClosed
+Nikolai Angry Nikolai MouthOpen Randall MouthClosed

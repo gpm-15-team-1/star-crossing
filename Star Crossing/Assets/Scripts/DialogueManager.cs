@@ -97,7 +97,7 @@ public class DialogueManager : MonoBehaviour {
 			}
 			file.Close();
 
-			file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Action.txt");
+			file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Morning_Action.txt");
 			size = int.Parse(file.ReadLine());
 			//skip all irrelevant lines
 			for(int i=0; i<size; i++)
@@ -313,7 +313,7 @@ public class DialogueManager : MonoBehaviour {
 								fade.SetActive(true);
 								fade.GetComponent<FadeScript>().fadeOut();
 								fade.GetComponent<FadeScript>().fadeIn();
-								fadeCounter = 1;
+								fadeCounter = 0;
 								fadeTime = 0;
 							}
 						}
@@ -476,6 +476,8 @@ public class DialogueManager : MonoBehaviour {
 		string[] actionLine = file2.ReadLine().Split();
 		currentActions.Add(other);
 		currentActions.Add("MouthClosed");
+		currentActions.Add(other);
+		currentActions.Add("RightMid");
 		for(int k=0; k<actionLine.Length; k++)
 		{
 			currentActions.Add(actionLine[k]);
@@ -527,6 +529,8 @@ public class DialogueManager : MonoBehaviour {
 		actionLine = file2.ReadLine().Split();
 		currentActions.Add(other);
 		currentActions.Add("MouthClosed");
+		currentActions.Add(other);
+		currentActions.Add("LeftMid");
 		for(int k=0; k<actionLine.Length; k++)
 		{
 			currentActions.Add(actionLine[k]);
@@ -799,7 +803,7 @@ public class DialogueManager : MonoBehaviour {
 		
 		int size = int.Parse(file.ReadLine());
 		if(currentScene==(int)Scene.Feedback && fadeTime==0)
-			fadeTime+=size;
+			fadeTime+=size-1;
 		
 		//read dialogues from file
 		for(int i=0; i<size; i++)

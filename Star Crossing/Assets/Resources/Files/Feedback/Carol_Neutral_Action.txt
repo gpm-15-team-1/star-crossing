@@ -7,10 +7,10 @@ Randall MouthOpen Julie MouthClosed
 Randall MouthClosed Carol MouthOpen
 2
 Nikolai LeftMid Nikolai MouthOpen Carol RightMid Carol MouthClosed
-Carol Laughing Nikolai MouthClosed
+Carol Happy Carol MouthOpen Nikolai MouthClosed
 2
 Julie MouthOpen Julie RightBack Carol LeftMid Carol MouthClosed
 Julie MouthClosed Carol MouthOpen
 2
-Carol Worried Carol RightMid Randall MouthClosed Randall LeftMid
-Randall MouthOpen Carol MouthClosed
+Carol Sad Carol MouthOpen Carol RightMid Randall MouthClosed Randall LeftMid
+Randall MouthOpen Carol Neutral Carol MouthClosed

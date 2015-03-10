@@ -5,7 +5,7 @@ Carol "I understand, Randall. I will recalibrate myself."
 3
 Nikolai "Something was off about you today. Like, more than usual."
 Carol "Could it have been that program I installed before powering down last night?"
-Carol "I will have to investigate!"
+Carol "I will have to investigate..."
 3
 Tani "Julie, is it time for one of Carol's tune-ups?"
 Julie "Hmm, I didn't think so, but now that you mention it..."

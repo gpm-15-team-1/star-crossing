@@ -7,10 +7,10 @@ Carol "But that last performance was...not the same as always."
 Julie "I'm sorry for letting you down, Carol..."
 5
 Randall "What's wrong, Julie? You're usually the most excited out of all@of us after a performance."
-Julie "Sorry, Rands, but I guess I just don't have it in me today...I did@pretty badly, after all."
+Julie "Sorry, Rands, but I guess I just don't have it in me today...I did pretty badly, after all."
 Randall "...I hate to agree, but you're right."
 Randall "Work harder, okay?"
-Julie "You got it!"
+Julie "You got it."
 1
 Julie "I know, I know, I did a bad job. But I'll do better, I swear!"
 2
