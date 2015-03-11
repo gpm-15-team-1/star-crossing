@@ -7,6 +7,10 @@ public class MainMenuScript : MonoBehaviour {
 
 	public Canvas mainMenu;
 	public Canvas loadSaveMenu;
+	public AudioClip start;
+	public AudioClip load;
+	public AudioClip normal;
+	public AudioClip back;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +26,15 @@ public class MainMenuScript : MonoBehaviour {
 	public void PlayOnClick () {
 		// load new game (story mode with fresh data)
 		File.Delete (Application.dataPath + "/Resources/Files/Saves/Temp.txt");
+		SendMessage("PlayStart");
+	}
+
+	IEnumerator PlayStart()
+	{
+		audio.clip = start;
+		audio.Play();
+		yield return new WaitForSeconds(audio.clip.length);
+		
 		Application.LoadLevel ("StoryScene01");
 	}
 
@@ -29,12 +42,16 @@ public class MainMenuScript : MonoBehaviour {
 		// display the load/save menu
 		mainMenu.enabled = false;
 		loadSaveMenu.enabled = true;
+		audio.clip = load;
+		audio.Play ();
 	}
 
 	public void BackOnClick () {
 		// returns from load/save menu to main menu
 		mainMenu.enabled = true;
 		loadSaveMenu.enabled = false;
+		audio.clip = back;
+		audio.Play ();
 	}
 
 	public void OptionsOnClick () {

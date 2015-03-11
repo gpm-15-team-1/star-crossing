@@ -10,7 +10,7 @@ public class MoveScript3 : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		MovingEntities3.transform.Translate (Vector3.back * 30 * Time.deltaTime);
 		if (MovingEntities3.transform.position.z <= - 575) {
 			MovingEntities3.transform.position= temp;

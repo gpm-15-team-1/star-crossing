@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour {
 	//enums to help organise characters, positions, and scene state
 	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
 	enum Scene {Morning, Feedback, Relationship1, Relationship2};
+	enum End {Morning, Feedback, Evening};
 
 	//characters and positions referenced by enums
 	public Character[] characters;
@@ -48,6 +49,8 @@ public class DialogueManager : MonoBehaviour {
 
 	//fading transition
 	public GameObject fade;
+	CanvasGroup cg;
+	float fromValue = 0.0f;
 	Animator anim;
 
 	int fadeTime = 0;
@@ -56,7 +59,11 @@ public class DialogueManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		fade.SetActive(false);
+		//fade.SetActive(false);
+
+		fade.GetComponent<FadeScript>().SendMessage("fadeIn");
+		//iTween.MoveTo(cg.gameObject,new Vector3(2,0,0),2);
+		//iTween.ValueTo(fade.gameObject, iTween.Hash("from", fromValue, "to", 1, "onupdatetarget", fade.gameObject, "onupdate", "updateFromValue", "time", 1.0f, "easetype", iTween.EaseType.easeInExpo));
 
 		for(int i=0; i<characters.Length; i++)
 			characters[i].mood = GameObject.Find("Save").GetComponent<SaveScript>().characters[i].mood;
@@ -73,12 +80,17 @@ public class DialogueManager : MonoBehaviour {
 
 		hideUpdate();
 
-		//IF MORNING SCENE DO THIS
-		if(currentScene == (int)Scene.Morning)
+		//IF MORNING OR EVENING SCENE DO THIS
+		if(currentScene == (int)Scene.Morning || (currentScene == (int)End.Evening && currentDay == 4))
 		{
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			//reading from file:
-			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Morning.txt");
+			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Morning.txt");
+			if(currentScene == (int)End.Evening && currentDay == 4)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Evening.txt");
+			}
+
 			int size = int.Parse(file.ReadLine());
 
 			//read dialogues from file
@@ -97,7 +109,12 @@ public class DialogueManager : MonoBehaviour {
 			}
 			file.Close();
 
-			file = new StreamReader(Application.dataPath + "/Resources/Files/Wk" +currentWeek+"_Day"+currentDay+"_Morning_Action.txt");
+			file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Morning_Action.txt");
+			if(currentScene == (int)End.Evening && currentDay == 4)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Evening_Action.txt");
+			}
+				
 			size = int.Parse(file.ReadLine());
 			//skip all irrelevant lines
 			for(int i=0; i<size; i++)
@@ -220,7 +237,7 @@ public class DialogueManager : MonoBehaviour {
 
 			save ();
 		}
-		else if(currentScene == (int)Scene.Relationship1)
+		else if(currentScene == (int)Scene.Relationship1 && currentDay != 4)
 		{
 			pause=true;
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Shuffle");
@@ -235,7 +252,7 @@ public class DialogueManager : MonoBehaviour {
 			actions.Add(currentActions);
 
 		}
-		else if(currentScene == (int)Scene.Relationship2)
+		else if(currentScene == (int)Scene.Relationship2 && currentDay != 4)
 		{
 			pause=true;
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Display");
@@ -252,7 +269,7 @@ public class DialogueManager : MonoBehaviour {
 		currentIndex = 0;
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
-		if(currentScene != (int)Scene.Relationship1 && currentScene != (int)Scene.Relationship2)
+		if((currentScene != (int)Scene.Relationship1 && currentScene != (int)Scene.Relationship2) || (currentScene==(int)End.Evening && currentDay==4))
 		{
 			changeSprites();
 			changeColour((string)speaker[currentIndex]);
@@ -309,11 +326,11 @@ public class DialogueManager : MonoBehaviour {
 							}
 							else
 							{
-								//fade
-								fade.SetActive(true);
-								fade.GetComponent<FadeScript>().fadeOut();
-								fade.GetComponent<FadeScript>().fadeIn();
-								fadeCounter = 0;
+								//fade out and in
+								fade.GetComponent<FadeScript>().SendMessage("fadeOut");
+
+								fade.GetComponent<FadeScript>().SendMessage("fadeIn");
+								fadeCounter = 1;
 								fadeTime = 0;
 							}
 						}
@@ -321,10 +338,12 @@ public class DialogueManager : MonoBehaviour {
 					else
 					{
 						string toLoad = Application.loadedLevelName;
-						if(currentScene==(int)Scene.Relationship2)
+						//if end of either day type
+						if((currentScene==(int)Scene.Relationship2 && currentDay!=4) ||
+						   (currentScene==(int)End.Evening && currentDay==4))
 						{
-							//end of week
-							if(currentDay==5)
+							//end of week (4 days in a week!)
+							if(currentDay==4)
 							{
 								GameObject.Find("Save").GetComponent<SaveScript>().currentWeek++;
 								GameObject.Find("Save").GetComponent<SaveScript>().currentDay = 1;
@@ -350,6 +369,7 @@ public class DialogueManager : MonoBehaviour {
 						}
 						
 						save ();
+						fade.GetComponent<FadeScript>().SendMessage("fadeOut");
 						//DontDestroyOnLoad(GameObject.Find("Save"));
 						//insert fading transition here
 						Application.LoadLevel(toLoad);
@@ -405,7 +425,7 @@ public class DialogueManager : MonoBehaviour {
 					character = (int) Chars.Carol;
 				else if(actions[currentIndex][i].Equals("Rusty"))
 					character = (int) Chars.Rusty;
-				//Debug.Log("Char: " +actions[currentIndex][i] +", Action: "+actions[currentIndex][i+1]);
+				Debug.Log("Char: " +actions[currentIndex][i] +", Action: "+actions[currentIndex][i+1]);
 				characters[character].gameObject.SendMessage(actions[currentIndex][i+1]);
 			}
 		}
@@ -431,11 +451,13 @@ public class DialogueManager : MonoBehaviour {
 		StreamReader file2;
 
 		int speak = Random.Range(1,3);
+		string speaking;
 		string other;
 		//first character
 		if(speak == 1)
 		{
 			speaker.Add(char1);
+			speaking = char1;
 			other = char2;
 			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
 			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
@@ -443,6 +465,7 @@ public class DialogueManager : MonoBehaviour {
 		else
 		{
 			speaker.Add(char2);
+			speaking = char2;
 			other = char1;
 			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
 			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
@@ -478,6 +501,8 @@ public class DialogueManager : MonoBehaviour {
 		currentActions.Add("MouthClosed");
 		currentActions.Add(other);
 		currentActions.Add("RightMid");
+		currentActions.Add(speaking);
+		currentActions.Add("LeftMid");
 		for(int k=0; k<actionLine.Length; k++)
 		{
 			currentActions.Add(actionLine[k]);
@@ -529,8 +554,6 @@ public class DialogueManager : MonoBehaviour {
 		actionLine = file2.ReadLine().Split();
 		currentActions.Add(other);
 		currentActions.Add("MouthClosed");
-		currentActions.Add(other);
-		currentActions.Add("LeftMid");
 		for(int k=0; k<actionLine.Length; k++)
 		{
 			currentActions.Add(actionLine[k]);
@@ -803,7 +826,7 @@ public class DialogueManager : MonoBehaviour {
 		
 		int size = int.Parse(file.ReadLine());
 		if(currentScene==(int)Scene.Feedback && fadeTime==0)
-			fadeTime+=size-1;
+			fadeTime+=size;
 		
 		//read dialogues from file
 		for(int i=0; i<size; i++)

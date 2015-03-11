@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RelationshipMenuManager : MonoBehaviour {
-
+	
 	Relationship[] relationships;
 	public Text[] toShow;
 	public Button[] buttons;
@@ -17,8 +17,10 @@ public class RelationshipMenuManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-		setChosen(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen);
+
+		//only do this if on Relationship2
+		if(GameObject.Find("Save").GetComponent<SaveScript>().currentScene == 3)
+			setChosen(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen);
 
 	}
 	

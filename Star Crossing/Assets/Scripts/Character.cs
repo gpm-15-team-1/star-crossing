@@ -28,6 +28,7 @@ public class Character : MonoBehaviour{
 
 	bool move = false;
 	public string facing = null;
+	string currentPos = null;
 	Vector2 newPos = new Vector2(0,0);
 
 
@@ -110,28 +111,94 @@ public class Character : MonoBehaviour{
 	void Move1Left()
 	{
 		newPos = new Vector2(transform.position.x-2.5f, transform.position.y);
+		if(currentPos.Equals("RightBack"))
+		   newPos = new Vector2(-2f, transform.position.y);
 		move = true;
+
+		if (newPos.x == -7f)
+			currentPos = "LeftFront";
+		else if (newPos.x == -4.5f)
+			currentPos = "LeftMid";
+		else if (newPos.x == -2f)
+			currentPos = "LeftBack";
+		else if (newPos.x == 2f)
+			currentPos = "RightBack";
+		else if (newPos.x == 4.5f)
+			currentPos = "RightMid";
+		else if (newPos.x == 7f)
+			currentPos = "RightFront";
 	}
 
 	void Move1Right()
 	{
 		newPos = new Vector2(transform.position.x+2.5f, transform.position.y);
+		if(currentPos.Equals("LeftBack"))
+			newPos = new Vector2(2f, transform.position.y);
 		move = true;
+
+		if (newPos.x == -7f)
+			currentPos = "LeftFront";
+		else if (newPos.x == -4.5f)
+			currentPos = "LeftMid";
+		else if (newPos.x == -2f)
+			currentPos = "LeftBack";
+		else if (newPos.x == 2f)
+			currentPos = "RightBack";
+		else if (newPos.x == 4.5f)
+			currentPos = "RightMid";
+		else if (newPos.x == 7f)
+			currentPos = "RightFront";
 	}
 
 	void Move2Left()
 	{
 		newPos = new Vector2(transform.position.x-5, transform.position.y);
+		if(currentPos.Equals("RightMid"))
+			newPos = new Vector2(-2f, transform.position.y);
+		else if(currentPos.Equals("RightBack"))
+			newPos = new Vector2(-4.5f, transform.position.y);
+
 		move = true;
+
+		if (newPos.x == -7f)
+			currentPos = "LeftFront";
+		else if (newPos.x == -4.5f)
+			currentPos = "LeftMid";
+		else if (newPos.x == -2f)
+			currentPos = "LeftBack";
+		else if (newPos.x == 2f)
+			currentPos = "RightBack";
+		else if (newPos.x == 4.5f)
+			currentPos = "RightMid";
+		else if (newPos.x == 7f)
+			currentPos = "RightFront";
 	}
 
 	void Move2Right()
 	{
 		newPos = new Vector2(transform.position.x+5, transform.position.y);
+		if(currentPos.Equals("LeftMid"))
+			newPos = new Vector2(2f, transform.position.y);
+		else if(currentPos.Equals("LeftBack"))
+			newPos = new Vector2(4.5f, transform.position.y);
 		move = true;
+
+		if (newPos.x == -7f)
+			currentPos = "LeftFront";
+		else if (newPos.x == -4.5f)
+			currentPos = "LeftMid";
+		else if (newPos.x == -2f)
+			currentPos = "LeftBack";
+		else if (newPos.x == 2f)
+			currentPos = "RightBack";
+		else if (newPos.x == 4.5f)
+			currentPos = "RightMid";
+		else if (newPos.x == 7f)
+			currentPos = "RightFront";
 	}
 
-	void MoveOnScreenLeft()
+	//move on screen, from the right side
+	void MoveOnScreenRight()
 	{
 		if(facing == "right")
 		{
@@ -142,9 +209,11 @@ public class Character : MonoBehaviour{
 		newPos = new Vector2(7f, transform.position.y);
 		move = true;
 		this.renderer.sortingOrder = 0;
+		currentPos = "RightFront";
 	}
 
-	void MoveOnScreenRight()
+	//move on screen, from the left side
+	void MoveOnScreenLeft()
 	{
 		if(facing == "left")
 		{
@@ -155,6 +224,26 @@ public class Character : MonoBehaviour{
 		newPos = new Vector2(-7f, transform.position.y);
 		move = true;
 		this.renderer.sortingOrder = 0;
+
+		currentPos = "LeftMid";
+	}
+
+	void MoveOffScreenLeft()
+	{
+		newPos = new Vector2(-15f, transform.position.y);
+		move = true;
+		this.renderer.sortingOrder = 0;
+
+		currentPos = null;
+	}
+
+	void MoveOffScreenRight()
+	{
+		newPos = new Vector2(15f, transform.position.y);
+		move = true;
+		this.renderer.sortingOrder = 0;
+
+		currentPos = null;
 	}
 
 	void RightFront()
@@ -164,6 +253,8 @@ public class Character : MonoBehaviour{
 			Flip();
 			facing = "left";
 		}
+		
+		currentPos = "RightFront";
 		transform.position = new Vector2(7f, transform.position.y);
 		this.renderer.sortingOrder = 0;
 	}
@@ -175,6 +266,8 @@ public class Character : MonoBehaviour{
 			Flip();
 			facing = "left";
 		}
+		
+		currentPos = "RightMid";
 		transform.position = new Vector2(4.5f, transform.position.y);
 		this.renderer.sortingOrder = -1;
 	}
@@ -186,6 +279,8 @@ public class Character : MonoBehaviour{
 			Flip();
 			facing = "left";
 		}
+		
+		currentPos = "RightBack";
 		transform.position = new Vector2(2f, transform.position.y);
 		this.renderer.sortingOrder = -2;
 	}
@@ -197,6 +292,8 @@ public class Character : MonoBehaviour{
 			Flip();
 			facing = "right";
 		}
+		
+		currentPos = "LeftFront";
 		transform.position = new Vector2(-7f, transform.position.y);
 		this.renderer.sortingOrder = 0;
 	}
@@ -208,6 +305,7 @@ public class Character : MonoBehaviour{
 			Flip();
 			facing = "right";
 		}
+		currentPos = "LeftMid";
 		transform.position = new Vector2(-4.5f, transform.position.y);
 		this.renderer.sortingOrder = -1;
 	}
@@ -219,6 +317,7 @@ public class Character : MonoBehaviour{
 			Flip();
 			facing = "right";
 		}
+		currentPos = "LeftBack";
 		transform.position = new Vector2(-2f, transform.position.y);
 		this.renderer.sortingOrder = -2;
 	}

@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-Tani 50
-=======
-<<<<<<< HEAD
-Nikolai 86.95652
-=======
-Julie 0
->>>>>>> origin/master
-Randall 85
-Tani 85
->>>>>>> origin/master
-Nikolai 85
-Randall 85
+Randall 44
 Julie 85
+Tani 85
+Nikolai 85
 Carol 85

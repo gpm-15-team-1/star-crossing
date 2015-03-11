@@ -19,7 +19,7 @@ public class NoteScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (isHit == false && corot == false && gameObject.transform.position.z < Pivot.transform.position.z) {
 			StartCoroutine( DestroyThis() );
 		}
@@ -32,7 +32,7 @@ public class NoteScript : MonoBehaviour {
 		if (other.gameObject.tag == "Sphere1" || other.gameObject.tag == "Sphere2") {
 			isHit = true;
 			gameObject.GetComponent<Renderer>().material.color = Color.green;		
-			hit.Play();
+			//hit.Play();
 			StatScript.notes_hit++;
 			StatScript.number_of_notes++;
 			StatScript.current_run++;
@@ -40,11 +40,20 @@ public class NoteScript : MonoBehaviour {
 		}
 	}
 
+	IEnumerator StopSound()
+	{
+		Debug.Log("Muting");
+		GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 0.0f;
+		yield return new WaitForSeconds (0.5f);
+		GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 1.0f;
+	}
+
 	IEnumerator DestroyThis()
 	{
 		corot = true;
 		gameObject.GetComponent<Renderer>().material.color = Color.red;
 		miss.Play();
+		SendMessage("StopSound");
 		StatScript.current_run = 0;
 		StatScript.number_of_notes++;
 		yield return new WaitForSeconds (5.0f);

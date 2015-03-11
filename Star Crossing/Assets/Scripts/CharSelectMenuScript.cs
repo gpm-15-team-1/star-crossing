@@ -38,6 +38,10 @@ public class CharSelectMenuScript : MonoBehaviour {
 
 	// Proceed to Rhythm Mode!
 	public void GoOnClick() {
+		
+		AsyncOperation op = Application.LoadLevelAsync ( "Rhythm Mode Prototype" );
+		op.allowSceneActivation = false;
+
 		// Before we switch scenes, we must save some data.
 		StreamWriter file = new StreamWriter(Application.dataPath + "/Resources/Files/Feedback.txt", false);
 		// First pass: write line with the selected character and his/her mood
@@ -58,6 +62,6 @@ public class CharSelectMenuScript : MonoBehaviour {
 		}
 		file.Close ();
 		// Now we can switch scenes!
-		Application.LoadLevel ("Rhythm Mode Prototype");
+		op.allowSceneActivation = true;
 	}
 }

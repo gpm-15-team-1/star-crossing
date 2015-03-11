@@ -29,7 +29,7 @@ public class Note : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		// determine click state for available notes
 		if (Input.GetMouseButtonDown (0)) {
 			mouseClicked = true;

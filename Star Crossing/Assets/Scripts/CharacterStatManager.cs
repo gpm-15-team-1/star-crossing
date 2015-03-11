@@ -41,7 +41,8 @@ public class CharacterStatManager : MonoBehaviour {
 		"Julie: "+getRelationshipByName("Randall/Julie").getChar1Value()+"\n" +
 		"Tani: "+getRelationshipByName("Randall/Tani").getChar1Value()+"\n" +
 		"Nikolai: "+getRelationshipByName("Randall/Nikolai").getChar1Value()+"\n" +
-		"Carol: "+getRelationshipByName("Randall/Carol").getChar1Value();
+		"Carol: "+getRelationshipByName("Randall/Carol").getChar1Value() +"\n\n" +
+		"Mood: "+characters[(int)Chars.Randall].mood;
 
 		characters[(int)Chars.Julie].page1 = "Julie Page 1";
 		characters[(int)Chars.Julie].page2 =
@@ -49,7 +50,8 @@ public class CharacterStatManager : MonoBehaviour {
 		"Julie: --\n" +
 		"Tani: "+getRelationshipByName("Julie/Tani").getChar1Value()+"\n" +
 		"Nikolai: "+getRelationshipByName("Julie/Nikolai").getChar1Value()+"\n" +
-		"Carol: "+getRelationshipByName("Julie/Carol").getChar1Value();
+		"Carol: "+getRelationshipByName("Julie/Carol").getChar1Value()+"\n\n" +
+		"Mood: "+characters[(int)Chars.Julie].mood;
 
 		characters[(int)Chars.Tani].page1 = "Tani Page 1";
 		characters[(int)Chars.Tani].page2 =
@@ -57,7 +59,8 @@ public class CharacterStatManager : MonoBehaviour {
 		"Julie: "+getRelationshipByName("Julie/Tani").getChar2Value()+"\n" +
 		"Tani: --\n" +
 		"Nikolai: "+getRelationshipByName("Nikolai/Tani").getChar2Value()+"\n" +
-		"Carol: "+getRelationshipByName("Tani/Carol").getChar1Value();
+		"Carol: "+getRelationshipByName("Tani/Carol").getChar1Value()+"\n\n" +
+		"Mood: "+characters[(int)Chars.Tani].mood;
 
 		characters[(int)Chars.Nikolai].page1 = "Nikolai Page 1";
 		characters[(int)Chars.Nikolai].page2 = 
@@ -65,7 +68,8 @@ public class CharacterStatManager : MonoBehaviour {
 		"Julie: "+getRelationshipByName("Julie/Nikolai").getChar2Value()+"\n" +
 		"Tani: "+getRelationshipByName("Nikolai/Tani").getChar1Value()+"\n" +
 		"Nikolai: --\n" +
-		"Carol: "+getRelationshipByName("Nikolai/Carol").getChar1Value();
+		"Carol: "+getRelationshipByName("Nikolai/Carol").getChar1Value()+"\n\n" +
+		"Mood: "+characters[(int)Chars.Nikolai].mood;
 
 		characters[(int)Chars.Carol].page1 = "Carol Page 1";
 		characters[(int)Chars.Carol].page2 = 
@@ -73,7 +77,8 @@ public class CharacterStatManager : MonoBehaviour {
 		"Julie: "+getRelationshipByName("Julie/Carol").getChar2Value()+"\n" +
 		"Tani: "+getRelationshipByName("Tani/Carol").getChar2Value()+"\n" +
 		"Nikolai: "+getRelationshipByName("Nikolai/Carol").getChar2Value()+"\n" +
-		"Carol: --";
+		"Carol: --"+"\n\n" +
+		"Mood: "+characters[(int)Chars.Carol].mood;
 	}
 	
 	// Update is called once per frame

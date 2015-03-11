@@ -9,7 +9,7 @@ public class MoveScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		MovingEntities.transform.Translate (Vector3.back * 8.0f * Time.deltaTime);
 	}
 }

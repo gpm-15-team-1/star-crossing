@@ -1,0 +1,10 @@
+9
+Carol LeftFront Carol Neutral Julie LeftBack Julie Sad Julie MouthOpen Nikolai RightBack Nikolai Neutral Tani RightMid Tani Neutral Randall Neutral Randall RightFront
+Julie MouthClosed Nikolai MouthOpen
+Nikolai MouthClosed Tani MouthOpen
+Nikolai Flip Nikolai Angry Nikolai MouthOpen Tani MouthClosed
+null
+Nikolai MouthClosed Randall Angry Randall MouthOpen
+Julie Neutral Nikolai Neutral Randall Neutral Randall MouthOpen
+Randall Happy Randall MouthOpen
+Julie Happy Julie MouthOpen Randall MouthClosed

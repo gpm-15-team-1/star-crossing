@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-Nikolai/Carol
-8
-6
+Nikolai/Tani
 1
 4
-=======
-Randall/Julie
-0
-5
->>>>>>> origin/master
+6
+7
 3
-2
-8
