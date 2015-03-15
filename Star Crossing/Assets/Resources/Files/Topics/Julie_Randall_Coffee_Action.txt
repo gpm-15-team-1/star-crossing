@@ -1,0 +1,24 @@
+4
+Julie Neutral Julie LeftMid Julie MouthOpen Randall Neutral Randall RightMid
+Julie MouthClosed Randall MouthOpen
+Julie MouthOpen Randall MouthClosed
+Julie MouthClosed Randall Happy Randall MouthOpen
+
+5
+Julie Happy Julie MouthOpen Randall MouthClosed
+Julie MouthClosed Randall Neutral Randall MouthOpen
+Julie Neutral Julie MouthOpen Randall MouthClosed
+Julie MouthClosed Randall Happy Randall MouthOpen
+Julie Happy Julie MouthOpen Randall MouthClosed
+
+4
+Julie Happy Julie MouthOpen Randall MouthClosed
+Julie MouthClosed Randall Neutral Randall MouthOpen
+Randall Sad Randall MouthOpen
+Julie Sad Julie MouthOpen Randall MouthClosed
+
+4
+Julie Happy Julie MouthOpen Randall MouthClosed
+Julie MouthClosed Randall Neutral Randall MouthOpen
+Randall Sad Randall MouthOpen
+Julie Sad Julie MouthOpen Randall MouthClosed

@@ -1,0 +1,26 @@
+2
+Randall Neutral Randall MouthOpen Randall LeftMid Tani Neutral Tani RightMid
+Randall MouthClosed Tani MouthOpen
+
+7
+Randall Happy Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani MouthOpen
+Randall Neutral Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani Happy Tani MouthOpen
+Randall Sad Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani Neutral Tani MouthOpen
+Randall Neutral Randall MouthOpen Tani MouthClosed
+
+5
+Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani Angry Tani MouthOpen
+Randall Happy Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani MouthOpen
+Randall Sad Randall MouthOpen Tani MouthClosed
+
+5
+Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani Angry Tani MouthOpen
+Randall Sad Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani Sad Tani MouthOpen
+Randall MouthOpen Tani MouthClosed

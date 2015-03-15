@@ -1,0 +1,47 @@
+hotel-hallway
+Lounge
+Practice Room
+Cafe
+
+hotel-lounge
+10
+Carol "Good morning, Nikolai!"
+Nikolai "Aagh! You startled me!"
+Carol "Oh, I am sorry. I did not mean to frighten you."
+Nikolai "You didn't FRIGHTEN me, it's just..."
+Nikolai "...maybe...you do frighten me. A little."
+Carol "What was that? I could not hear you."
+Nikolai "Nothing. Leave me alone."
+Carol "I...okay."
+Carol "I have always found it strange how Nikolai never likes talking to me...do robots make him that uncomfortable?"
+Carol "I suppose I am not human enough yet...no matter how hard I try..."
+
+practice-room
+11
+Nikolai "Mornin'."
+Julie "Oh, Nikolai, hey! Didn't expect to run into you."
+Nikolai "Mm."
+Julie "Is something bothering you?"
+Nikolai "Nothing, I was just...thinking about me. Y'know, how I...changed."
+Julie "Your cybernetic parts?"
+Nikolai "Shh!"
+Nikolai "I don't want to be reminded. I wish I WASN'T thinking about it!"
+Julie "What's wrong with it? I mean, you know me and how excited I get about electronics, but even with that in mind, I really don't think that's anything to be ashamed of--"
+Nikolai "Forget it. Talking to you was a terrible idea."
+Julie "I...what? Fine. Jeez."
+
+cafe-day
+13
+Tani "Are you regularly going to be down here early?"
+Randall "Oh, you know me. When I get excited for something, I like being prepared. I've been down here for a while already."
+Tani "It, um, doesn't look like you've been doing much preparing in that time."
+Randall "And by 'been down here for a while already,' I mean I showed up and got comfy and started daydreaming."
+Randall "Hey, how high do you think Carol can sing?"
+Tani "Come again?"
+Randall "I'm wondering if we could start giving her descants, instead of leaving Julie to take them all the time."
+Tani "Were you...daydreaming about Carol's vocal range?"
+Randall "Maybe."
+Tani "I...have no idea. I can't say robotics or anything like that is ever on my mind. Even with Nikolai's condition...it just doesn't crop up in my brain."
+Randall "Huh. I mean, I don't know much about electronics either, but I can't help but be fascinated with how far robotics have come in emulating art."
+Randall "Like, Carol can sing! And Carol sounds damn good! Does it not boggle the mind?"
+Tani "If you say so."

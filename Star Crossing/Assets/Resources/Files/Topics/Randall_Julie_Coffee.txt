@@ -1,0 +1,31 @@
+4
+Randall "Feel like heading down to the cafe?"
+Julie "Oh, sure! Any particular reason?"
+Randall "What, I can't treat my friends to coffee every once in a while?"
+Julie "Aww, you don't have to pay for me! I feel like you treat us to stuff so much..."
+
+A mocha should shut you up.
+I'm buying you a cappuccino.
+Two espressos coming up.
+
+5
+Randall "Quiet, you. A mocha should shut you up."
+Julie "Ooh..I AM fond of mochas..."
+Randall "See? What did I tell you?"
+Julie "You know me too well, Rands."
+Randall "Hey, it's my job."
+
+5
+Randall "Pssh. I'm buying you a cappuccino and there's nothing you can do about it."
+Julie "A cappuccino? I've never tried one before..."
+Randall "You...haven't? I thought they were your favorite!"
+Julie "Mochas are my favorite, hands down. I thought you knew that about me."
+Randall "I...jeez, sorry..."
+
+6
+Randall "Oh, come on. Two espressos coming up, whether you like it or not!"
+Julie "I...don't like espresso..."
+Randall "How can you not like espresso?"
+Julie "I don't know how YOU like it so much!"
+Randall "Jeez, I can like something, can't I?"
+Julie "You can. I just...respectfully won't be joining you."

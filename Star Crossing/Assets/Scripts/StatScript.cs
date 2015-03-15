@@ -10,7 +10,6 @@ public class StatScript : MonoBehaviour {
 	private Text RunningAccuracy;
 	public int current_run;
 
-	// Use this for initialization
 	void Start () {
 		notes_hit = 1;
 		number_of_notes = 1;
@@ -19,14 +18,12 @@ public class StatScript : MonoBehaviour {
 		Score = GameObject.FindWithTag("NotesHitUI").GetComponent<Text>();
 		RunningAccuracy = GameObject.FindWithTag("RunningAccuracyUI").GetComponent<Text> (); 
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		running_accuracy = (notes_hit/(float)number_of_notes)*100;
 		Score.text = "Notes Hit : " + (notes_hit - 1);
 		RunningAccuracy.text = "Accuracy : " + running_accuracy.ToString("f1") + "%"; 
-
-
+		print ("Current run : " +  current_run);
 		//print ("Total notes hit : " + notes_hit);
 		//print ("Total notes  : " + number_of_notes);
 		//print ("Accuracy : " + running_accuracy);

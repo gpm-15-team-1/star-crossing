@@ -1,5 +1,5 @@
-Randall 44
-Julie 85
+Julie 2
+Randall 87
 Tani 85
 Nikolai 85
 Carol 85

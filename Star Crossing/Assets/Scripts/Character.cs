@@ -116,17 +116,35 @@ public class Character : MonoBehaviour{
 		move = true;
 
 		if (newPos.x == -7f)
+		{
 			currentPos = "LeftFront";
+			this.renderer.sortingOrder = 0;
+		}
 		else if (newPos.x == -4.5f)
+		{
 			currentPos = "LeftMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == -2f)
+		{
 			currentPos = "LeftBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 2f)
+		{
 			currentPos = "RightBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 4.5f)
+		{
 			currentPos = "RightMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == 7f)
+		{
 			currentPos = "RightFront";
+			this.renderer.sortingOrder = 0;
+		}
 	}
 
 	void Move1Right()
@@ -137,17 +155,35 @@ public class Character : MonoBehaviour{
 		move = true;
 
 		if (newPos.x == -7f)
+		{
 			currentPos = "LeftFront";
+			this.renderer.sortingOrder = 0;
+		}
 		else if (newPos.x == -4.5f)
+		{
 			currentPos = "LeftMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == -2f)
+		{
 			currentPos = "LeftBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 2f)
+		{
 			currentPos = "RightBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 4.5f)
+		{
 			currentPos = "RightMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == 7f)
+		{
 			currentPos = "RightFront";
+			this.renderer.sortingOrder = 0;
+		}
 	}
 
 	void Move2Left()
@@ -161,17 +197,35 @@ public class Character : MonoBehaviour{
 		move = true;
 
 		if (newPos.x == -7f)
+		{
 			currentPos = "LeftFront";
+			this.renderer.sortingOrder = 0;
+		}
 		else if (newPos.x == -4.5f)
+		{
 			currentPos = "LeftMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == -2f)
+		{
 			currentPos = "LeftBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 2f)
+		{
 			currentPos = "RightBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 4.5f)
+		{
 			currentPos = "RightMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == 7f)
+		{
 			currentPos = "RightFront";
+			this.renderer.sortingOrder = 0;
+		}
 	}
 
 	void Move2Right()
@@ -184,17 +238,35 @@ public class Character : MonoBehaviour{
 		move = true;
 
 		if (newPos.x == -7f)
+		{
 			currentPos = "LeftFront";
+			this.renderer.sortingOrder = 0;
+		}
 		else if (newPos.x == -4.5f)
+		{
 			currentPos = "LeftMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == -2f)
+		{
 			currentPos = "LeftBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 2f)
+		{
 			currentPos = "RightBack";
+			this.renderer.sortingOrder = -2;
+		}
 		else if (newPos.x == 4.5f)
+		{
 			currentPos = "RightMid";
+			this.renderer.sortingOrder = -1;
+		}
 		else if (newPos.x == 7f)
+		{
 			currentPos = "RightFront";
+			this.renderer.sortingOrder = 0;
+		}
 	}
 
 	//move on screen, from the right side
@@ -212,6 +284,36 @@ public class Character : MonoBehaviour{
 		currentPos = "RightFront";
 	}
 
+	//move to LeftMid
+	void MoveLeftMid()
+	{
+		if(facing == "left")
+		{
+			Flip();
+			facing = "right";
+		}
+		transform.position = new Vector2(-15.0f, transform.position.y);
+		newPos = new Vector2(-4.5f, transform.position.y);
+		move = true;
+		this.renderer.sortingOrder = -1;
+		currentPos = "LeftMid";
+	}
+	
+	//move to LeftBack
+	void MoveLeftBack()
+	{
+		if(facing == "left")
+		{
+			Flip();
+			facing = "right";
+		}
+		transform.position = new Vector2(-15.0f, transform.position.y);
+		newPos = new Vector2(-2f, transform.position.y);
+		move = true;
+		this.renderer.sortingOrder = -2;
+		currentPos = "LeftBack";
+	}
+
 	//move on screen, from the left side
 	void MoveOnScreenLeft()
 	{
@@ -225,7 +327,37 @@ public class Character : MonoBehaviour{
 		move = true;
 		this.renderer.sortingOrder = 0;
 
-		currentPos = "LeftMid";
+		currentPos = "LeftFront";
+	}
+
+	//move to RightMid
+	void MoveRightMid()
+	{
+		if(facing == "right")
+		{
+			Flip();
+			facing = "left";
+		}
+		transform.position = new Vector2(15.0f, transform.position.y);
+		newPos = new Vector2(4.5f, transform.position.y);
+		move = true;
+		this.renderer.sortingOrder = -1;
+		currentPos = "RightMid";
+	}
+	
+	//move to RightBack
+	void MoveRightBack()
+	{
+		if(facing == "right")
+		{
+			Flip();
+			facing = "left";
+		}
+		transform.position = new Vector2(15.0f, transform.position.y);
+		newPos = new Vector2(2f, transform.position.y);
+		move = true;
+		this.renderer.sortingOrder = -2;
+		currentPos = "RightBack";
 	}
 
 	void MoveOffScreenLeft()

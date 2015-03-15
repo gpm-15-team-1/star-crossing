@@ -1,0 +1,73 @@
+hotel-hallway
+Room 308
+Room 305
+Room 307
+
+hotel-hallway
+17
+Julie "Phew. Unpacking is harder work than I thought."
+Rusty "Hello, Carol! Reporting for duty!"
+Julie "Oh, you booted up Rusty! Thank you!"
+Carol "You're welcome. I imagined he should be ready for rehearsal."
+Julie "Good point. Randall said he wanted to meet in the lobby pretty soon after we got here. We should head out."
+Julie "Come, Rusty!"
+Rusty "Roger!"
+Carol "Randall seemed eager to get started today."
+Julie "Tell me about it. Wouldn't shut up about picking just the right song..."
+Randall "Aha, there's our other half of Star Crossing!"
+Julie "Hey, Rands! We made it!"
+Randall "Glad we're all in one piece. I've got our music ready. I took the liberty of arranging 'You Should Be Dancin'' by Chipper Dales for six parts last night."
+Nikolai "Which I have not failed to inform him is the cheesiest tune he could possibly have picked."
+Tani "Hush, brother. I think it's a fine song."
+Julie "You...wrote all this in one night? Color me impressed!"
+Randall "Oh, stop, it was nothing. All in a day's work to help Star Crossing succeed!"
+Randall "Now let's get us warmed up. I've got my pitch pipe right here."
+
+hotel-hallway
+22
+Randall "Music: check. Pitch pipe: check. Pencil: check."
+Tani "Didn't know you were the type to talk to yourself. But maybe I should've suspected it."
+Randall "Ah, and the great Tanya Kozlova reads me like a book once again! When will she realize her prodigal talent as a psychic?"
+Tani "Oh, stop. Is the great Randall Creed ready to accompany the poor, lonely Tanya Kozlova downstairs?"
+Randall "On my way. Can't let the others beat us there, now can we? A leader's gotta be punctual."
+Tani "Well, you are good at setting a shining example at such things."
+Randall "Ha! Tani, you flatter me."
+Tani "Who else'll fluff your ego?"
+Randall "Ouch! A cruel mistress, she is!"
+Nikolai "I'd rather you call my sister neither 'cruel' NOR a 'mistress,' Randall."
+Randall "Ah, there he is! Forgive me, Nikolai. Merely a turn of phrase."
+Randall "Actually, no, don't forgive me. I stand by the opinion that that was funny."
+Tani "You think everything you say is funny, Rands."
+Randall "I try, at least."
+Randall "Aha, there's our other half of Star Crossing!"
+Julie "Hey, Rands! We made it!"
+Randall "Glad we're all in one piece. I've got our music ready. I took the liberty of arranging 'You Should Be Dancin'' by Chipper Dales for six parts last night."
+Nikolai "Which I have not failed to inform him is the cheesiest tune he could possibly have picked."
+Tani "Hush, brother. I think it's a fine song."
+Julie "You...wrote all this in one night? Color me impressed!"
+Randall "Oh, stop, it was nothing. All in a day's work to help Star Crossing succeed!"
+Randall "Now let's get us warmed up. I've got my pitch pipe right here."
+
+hotel-hallway
+21
+Tani "Hello? Is my brother in there?"
+Nikolai "Of course I'm in here, you saw me walk in the door half an hour ago."
+Tani "Oh, who knows. You might have gone down to the lobby early."
+Nikolai "Oh, you're real funny, Tani."
+Tani "Lighten up a little. I think this'll be fun. Wouldn't it feel good to be up on stage again?"
+Nikolai "I'm not in the mood."
+Tani "Maybe not now. But I have a feeling that'll change in due time, Nikolai."
+Nikolai "..."
+Tani "Hey, Rands."
+Randall "Ah, the unbreakable sibling duo approacheth!"
+Nikolai "...morning, Randall."
+Tani "You look ready to go. Are we waiting on the others, then?"
+Randall "Yup. Julie's not always the most prompt person, but she seemed excited for this..."
+Randall "Aha, there's our other half of Star Crossing!"
+Julie "Hey, Rands! We made it!"
+Randall "Glad we're all in one piece. I've got our music ready. I took the liberty of arranging 'You Should Be Dancin'' by Chipper Dales for six parts last night."
+Nikolai "Which I have not failed to inform him is the cheesiest tune he could possibly have picked."
+Tani "Hush, brother. I think it's a fine song."
+Julie "You...wrote all this in one night? Color me impressed!"
+Randall "Oh, stop, it was nothing. All in a day's work to help Star Crossing succeed!"
+Randall "Now let's get us warmed up. I've got my pitch pipe right here."

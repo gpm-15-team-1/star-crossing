@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{D31A6321-6921-6829-0EF5-2FE96BEC8BB5}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
+     <None Include="Assets\Resources\Files\Wk1_Day1_Morning_old.txt" />
+     <None Include="Assets\Resources\Files\Topics\Randall_Julie_Coffee_Action.txt" />
+     <None Include="Assets\Resources\Files\Randall_Free.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Action.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Bad_Action.txt" />
+     <None Include="Assets\Resources\Files\Topics\Julie_Randall_Coffee_Action.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day1_MorningTalks.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Awesome_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day4_Morning.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day1_MorningTalks_Action.txt" />
+     <None Include="Assets\Resources\Files\Saves\Save1.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Neutral_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day4_Evening.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Bad_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Topics\Nikolai_Randall_Coffee_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1_Action.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day3_MorningTalks.txt" />
+     <None Include="Assets\Resources\Files\Saves\Chosen.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day1_Morning_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Generic_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day3_Morning.txt" />
+     <None Include="Assets\Resources\Files\Songs\Song1_Randall_Old.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Bad_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Saves\Temp.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Terrible_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Carol_Free.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day4_Evening_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Action.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAlphaBlend_Alpha8.shader" />
+     <None Include="Assets\Resources\Files\Songs\Song1_Julie - Amanda.txt" />
+     <None Include="Assets\Resources\Files\Topics\Randall_Nikolai_Coffee_Action.txt" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day3_MorningTalks_Action.txt" />
+     <None Include="Assets\Resources\Files\Topics\Tani_Randall_Coffee_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Bad_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Randall_Free_Action.txt" />
+     <None Include="Assets\Resources\Files\Nikolai_Free.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day2_MorningTalks_Action.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Invert.shader" />
+     <None Include="Assets\Resources\Files\Topics\Nikolai_Randall_Coffee.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Neutral_Feedback.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Songs\Song1_Randall.txt" />
+     <None Include="Assets\Resources\Files\Topics\Randall_Julie_Coffee.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day2_MorningTalks.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+AddSoft.shader" />
+     <None Include="Assets\Resources\Files\Feedback.txt" />
+     <None Include="Assets\Resources\Files\Carol_Free_Action.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+AddSoft VColor.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+Add.shader" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Terrible_Feedback.txt" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Hidden.shader" />
+     <None Include="Assets\Resources\Files\Tani_Free.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Bad_Action.txt" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Awesome_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day2_Morning.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Randall_Terrible_Feedback.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+Add VColor.shader" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Generic_Action.txt" />
+     <None Include="Assets\Resources\Files\Topics\Randall_Tani_Coffee_Action.txt" />
+     <None Include="Assets\Resources\Files\Tani_Free_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Terrible_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day3_Morning_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Neutral_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Songs\Song1_Julie.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Nikolai_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Songs\Song1_Randall_FreeMove.txt" />
+     <None Include="Assets\Resources\Files\Topics\Tani_Randall_Coffee.txt" />
+     <None Include="Assets\Resources\Files\Randall_Nikolai_Rivalry_1.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day4_Morning_Action.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day2_Morning_Action.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX4 Readme.txt" />
+     <None Include="Assets\Resources\Files\Days\Wk1_Day1_Morning.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Awesome_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Bad_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Topics\Julie_Randall_Coffee.txt" />
+     <None Include="Assets\Resources\Files\Julie_Free.txt" />
+     <None Include="Assets\Resources\Files\Topics\Randall_Nikolai_Coffee.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Neutral_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Carol_Awesome_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Topics\Randall_Tani_Coffee.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Neutral_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Julie_Free_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Julie_Bad_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Nikolai_Free_Action.txt" />
+     <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Feedback.txt" />
+     <None Include="Assets\Resources\Files\Wk1_Day1_Action_old.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="JMOAssets">
+ <HintPath>C:/Users/Swati Mallya/Documents/GitHub/star-crossing/Star Crossing/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{9CDA844E-2BE0-4E29-1CB9-7C3A810CF2F5}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{5ED77900-2D73-8DAA-AD31-2D29573D9ECC}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{9A354B57-432B-9753-8821-DF534ED89FE4}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

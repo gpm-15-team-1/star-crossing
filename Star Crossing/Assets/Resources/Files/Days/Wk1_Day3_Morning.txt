@@ -1,4 +1,5 @@
-26
+hotel-room
+16
 Tani "Hey, you're up."
 Nikolai "Is that so surprising?"
 Tani "From my brother, yes."
@@ -15,13 +16,3 @@ Nikolai "No, you're right. It's dumb. Just a phrase."
 Tani "Still. I should have tried to be more sensitive. I know how much that affected you."
 Nikolai "No. You don't know."
 Tani "..."
-Tani "Ah, here we are!"
-Randall "G'morning!"
-Randall "Hey, are we all on time for once? That's awesome!"
-Julie "Ha! It does feel good."
-Carol "Punctuality is a virtue."
-Randall "Right then, we good to go?"
-Tani "I'm ready."
-Nikolai "...ready."
-Randall "Sweet. Let's run a few warm-ups and then take it from the top."
-Julie "Roger that!"

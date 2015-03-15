@@ -1,0 +1,49 @@
+cafe-day
+Table 1
+Table 4
+Table 6
+
+cafe-day
+15
+Randall "Mind if I sit with you?"
+Julie "Oh, no, go ahead! I didn't think you would come down with here with us."
+Randall "Oho, I may have had <color=yellow>four espressos</color> already, but there's always room for one more!"
+Julie "Um...how long have you been awake, exactly?"
+Randall "Couldn't sleep last night. Gave up at about three in the morning and edited our sheet music. Reprinted it in that conference room on the second floor."
+Randall "See? I changed the dynamics in a lot of places. There's a crescendo now at that bit in the chorus, right? And I changed that one mezzo piano to a mezzo forte, and I wrote in the key change properly this time!"
+Julie "All I'm seeing right now is that your hands are shaking."
+Randall "Yeah, um. An unintended side effect, I assure you."
+Julie "It's not assuring. Gimme that."
+Randall "Nooooo! Not my Espresso Number Five!"
+Randall "(A little bit of cafe au lait in my life, a little bit of cappuccino by my side~)"
+Randall "What's that you have there, anyway?"
+Julie "Oh, I ordered a <color=yellow>mocha</color>. Call me a wuss, but I love chocolate."
+Randall "Heh, I'll have to keep that in mind. Who knows if I'll ever take you out to a cafe and have to remember to order you a mocha."
+Julie "Oh, stop."
+
+cafe-day
+11
+Tani "May I sit with you?"
+Carol "Of course you may, Tani!"
+Tani "Thank you. What did you order?"
+Carol "Since this is my first time consuming coffee, I decided that it would be safest to start basic. This is <color=yellow>plain coffee with half-and-half.</color>"
+Tani "Do you like it?"
+Carol "I do not know. It is interesting. I am unaffected by caffeine, but I wished to learn the taste."
+Tani "I suppose, if nothing else, this really is a learning experience for you."
+Carol "What did you order, Tani?"
+Tani "Ah, this is a <color=yellow>cappuccino</color>. The texture of espresso drinks is a little different from plain coffee. I like it."
+Carol "I am glad that you enjoy it."
+Tani "Heh, thanks."
+
+cafe-day
+10
+Randall "Yo, Nikolai. Mind if I sit here?"
+Nikolai "Yes, but you don't care, do you--"
+Randall "Thanks, man! I knew you were a cool dude."
+Nikolai "Do you have nothing better to do than harass me?"
+Randall "Naw, you just looked lonely over here, and I figured I'd give you some company. What've you got there?"
+Nikolai "Coffee."
+Randall "Yeah, I know, I mean what kind of coffee?"
+Nikolai "<color=yellow>Coffee. As in, black coffee. Coffee coffee.</color>"
+Randall "Ah, straight and to the point! I like it. <color=yellow>Like my espressos!</color>"
+Nikolai "I'm not sure I should trust a person who gets so excited about espressos."

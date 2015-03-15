@@ -8,6 +8,7 @@ public class NoteScript : MonoBehaviour {
 	bool isHit = false;
 	bool corot = false;
 	StatScript StatScript;
+	AudioManager AudiomanagerScript;
 
 	// Use this for initialization
 	void Awake () {
@@ -16,6 +17,7 @@ public class NoteScript : MonoBehaviour {
 		miss = Camera.main.transform.Find("Note_miss").GetComponent<AudioSource>();
 		GameObject Main_Camera = GameObject.Find("Main Camera");
 		StatScript = Main_Camera.GetComponent<StatScript>();
+		AudiomanagerScript = GameObject.Find ("AudioManager").GetComponent<AudioManager> ();
 	}
 	
 	// Update is called once per frame
@@ -40,20 +42,14 @@ public class NoteScript : MonoBehaviour {
 		}
 	}
 
-	IEnumerator StopSound()
-	{
-		Debug.Log("Muting");
-		GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 0.0f;
-		yield return new WaitForSeconds (0.5f);
-		GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 1.0f;
-	}
+
 
 	IEnumerator DestroyThis()
 	{
 		corot = true;
 		gameObject.GetComponent<Renderer>().material.color = Color.red;
 		miss.Play();
-		SendMessage("StopSound");
+		AudiomanagerScript.Kill ();
 		StatScript.current_run = 0;
 		StatScript.number_of_notes++;
 		yield return new WaitForSeconds (5.0f);

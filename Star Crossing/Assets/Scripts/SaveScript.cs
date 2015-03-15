@@ -13,9 +13,9 @@ public class SaveScript : MonoBehaviour {
 	//relationship values
 	public Relationship[] relationships;
 	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
-	enum Scene {Morning, Feedback, Relationship1, Relationship2};
+	enum Scene {Morning, MorningTalks, Feedback, Relationship1, Relationship2};
 	public Character[] characters;
-	public List<int> shuffled;
+	//public List<int> shuffled;
 
 	// Use this for initialization
 	void Start () {
@@ -276,10 +276,10 @@ public class SaveScript : MonoBehaviour {
 		StreamWriter file = new StreamWriter(Application.dataPath + "/Resources/Files/Saves/Chosen.txt", false);
 		file.WriteLine(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen);
 		Debug.Log(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen +" saved.");
-		for(int i=0; i<shuffled.Count; i++)
+		/*for(int i=0; i<shuffled.Count; i++)
 		{
 			file.WriteLine(shuffled[i]);
-		}
+		}*/
 		file.Close();
 	}
 
@@ -288,10 +288,10 @@ public class SaveScript : MonoBehaviour {
 		StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Saves/Chosen.txt");
 		GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen = file.ReadLine();
 		Debug.Log(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen +" loaded.");
-		for(int i=0; i<5; i++)
+		/*for(int i=0; i<5; i++)
 		{
 			shuffled.Add(int.Parse(file.ReadLine()));
-		}
+		}*/
 		file.Close();
 	}
 	

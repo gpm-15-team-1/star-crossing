@@ -7,7 +7,9 @@ public class CharSelectMenuScript : MonoBehaviour {
 
 	public GameObject[] highlights;
 	public GameObject[] accuracies;
+	public Sprite[] characters;
 	private int selectedChar;
+	public GameObject selected;
 
 	void Start () {
 		selectedChar = -1;
@@ -25,6 +27,7 @@ public class CharSelectMenuScript : MonoBehaviour {
 			if (i == whichChar){
 				highlights[i].GetComponent<Image>().color = Color.white;
 				accuracies[i].GetComponent<CharMenuAccuracyScript>().ClearAccuracy();
+				selected.GetComponent<Image>().sprite = characters[i];
 			}
 			// Otherwise, hide highlight and display accuracy normally.
 			else {

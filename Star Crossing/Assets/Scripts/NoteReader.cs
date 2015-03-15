@@ -10,17 +10,19 @@ public class NoteReader : MonoBehaviour {
 	List<GameObject>notes;
 	List<GameObject>extraNotes;
 	StreamReader noteFile;
-	GameObject Main_Camera;
+	string tempLine;
 
 	// Use this for initialization
-	void Awake () {
-		Main_Camera = GameObject.Find("Main Camera");
+	void Start () {
 		notes = new List<GameObject>();
 		extraNotes = new List<GameObject>();
-
-		noteFile = new StreamReader(Application.dataPath + "/Resources/Files/Songs/Song1_Randall.txt");
+		noteFile = new StreamReader (Application.dataPath + "/Resources/Files/Feedback.txt");
+		string line = noteFile.ReadLine();
+		tempLine = line.Substring (0, line.IndexOf(' '));
+		noteFile.Close();
+		noteFile = new StreamReader(Application.dataPath + "/Resources/Files/Songs/Song1_" + tempLine + ".txt");
 		int size = int.Parse(noteFile.ReadLine());
-		
+
 		Vector3 position;
 		float startPos = 0.0f;
 		//float z = 12.275f;
@@ -42,9 +44,7 @@ public class NoteReader : MonoBehaviour {
 			string item3 = line1;
 			float z = float.Parse(item3);
 
-			//camera pos
-			x /*= -2.2f */+= (-0.06f);
-			y/* = 0.9f*/ += 26.82f;
+
 			//speed at which notes move
 			z +=(12.5f);
 			//gap factor
@@ -54,12 +54,12 @@ public class NoteReader : MonoBehaviour {
 
 			//instantiate note at position, parent to this object
 			notes.Add(Instantiate(note, position, note.transform.rotation) as GameObject);
+			notes[i].name = "Note "+i;
 			notes[i].transform.parent = this.transform;
 		}
 
-		sphere.transform.position = new Vector3(notes[size-1].transform.position.x, notes[size-1].transform.position.y, (notes[size-1].transform.position.z + 12f));
+		sphere.transform.position = new Vector3(notes[size-1].transform.position.x, notes[size-1].transform.position.y, ((notes[size-1].transform.position.z)+10.0f));
 		noteFile.Close();
-		Main_Camera.audio.Play();
 	}
 	
 	// Update is called once per frame

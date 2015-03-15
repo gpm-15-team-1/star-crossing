@@ -7,10 +7,13 @@ public class RelationshipButtonScript : MonoBehaviour {
 	public Text myText;
 	public AudioClip blocked;
 	public AudioClip click;
+	string char1;
+	string char2;
 
 	// Use this for initialization
 	void Start () {
-	
+		char1=null;
+		char2=null;
 	}
 	
 	// Update is called once per frame
@@ -30,6 +33,7 @@ public class RelationshipButtonScript : MonoBehaviour {
 			audio.clip = click;
 			audio.PlayOneShot(click);
 		}
+
 		GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen = myText.text;
 		GameObject.Find("Save").GetComponent<SaveScript>().saveChosen();
 		Relationship[] tempRelationships = new Relationship[10];
@@ -41,7 +45,7 @@ public class RelationshipButtonScript : MonoBehaviour {
 		{
 			if(myText.text.Equals(tempRelationships[i].getName()))
 			{
-				GameObject.Find("DialogueManager").GetComponent<DialogueManager>().pause = false;;
+				GameObject.Find("DialogueManager").GetComponent<DialogueManager>().pause = false;
 				//metrics for relationship progression
 				switch(tempRelationships[i].getProgress())
 				{

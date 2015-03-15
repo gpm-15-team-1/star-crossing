@@ -1,0 +1,28 @@
+2
+Tani "Shall we head down to the cafe?"
+Randall "Oh, sure. I never turn down caffeine."
+
+I should know, you espresso fiend.
+Black coffee for you, then?
+That's why we like cappuccinos.
+
+5
+Tani "Tch. I should know, you espresso fiend."
+Randall "Oh teh noes! I've been found out!"
+Tani "I've been suspecting it for months, hon."
+Randall "Ha ha, I was teasing. I can always count on you to know me like the back of your hand."
+Tani "How else will I keep you out of trouble?"
+
+4
+Tani "Ha! That's the understatement of the year. Black coffee for you, then?"
+Randall "Eh, not my favorite...you have to dwell on the coffee for too long to get what you want."
+Randall "I prefer espressos. They get right to the point. I thought you knew this about me."
+Tani "I guess I didn't...I apologize."
+
+6
+Tani "Ha ha. That's why we like cappuccinos, right? A latte in a more condensed form?"
+Randall "Um, that's why YOU like cappuccinos. You've told me those exact words before."
+Tani "Oh, did I? Sorry, I'm bad about that..."
+Tani "I didn't mean to project on you. What do you like, then?"
+Randall "I'm more of a plain espresso person. Gets right to the point."
+Tani "Ah...I don't think I could stand something that concentrated."

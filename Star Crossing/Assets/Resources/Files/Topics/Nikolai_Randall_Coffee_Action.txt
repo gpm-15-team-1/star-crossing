@@ -1,0 +1,33 @@
+3
+Nikolai Neutral Nikolai MouthOpen Nikolai LeftMid Randall Neutral Randall RightMid
+Nikolai MouthClosed Randall MouthOpen
+null
+
+7
+Nikolai MouthOpen Randall MouthClosed
+Nikolai MouthClosed Randall Happy Randall MouthOpen
+Randall Neutral Randall MouthOpen
+Nikolai MouthOpen Randall MouthClosed
+Nikolai MouthClosed Randall MouthOpen
+Nikolai MouthOpen Randall MouthClosed
+Nikolai MouthClosed Randall MouthOpen
+
+9
+Nikolai Angry Nikolai MouthOpen Randall MouthClosed
+Nikolai Neutral Nikolai MouthOpen
+Nikolai MouthClosed Randall MouthOpen
+null
+Nikolai Angry Nikolai MouthOpen Randall MouthClosed
+Nikolai MouthClosed Randall MouthOpen
+Nikolai MouthOpen Randall MouthClosed
+Nikolai Flip Nikolai Neutral Nikolai MouthOpen
+Nikolai MouthClosed Nikolai MoveOffScreenLeft Randall Sad Randall MouthOpen
+
+7
+Nikolai MouthOpen Randall MouthClosed
+null
+Nikolai MouthClosed Randall Angry Randall MouthOpen
+Nikolai MouthOpen Randall MouthClosed
+Nikolai MouthClosed Randall MouthOpen
+Nikolai Angry Nikolai MouthOpen Randall MouthClosed
+Nikolai MouthClosed Randall MouthOpen

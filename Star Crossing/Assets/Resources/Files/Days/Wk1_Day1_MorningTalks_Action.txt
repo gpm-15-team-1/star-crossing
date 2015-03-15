@@ -1,0 +1,65 @@
+17
+Rusty LeftBack Rusty Neutral Carol LeftMid Carol Neutral Julie RightMid Julie MouthOpen
+Julie MouthClosed
+Julie MouthOpen
+Carol MouthOpen Julie MouthClosed
+Carol MouthClosed Julie MouthOpen
+Julie Happy Julie MouthOpen
+Julie MouthClosed
+Carol Flip Carol Move2Right Carol MouthOpen Rusty Flip Julie Neutral
+Carol MouthClosed Julie MouthOpen
+Randall MoveLeftMid Randall Happy Randall MouthOpen Tani MoveLeftBack Tani Neutral Nikolai MoveOnScreenLeft Nikolai Neutral Carol Move1Right Rusty Move1Right Julie Move1Right Julie MouthClosed
+Randall MouthClosed Julie MouthOpen
+Randall Neutral Randall MouthOpen Julie MouthClosed
+Randall MouthClosed Nikolai MouthOpen
+Nikolai MouthClosed Nikolai MouthClosed Tani Flip Tani MouthOpen
+Tani Flip Tani MouthClosed Julie MouthOpen
+Randall Happy Randall MouthOpen Julie MouthClosed
+Randall Neutral Randall MouthOpen
+
+22
+Randall LeftMid Randall Flip Randall MouthOpen
+Randall MouthClosed Tani MoveRightMid Tani MouthOpen
+Randall Flip Randall Happy Randall MouthOpen
+Randall MouthClosed Tani MouthOpen
+Randall Neutral Randall MouthOpen Tani MouthClosed
+Randall Flip Randall Move2Right Randall MouthClosed Tani MouthOpen
+Randall MouthOpen Tani MouthClosed
+Randall MouthClosed Tani Happy Tani MouthOpen
+Randall Flip Randall Happy Randall MouthOpen Tani MouthClosed
+Nikolai MoveLeftMid Nikolai MouthOpen Randall MouthClosed Tani Neutral
+Nikolai MouthClosed Randall Flip Randall Neutral Randall MouthOpen
+Randall Angry Randall MouthOpen
+Randall MouthClosed Tani MouthOpen
+Randall Flip Randall Neutral Randall MouthOpen Tani MouthClosed
+Randall Move2Left Tani Flip Tani Move2Left Nikolai Move1Left Carol MoveOnScreenRight Carol Neutral Rusty MoveRightBack Rusty Neutral Julie MoveRightMid Julie Neutral
+Randall MouthClosed Julie MouthOpen
+Randall Neutral Randall MouthOpen Julie MouthClosed
+Randall MouthClosed Nikolai MouthOpen
+Nikolai MouthClosed Tani Flip Tani MouthOpen
+Tani Flip Tani MouthClosed Julie MouthOpen
+Randall Happy Randall MouthOpen Julie MouthClosed
+Randall Neutral Randall MouthOpen
+
+21
+Tani RightMid Tani MouthOpen
+Nikolai MoveLeftMid Nikolai MouthOpen Tani MouthClosed
+Nikolai MouthClosed Tani MouthOpen
+Nikolai Flip Nikolai MouthOpen Tani MouthClosed
+Nikolai MouthClosed Tani Happy Tani MouthOpen
+Nikolai MouthOpen Tani MouthClosed
+Nikolai MouthClosed Tani Neutral Tani MouthOpen
+Tani MouthClosed
+Tani MouthOpen
+Randall MoveOnScreenLeft Randall MouthOpen Nikolai Move1Right Tani MouthClosed
+Randall MouthClosed Nikolai MouthOpen
+Nikolai Flip Nikolai Move2Left Nikolai MouthClosed Randall Move2Right Tani MouthOpen
+Randall MouthOpen Tani MouthClosed
+Randall Move1Left Tani Flip Tani Move2Left Carol MoveOnScreenRight Carol Neutral Rusty MoveRightMid Rusty Neutral Julie MoveRightBack Julie Neutral
+Randall MouthClosed Julie MouthOpen
+Randall Neutral Randall MouthOpen Julie MouthClosed
+Randall MouthClosed Nikolai MouthOpen
+Nikolai MouthClosed Tani Flip Tani MouthOpen
+Tani Flip Tani MouthClosed Julie MouthOpen
+Randall Happy Randall MouthOpen Julie MouthClosed
+Randall Neutral Randall MouthOpen

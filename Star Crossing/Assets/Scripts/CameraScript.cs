@@ -15,9 +15,11 @@ public class CameraScript : MonoBehaviour
 	StatScript StatScript;
 	private int temp_current_run;
 	private Light[] Aud_members_arr;
+	private bool canClick;
 
 	void Start()
 	{
+		canClick = true;
 		StatScript = GameObject.Find("Main Camera").GetComponent<StatScript>();
 		Aud_members_arr = GameObject.Find ("Audience member positions").GetComponentsInChildren<Light>();
 		positions_counter = 0;
@@ -28,6 +30,7 @@ public class CameraScript : MonoBehaviour
 
 	void Update () 
 	{
+		print ("canClick :" + canClick);
 //		if(positions_counter == (aud_positions.Length - 1))
 //		{
 //			positions_counter = 0;
@@ -41,34 +44,76 @@ public class CameraScript : MonoBehaviour
 //				positions_counter++;
 //			}
 //		}
+
+
 	
 		if (Input.GetMouseButtonDown (1)) {
-			temp_current_run = StatScript.current_run + 5;
+
+			temp_current_run = StatScript.current_run + 4;
+			print ("Temp run : " + temp_current_run);
 			iTween.ValueTo(gameObject, iTween.Hash("from", cam_smooth_var, "to", 1.5f, "time", 0.5f, "onupdate", "changecamOsize"));
 		}
 
 		if (Input.GetMouseButton (1)) {
+			canClick = false;
 			print ("Positions counter : " +  positions_counter);
-			if(Aud_members_arr[positions_counter].intensity < 2.0f)
+			if(positions_counter == 0)
 			{
-				Aud_members_arr[positions_counter].intensity = StatScript.current_run - temp_current_run + 2;
+				if(Aud_members_arr[Aud_members_arr.Length - 1].intensity < 2.0f)
+				{
+					Aud_members_arr[Aud_members_arr.Length - 1].intensity = StatScript.current_run - temp_current_run + 2;
+				}
+
+				if (Aud_members_arr [Aud_members_arr.Length - 1].intensity == 2) {
+					print ("PARTICLES");
+					foreach (Transform child in aud_positions[Aud_members_arr.Length - 1].transform)
+					{
+						child.gameObject.SetActive(true);
+					}
+					//aud_positions[Aud_members_arr.Length - 1].transform.Find("CFX4 Firework B").gameObject.SetActive(true);		
+				}
+			}
+			else{
+				if(Aud_members_arr[positions_counter - 1].intensity < 2.0f)
+				{
+					Aud_members_arr[positions_counter - 1].intensity = StatScript.current_run - temp_current_run + 2;
+				}
+				if (Aud_members_arr [positions_counter - 1].intensity == 2) {
+					print ("PARTICLES");
+					foreach (Transform child in aud_positions[positions_counter - 1].transform)
+					{
+						child.gameObject.SetActive(true);
+					} 
+					//aud_positions[positions_counter - 1].transform.Find("CFX4 Firework B").gameObject.SetActive(true);		
+				}
 			}
 		}
 
 		if (Input.GetMouseButtonUp (1)) {
-			if(Aud_members_arr[positions_counter].intensity <= 2.0f)
+//			if(Aud_members_arr[positions_counter].intensity <= 2.0f)
+//			{
+//				Aud_members_arr[positions_counter].intensity = 0;
+//			}
+			canClick = true;
+			if(positions_counter == 0)
 			{
-				Aud_members_arr[positions_counter].intensity = 0;
+				if(Aud_members_arr[Aud_members_arr.Length - 1].intensity < 2.0f)
+				{
+					Aud_members_arr[Aud_members_arr.Length - 1].intensity = 0;
+				}
+			}
+			else{
+				if(Aud_members_arr[positions_counter - 1].intensity < 2.0f)
+				{
+					Aud_members_arr[positions_counter - 1].intensity = 0;
+				}
 			}
 			iTween.ValueTo(gameObject, iTween.Hash("from", cam_smooth_var, "to", 2.0f, "time", 0.5f, "onupdate", "changecamOsize"));
 		}
 
-		if (Input.GetMouseButton (0)) {
+		if (Input.GetMouseButton (0) && canClick == true) {
 			print ("Pos Counter : " + positions_counter);
-			if(positions_counter == (aud_positions.Length))
-			{
-				positions_counter = 0;
-			}
+			canClick = false;
 			iTween.MoveTo(gameObject,iTween.Hash("x",aud_positions[positions_counter].position.x,"y",aud_positions[positions_counter].position.y, "Time", 1.5f, "onComplete", "moveCamAud"));
 		}
 
@@ -109,6 +154,12 @@ public class CameraScript : MonoBehaviour
 	}
 
 	void moveCamAud() {
-		positions_counter++;
+		canClick = true;
+		if (positions_counter == (aud_positions.Length - 1)) {
+			positions_counter = 0;
+		} else {
+			positions_counter++;
+		}
+
 	}
 }

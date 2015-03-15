@@ -1,0 +1,35 @@
+4
+Randall "You wanna get coffee or something?"
+Nikolai "Oh, uh. Sure, I guess."
+Randall "Hey, don't worry about it. I'll pay."
+Nikolai "You don't have to do that."
+
+You like your coffee black, yeah?
+Let's get you an espresso.
+I'll order you a cappuccino.
+
+8
+Randall "Oh, come on, it's a friendly gesture. You like your coffee black, yeah?"
+Nikolai "I seem to remember telling you that, yes."
+Nikolai "You remembering it, though, is impressive."
+Randall "Ha! Have you so little faith in me?"
+Nikolai "Maybe."
+Nikolai "But...you're okay, I think."
+Randall "I'll take that as an affirmation of friendship."
+Nikolai "Don't push your luck, dude."
+
+5
+Randall "Well, I'm doing it anyway. Let's get you an espresso."
+Nikolai "Ew, the concentrated stuff? No thank you."
+Randall "Oy, what's wrong with espresso?"
+Nikolai "Too much, too fast, for the wrong reasons. Same reason I don't like hard liquor."
+Randall "Oh, them's fightin' words."
+
+7
+Randall "I do, actually. It's my job as self-appointed leader of this group to take care of you guys."
+Nikolai "Are you patronizing me?"
+Randall "No, no! Just offering to order you a cappuccino, or something. Is that so wrong?"
+Nikolai "Why cappuccino?"
+Randall "Because...I thought you liked them?"
+Nikolai "You're thinking of my sister. We are two distinct individuals, in case you haven't noticed."
+Randall "Ah, jeez...sorry. That's embarrassing..."

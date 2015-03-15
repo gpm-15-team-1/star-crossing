@@ -1,0 +1,30 @@
+2
+Randall "Care to mosey down to the cafe?"
+Tani "I'd be delighted. I could use a refresher."
+
+One cappuccino coming up!
+Two espressos, then?
+You prefer black coffee, right?
+
+7
+Randall "Excellent. One cappuccino coming right up!"
+Tani "Heh. You do know what I like."
+Randall "Course I do. You're my best friend."
+Tani "That's...really sweet. Thank you."
+Randall "What, is that not true?"
+Tani "It's very true. I'm honored to be your best friend, Randall."
+Randall "Same here, Tani."
+
+5
+Randall "Yeah, me too. Two espressos for us, then?"
+Tani "...not THAT kind of refresher."
+Randall "Oh, come on. Nothing like a good kick in the brain!"
+Tani "I'll never understand that particular strain of masochism in you. I'll pass, but thanks."
+Randall "I...okay. Sorry to upset you."
+
+5
+Randall "I don't blame you. You prefer your coffee black, right?"
+Tani "Um...no? I thought you knew I don't like anything that strong."
+Randall "You said you wanted a refresher..."
+Tani "Call me pampered, I guess, but I like my refreshers with cream or steamed milk. Sorry."
+Randall "Duly noted..."

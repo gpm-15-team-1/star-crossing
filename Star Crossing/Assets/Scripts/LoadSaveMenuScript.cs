@@ -18,6 +18,8 @@ public class LoadSaveMenuScript : MonoBehaviour {
 	public Text panel6Time;
 	public Button panel6Button;
 
+	public AudioClip load;
+
 	// Use this for initialization
 	void Start () {
 		// Redirect to Load or Save functionality depending on current scene.
@@ -188,6 +190,8 @@ public class LoadSaveMenuScript : MonoBehaviour {
 		File.Copy (Application.dataPath + "/Resources/Files/Saves/" + filename + ".txt",
 		          Application.dataPath + "/Resources/Files/Saves/Temp.txt", true);
 		Application.LoadLevel ("StoryScene01");
+		audio.clip = load;
+		audio.Play();
 	}
 
 	public void SaveOnClick (string filename) {
