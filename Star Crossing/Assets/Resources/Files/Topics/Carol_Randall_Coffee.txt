@@ -1,0 +1,31 @@
+5
+Carol "Um...would you like to go to the cafe together?"
+Randall "The cafe? What's the occasion?"
+Carol "I thought spending time together might further our friendship..."
+Randall "Daww, that's really sweet. I appreciate the gesture, Carol."
+Randall "And I do like coffee, so hey, sure!"
+
+An espresso?
+Black coffee?
+Coffee with cream?
+
+5
+Carol "Excellent! Your favorite coffee drink is an espresso, correct?"
+Randall "Yup, that'd be it!"
+Randall "Nothing like a good kick to the brain, as I always say!"
+Carol "...can a brain be kicked?"
+Randall "Uh, sorry. Figurative language."
+
+5
+Carol "Excellent! You prefer your coffee black, correct?"
+Randall "I...don't, but I'll take it!"
+Carol "Ah! I got it wrong? I must have mixed up my memory pointers!"
+Carol "I'm sorry, I'm so sorry!"
+Randall "Whoa, hey, don't...aw, nuts."
+
+5
+Carol "Excellent! You prefer your coffee with cream, correct?"
+Randall "Um...no? I'd rather have it black if anything, though espressos are my favorite..."
+Carol "Ah! I got it wrong? I must have mixed up my memory pointers!"
+Carol "I'm sorry, I'm so sorry!"
+Randall "Whoa, hey, don't get like...ah, darn."

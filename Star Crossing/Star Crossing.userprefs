@@ -1,20 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Files\Days\Wk1_Day2_MorningTalks.txt">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DialogueManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\SaveScript.cs" Line="286" Column="5" />
-      <File FileName="Assets\Scripts\DialogueManager.cs" Line="363" Column="45" />
+      <File FileName="Assets\Scripts\DialogueManager.cs" Line="607" Column="9" />
+      <File FileName="Assets\Scripts\SaveScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Relationship.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Character.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\RelationshipMenuManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MainMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MenuManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ConversationSelectManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ConversationButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Files\Saves\Temp.txt" Line="17" Column="1" />
-      <File FileName="Assets\Scripts\CharSelectMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LoadSaveMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Files\Saves\Save1.txt" Line="1" Column="6" />
-      <File FileName="Assets\Resources\Files\Days\Wk1_Day2_MorningTalks.txt" Line="37" Column="1" />
+      <File FileName="Assets\Scripts\RelationshipButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ClockScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Files\Saves\Temp.txt" Line="29" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

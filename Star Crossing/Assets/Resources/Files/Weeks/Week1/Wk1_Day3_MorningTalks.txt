@@ -1,7 +1,8 @@
 hotel-hallway
-Lounge
-Practice Room
-Cafe
+null
+Lounge - Nikolai & Carol
+Practice Room - Nikolai & Julie
+Cafe - Randall & Tani
 
 hotel-lounge
 10

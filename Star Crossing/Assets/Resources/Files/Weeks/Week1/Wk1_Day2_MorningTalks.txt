@@ -1,7 +1,8 @@
 cafe-day
-Table 1
-Table 4
-Table 6
+Coffee
+Table 1 - Randall & Julie
+Table 4 - Tani & Carol
+Table 6 - Randall & Nikolai
 
 cafe-day
 15

@@ -1,7 +1,8 @@
 hotel-hallway
-Room 308
-Room 305
-Room 307
+null
+Room 308 - Julie & Carol
+Room 305 - Randall & Tani
+Room 307 - Tani & Nikolai
 
 hotel-hallway
 17

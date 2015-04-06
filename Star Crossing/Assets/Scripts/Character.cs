@@ -25,6 +25,7 @@ public class Character : MonoBehaviour{
 	
 	//-50 to +50 CHANGES
 	public int mood;
+	public int bonusAccuracy;
 
 	bool move = false;
 	public string facing = null;

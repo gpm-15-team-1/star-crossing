@@ -1,0 +1,27 @@
+5
+Carol Neutral Carol LeftMid Carol MouthOpen Randall Neutral Randall RightMid
+Carol MouthClosed Randall MouthOpen
+Carol Sad Carol MouthOpen Randall MouthClosed
+Carol MouthClosed Randall MouthOpen
+Carol Neutral Carol MouthClosed
+
+5
+Carol Happy Carol MouthOpen Randall MouthClosed
+Carol MouthClosed Randall MouthOpen
+Randall Happy Randall MouthOpen
+Carol Thinking Carol MouthOpen Randall MouthClosed
+Carol MouthClosed Randall Neutral Randall MouthOpen
+
+5
+Carol Happy Carol MouthOpen Randall MouthClosed
+Carol MouthClosed Randall MouthOpen
+Carol Confused Carol MouthOpen Randall MouthClosed
+Carol Sad Carol MouthOpen
+Carol MouthClosed Carol Flip Carol MoveOffScreenLeft Randall Sad Randall MouthOpen
+
+5
+Carol Happy Carol MouthOpen Randall MouthClosed
+Carol MouthClosed Randall Angry Randall MouthOpen
+Carol Confused Carol MouthOpen Randall MouthClosed
+Carol Sad Carol MouthOpen
+Carol MouthClosed Carol Flip Carol MoveOffScreenLeft Randall Sad Randall MouthOpen

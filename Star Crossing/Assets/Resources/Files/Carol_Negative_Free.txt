@@ -1,0 +1,20 @@
+"Hello."
+"Hello."
+
+"Ah! I am sorry!"
+"I am sorry! I did not mean to bump you!"
+
+"Ah, I am sorry! I did not mean to bump you!"
+"I am fine. It's my fault too."
+
+"Excuse me, do you have a moment to talk?"
+"Yes? I mean, uh...I was planning to run a diagnostic on myself, actually. I should do that regularly."
+
+"You have a, um...unique fashion sense. What can you tell me about it?"
+"I...am I dressing wrong? I thought I did a good job of imitating human fashion sense!"
+
+"Excuse me...about the last time we spoke..."
+"I...I am sorry. I think my energy is running low. I do not feel fit for conversation."
+
+"Um...are you not feeling well?"
+"I...I think I will excuse myself for a moment."

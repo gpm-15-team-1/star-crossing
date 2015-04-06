@@ -33,14 +33,22 @@ public class RelationshipMenuManager : MonoBehaviour {
 		char2 = null;
 
 		//only do this if on Relationship2
-		if(GameObject.Find("Save").GetComponent<SaveScript>().currentScene == (int)Scene.Relationship2)
+		if(GameObject.Find("Save").GetComponent<SaveScript>().currentScene == (int)Scene.Relationship1)
 		{
 			setChosen(GameObject.Find("DialogueManager").GetComponent<DialogueManager>().chosen);
-			string temp = chosen;
-			char1 = chosen.Substring(0, chosen.IndexOf("/"));
-			chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
-			char2 = chosen;
-			chosen = temp;
+			if(!chosen.Equals("") && !chosen.Equals(null))
+			{
+				string temp = chosen;
+				char1 = chosen.Substring(0, chosen.IndexOf("/"));
+				chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
+				char2 = chosen;
+				chosen = temp;
+			}
+		}
+
+		for(int i=0; i<buttons.Length; i++)
+		{
+			buttons[i].image.color = Color.white;
 		}
 	}
 
@@ -50,17 +58,20 @@ public class RelationshipMenuManager : MonoBehaviour {
 		{
 			string tchar1 = null;
 			string tchar2 = null;
-			if(GameObject.Find("Save").GetComponent<SaveScript>().currentScene == (int)Scene.Relationship2)
+			if(GameObject.Find("Save").GetComponent<SaveScript>().currentScene == (int)Scene.Relationship1)
 			{
 				Debug.Log("chosen: "+chosen);
-				string temp = chosen;
-				tchar1 = chosen.Substring(0, chosen.IndexOf("/"));
-				chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
-				tchar2 = chosen;
-				chosen = temp;
+				if(!chosen.Equals("") && !chosen.Equals(null))
+				{
+					string temp = chosen;
+					char1 = chosen.Substring(0, chosen.IndexOf("/"));
+					chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
+					char2 = chosen;
+					chosen = temp;
+				}
 			}
 			
-			//only do this if both char 1 and char 2 have been set and the relationship was not already choen
+			//only do this if both char 1 and char 2 have been set and the relationship was not already chosen
 			if((char1 != null && char2 != null) && (!char1.Equals(tchar1) && !char2.Equals(tchar2)))
 			{
 				string myText1 = char1 +"/" +char2;
@@ -73,7 +84,7 @@ public class RelationshipMenuManager : MonoBehaviour {
 				int c = -1;
 				for(int i=0; i<tempRelationships.Length; i++)
 				{
-					if(myText1.Equals(tempRelationships[i].getName()))
+					if(myText1.Equals(tempRelationships[i].getName()) && !myText1.Equals(chosen))
 					{
 						c=i;
 						Debug.Log(myText1);
@@ -81,33 +92,46 @@ public class RelationshipMenuManager : MonoBehaviour {
 						GameObject.Find("Save").GetComponent<SaveScript>().saveChosen();
 						GameObject.Find("DialogueManager").GetComponent<DialogueManager>().pause = false;
 
-						//metrics for relationship progression
-						switch(tempRelationships[c].getProgress())
+						int toCheck = 0;
+						int progress = 0;
+						if(tempRelationships[c].getProgress() < 0)
 						{
-						case -12:
+							toCheck = tempRelationships[c].getNegProgress();
+							progress = -1;
+						}
+						else
+						{
+							toCheck = tempRelationships[c].getPosProgress();
+							progress = 1;
+						}
+
+						//metrics for relationship progression
+						switch(toCheck)
+						{
+						case -26:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-3);
 							break;
-						case -8:
+						case -16:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-2);
 							break;
-						case -4:
+						case -6:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-1);
 							break;
-						case 4:
+						case 6:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(1);
 							break;
-						case 8:
+						case 16:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(2);
 							break;
-						case 12:
+						case 26:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(3);
 							break;
 						default:
-							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readFreeRelationship();
+							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readFreeRelationship(progress);
 							break;
 						}
 					}
-					else if(myText2.Equals(tempRelationships[i].getName()))
+					else if(myText2.Equals(tempRelationships[i].getName()) && !myText2.Equals(chosen))
 					{
 						c=i;
 						Debug.Log(myText2);
@@ -115,29 +139,42 @@ public class RelationshipMenuManager : MonoBehaviour {
 						GameObject.Find("Save").GetComponent<SaveScript>().saveChosen();
 						GameObject.Find("DialogueManager").GetComponent<DialogueManager>().pause = false;
 
-						//metrics for relationship progression
-						switch(tempRelationships[c].getProgress())
+						int toCheck = 0;
+						int progress = 0;
+						if(tempRelationships[c].getProgress() < 0)
 						{
-						case -12:
+							toCheck = tempRelationships[c].getNegProgress();
+							progress = -1;
+						}
+						else
+						{
+							toCheck = tempRelationships[c].getPosProgress();
+							progress = 1;
+						}
+
+						//metrics for relationship progression
+						switch(toCheck)
+						{
+						case -26:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-3);
 							break;
-						case -8:
+						case -16:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-2);
 							break;
-						case -4:
+						case -6:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(-1);
 							break;
-						case 4:
+						case 6:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(1);
 							break;
-						case 8:
+						case 16:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(2);
 							break;
-						case 12:
+						case 26:
 							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(3);
 							break;
 						default:
-							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readFreeRelationship();
+							GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readFreeRelationship(progress);
 							break;
 						}
 					}
@@ -151,14 +188,17 @@ public class RelationshipMenuManager : MonoBehaviour {
 		{
 			string tchar1 = null;
 			string tchar2 = null;
-			if(GameObject.Find("Save").GetComponent<SaveScript>().currentScene == (int)Scene.Relationship2)
+			if(GameObject.Find("Save").GetComponent<SaveScript>().currentScene == (int)Scene.Relationship1)
 			{
 				Debug.Log("topic: "+topic);
-				string temp = chosen;
-				tchar1 = chosen.Substring(0, chosen.IndexOf("/"));
-				chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
-				tchar2 = chosen;
-				chosen = temp;
+				if(!chosen.Equals("") && !chosen.Equals(null))
+				{
+					string temp = chosen;
+					char1 = chosen.Substring(0, chosen.IndexOf("/"));
+					chosen = chosen.Remove(0,chosen.IndexOf("/")+1);
+					char2 = chosen;
+					chosen = temp;
+				}
 			}
 			
 			//only do this if both char 1 and char 2 have been set and the relationship was not already choen
@@ -213,13 +253,42 @@ public class RelationshipMenuManager : MonoBehaviour {
 				//if i is the current button
 				if(i == index)
 				{
-					char1 = toShow[i].text;
-					string text = "";
-					text = char1 +"/"+char2;
-					
-					relationshipText[0].text = text;
+					//if it has not been clicked before
+					if(pair1==-1)
+					{
+						char1 = toShow[i].text;
+						string text = "";
+						text = char1 +"/"+char2;
+						
+						relationshipText[0].text = text;
+
+						buttons[i].image.color = Color.yellow;
+
+						//disable my counterpart
+						buttons[i+5].enabled = false;
+						buttons[i+5].image.color = Color.grey;
+
+						pair1=i;
+					}
+					else if (pair1==i)
+					{
+						char1 = null;
+						string text = "";
+						text = char1 +"/"+char2;
+						
+						relationshipText[0].text = text;
+
+						buttons[i].image.color = Color.white;
+
+						//disable my counterpart
+						buttons[i+5].enabled = true;
+						buttons[i+5].image.color = Color.white;
+						
+						pair1=-1;
+					}
+
 					//check the index of the disabled button
-					if(pair2!=(i+5) && pair2!=-1)
+					/*if(pair2!=(i+5) && pair2!=-1)
 					{
 						//Debug.Log("To enable: "+pair2);
 						//if it is no longer my counterpart, enable it again
@@ -238,14 +307,14 @@ public class RelationshipMenuManager : MonoBehaviour {
 					//save the index of the button I just disabled
 					//save my index
 					pair1=i;
-					pair2=i+5;
+					pair2=i+5;*/
 
 					//buttons[pair1].GetComponent<Image>().color = selected;
 				}
-				else
+				/*else
 				{
 					buttons[i].GetComponent<Image>().color = basic;
-				}
+				}*/
 			}
 		}
 		else
@@ -256,13 +325,41 @@ public class RelationshipMenuManager : MonoBehaviour {
 				//if i is the current button
 				if(i == index)
 				{
-					char2 = toShow[i].text;
-					string text = "";
-					text = char1 +"/"+char2;
-					
-					relationshipText[0].text = text;
+					if(pair2==-1)
+					{
+						char2 = toShow[i].text;
+						string text = "";
+						text = char1 +"/"+char2;
+						
+						relationshipText[0].text = text;
+
+						buttons[i].image.color = Color.yellow;
+
+						//disable my counterpart
+						buttons[i-5].enabled = false;
+						buttons[i-5].image.color = Color.gray;
+						
+						pair2=i;
+					}
+					else if(pair2==i)
+					{
+						char2 = null;
+						string text = "";
+						text = char1 +"/"+char2;
+						
+						relationshipText[0].text = text;
+
+						buttons[i].image.color = Color.white;
+
+						//disable my counterpart
+						buttons[i-5].enabled = true;
+						buttons[i-5].image.color = Color.white;
+						
+						pair2=-1;
+					}
+
 					//check the index of the disabled button
-					if(pair1!=(i-5) && pair1!=-1)
+					/*if(pair1!=(i-5) && pair1!=-1)
 					{
 						//Debug.Log("To enable: "+pair1);
 						//if it is no longer my counterpart, enable it again
@@ -281,14 +378,14 @@ public class RelationshipMenuManager : MonoBehaviour {
 					//save the index of the button I just disabled
 					//save my index
 					pair2=i;
-					pair1=i-5;
+					pair1=i-5;*/
 
 					//buttons[pair2].GetComponent<Image>().color = selected;
 				}
-				else
+				/*else
 				{
 					buttons[i].GetComponent<Image>().color = basic;
-				}
+				}*/
 			}
 		}
 	}

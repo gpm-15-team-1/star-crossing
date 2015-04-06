@@ -1,0 +1,30 @@
+4
+Randall "Hey, Carol. Wanna head down to the cafe?"
+Carol "I was not considering it, but I will come if you like. Why do you ask?"
+Randall "Nothin' much, just thought I'd invite you to go do something fun."
+Carol "Ah, I appreciate the gesture! Thank you!"
+
+Straight coffee with cream?
+Maybe just black coffee?
+Ever tried an espresso before?
+
+5
+Randall "Sure thing! What would you like?"
+Randall "Maybe something simple, like straight coffee with cream and sugar? Or just cream?"
+Carol "Mm, I have tried coffee with cream before, and I enjoyed it."
+Carol "Perhaps I will enjoy sugar as well!"
+Randall "Something tells me you might."
+
+4
+Randall "Oh, sure! Anything you'd like?"
+Randall "If you'd rather have something basic, maybe just black coffee?"
+Carol "Ah, I have heard that it is bitter...I do not feel confident trying it just yet."
+Randall "Oh, okay. Didn't mean to be pushy..."
+
+6
+Randall "Hey, no problem! I was just about to get an espresso myself."
+Randall "Ever tried an espresso before? I'll get you one too."
+Carol "Ah...espressos sound scary. I do not yet feel confident enough to try one."
+Randall "You sure?"
+Carol "I...yes."
+Randall "Aww...okay..."

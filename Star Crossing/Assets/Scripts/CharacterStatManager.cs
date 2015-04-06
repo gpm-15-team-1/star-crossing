@@ -23,6 +23,7 @@ public class CharacterStatManager : MonoBehaviour {
 			characters[i] = GameObject.Find("Save").GetComponent<SaveScript>().characters[i];
 		}
 
+		Debug.Log("Number of relationships: "+GameObject.Find("Save").GetComponent<SaveScript>().relationships.Length);
 		//reading from save object
 		for(int i=0; i<GameObject.Find("Save").GetComponent<SaveScript>().relationships.Length; i++)
 		{
@@ -30,7 +31,7 @@ public class CharacterStatManager : MonoBehaviour {
 		}
 
 		//incorporate mood bar
-		characters[(int)Chars.Randall].page1 = "Part: Bass\nRange: Baritone\nBreakout factor: 1" +
+		/*characters[(int)Chars.Randall].page1 = "Part: Bass\nRange: Baritone\nBreakout factor: 1" +
 			"\n\nDescription: A music major, \n" +
 			"vocal emphasis. He can make\n" +
 			"anything sound good, and he’s\n" +
@@ -79,6 +80,7 @@ public class CharacterStatManager : MonoBehaviour {
 		"Nikolai: "+getRelationshipByName("Nikolai/Carol").getChar2Value()+"\n" +
 		"Carol: --"+"\n\n" +
 		"Mood: "+characters[(int)Chars.Carol].mood;
+		*/
 	}
 	
 	// Update is called once per frame

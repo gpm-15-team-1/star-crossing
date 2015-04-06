@@ -1,0 +1,26 @@
+4
+Randall Neutral Randall LeftMid Randall MouthOpen Carol Neutral Carol RightMid
+Randall MouthClosed Carol MouthOpen
+Randall MouthOpen Carol MouthClosed
+Randall MouthClosed Carol MouthOpen
+
+5
+Randall Happy Randall MouthOpen Carol MouthClosed
+Randall Neutral Randall MouthOpen
+Randall MouthClosed Carol MouthOpen
+Carol Happy Carol MouthOpen
+Randall MouthOpen Carol MouthClosed
+
+4
+Randall Happy Randall MouthOpen Carol MouthClosed
+Randall Neutral Randall MouthOpen
+Randall MouthClosed Carol Sad Carol MouthOpen
+Randall Sad Randall MouthOpen Carol MouthClosed
+
+6
+Randall Happy Randall MouthOpen Carol MouthClosed
+Randall Neutral Randall MouthOpen
+Randall MouthClosed Carol Sad Carol MouthOpen
+Randall MouthOpen Carol MouthClosed
+Randall MouthClosed Carol MouthOpen
+Randall Sad Randall MouthOpen Carol MouthClosed

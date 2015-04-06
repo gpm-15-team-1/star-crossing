@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour {
 
 	//enums to help organise characters, positions, and scene state
 	enum Chars {Randall, Julie, Tani, Nikolai, Carol, Rusty};
-	enum Scene {Morning, MorningTalks, Feedback, Relationship1, Relationship2};
+	enum Scene {Morning, MorningTalks, Feedback, Relationship1, Evening};
 	enum End {Morning, Feedback, Evening};
 
 	//characters and positions referenced by enums
@@ -24,6 +24,9 @@ public class DialogueManager : MonoBehaviour {
 	//text objects to hold name of character and spoken dialogue
 	public Text name;
 	public Text line;
+
+	//clocl
+	public Text clock;
 
 	//background
 	public GameObject background;
@@ -75,8 +78,13 @@ public class DialogueManager : MonoBehaviour {
 
 		line.supportRichText = true;
 
+		//time
+		clock.text = GameObject.Find("Save").GetComponent<SaveScript>().clock.GetComponent<ClockScript>().GetTimeAsString();
 
+		//audio
 		audio.volume = 1.0f;
+
+		chosen = "";
 
 		fade.GetComponent<FadeScript>().SendMessage("fadeIn");
 		//iTween.MoveTo(cg.gameObject,new Vector3(2,0,0),2);
@@ -98,11 +106,18 @@ public class DialogueManager : MonoBehaviour {
 		GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 		GameObject.Find("ConversationSelect").GetComponent<ConversationSelectManager>().disable();
 
+		Debug.Log("<<<CURRENT SCENE: "+currentScene+">>>");
+
 		hideUpdate();
 
 		//IF MORNING OR EVENING SCENE DO THIS
-		if(currentScene == (int)Scene.Morning || (currentScene == (int)End.Evening && currentDay == 4))
+		if(currentScene == (int)Scene.Morning || (currentScene == (int)Scene.Evening && currentDay != 4) || (currentScene == (int)End.Evening && currentDay == 4))
 		{
+			//set clock
+			clock.GetComponent<ClockScript>().SetTime(9, 30);
+			clock.text = clock.GetComponent<ClockScript>().GetTimeAsString();
+
+			//change music
 			audio.clip = bgMusic_Cutscene;
 			audio.volume = 0.25f;
 			audio.Play();
@@ -111,10 +126,10 @@ public class DialogueManager : MonoBehaviour {
 			GameObject.Find("ConversationSelect").GetComponent<ConversationSelectManager>().disable();
 
 			//reading from file:
-			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Morning.txt");
-			if(currentScene == (int)End.Evening && currentDay == 4)
+			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Weeks/Week"+currentWeek+"/Wk" +currentWeek+"_Day"+currentDay+"_Morning.txt");
+			if((currentScene == (int)End.Evening && currentDay == 4) || (currentScene == (int)Scene.Evening && currentDay != 4))
 			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Evening.txt");
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Weeks/Week"+currentWeek+"/Wk" +currentWeek+"_Day"+currentDay+"_Evening.txt");
 			}
 
 			//change background
@@ -139,10 +154,10 @@ public class DialogueManager : MonoBehaviour {
 			}
 			file.Close();
 
-			file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Morning_Action.txt");
+			file = new StreamReader(Application.dataPath + "/Resources/Files/Weeks/Week"+currentWeek+"/Wk" +currentWeek+"_Day"+currentDay+"_Morning_Action.txt");
 			if(currentScene == (int)End.Evening && currentDay == 4)
 			{
-				file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_Evening_Action.txt");
+				file = new StreamReader(Application.dataPath + "/Resources/Files/Weeks/Week"+currentWeek+"/Wk" +currentWeek+"_Day"+currentDay+"_Evening_Action.txt");
 			}
 				
 			size = int.Parse(file.ReadLine());
@@ -164,6 +179,10 @@ public class DialogueManager : MonoBehaviour {
 		else if((currentScene == (int)Scene.Feedback && currentDay != 4)||
 		        (currentScene == (int)End.Feedback && currentDay == 4))
 		{
+			//set clock
+			clock.GetComponent<ClockScript>().SetTime(12, 0);
+			clock.text = clock.GetComponent<ClockScript>().GetTimeAsString();
+
 			//player feedback
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().disable();
 			GameObject.Find("ConversationSelect").GetComponent<ConversationSelectManager>().disable();
@@ -273,22 +292,35 @@ public class DialogueManager : MonoBehaviour {
 				readRandomDialogue(file, file2, feedback);
 			}
 
-			save ();
+			Debug.Log("Now saving.");save ();
 		}
 		else if(currentScene == (int)Scene.Relationship1 && currentDay != 4)
 		{
+			//set clock
+			//Debug.Log("<<<TEMP TIME: "+tempTime+">>>");
+			//tempTime = tempTime.Substring(tempTime.IndexOf('0'), tempTime.Length-1);
+			//int temp = int.Parse(tempTime);
+
+			if(clock.GetComponent<ClockScript>().getHour()<13)
+			{
+				clock.GetComponent<ClockScript>().SetTime(13, 0);
+				clock.text = clock.GetComponent<ClockScript>().GetTimeAsString();
+			}
+
+			Debug.Log("<<<CURRENT TIME: "+clock.GetComponent<ClockScript>().GetTimeAsString()+">>>");
+
 			audio.clip = bgMusic_Relationship;
 			audio.volume = 0.25f;
 			audio.Play();
 			audio.loop = true;
 
 			pause=true;
-			//GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Shuffle");
+			//GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().SendMessage("Display");
 			GameObject.Find("Relationship_Menu_Background").GetComponent<RelationshipMenuManager>().enable();
 			GameObject.Find("ConversationSelect").GetComponent<ConversationSelectManager>().disable();
 
 			speaker.Add("");
-			dialogue.Add("Select a relationship to pursue.");
+			dialogue.Add("Select an action.");
 
 			//dummy values
 			List<string> currentActions = new List<string>();
@@ -296,10 +328,16 @@ public class DialogueManager : MonoBehaviour {
 			currentActions.Add("MouthClosed");
 			actions.Add(currentActions);
 
+			Debug.Log("Now saving.");save ();
+
 		}
 		//morning conversations
 		else if(currentScene == (int)Scene.MorningTalks && currentDay !=4)
 		{
+			//set clock
+			clock.GetComponent<ClockScript>().SetTime(9, 45);
+			clock.text = clock.GetComponent<ClockScript>().GetTimeAsString();
+
 			topic = null;
 			audio.clip = bgMusic_Talks;
 			audio.volume = 0.25f;
@@ -308,11 +346,13 @@ public class DialogueManager : MonoBehaviour {
 
 			pause=true;
 
-			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_MorningTalks.txt");
+			StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Weeks/Week"+currentWeek+"/Wk" +currentWeek+"_Day"+currentDay+"_MorningTalks.txt");
 
 			//change background
 			Sprite temp = Resources.Load<Sprite>("Sprites/Environment/"+file.ReadLine());
 			background.GetComponent<SpriteRenderer>().sprite = temp;
+
+			file.ReadLine();
 
 			string[] args = new string[3];
 
@@ -335,8 +375,10 @@ public class DialogueManager : MonoBehaviour {
 			currentActions.Add("Randall");
 			currentActions.Add("MouthClosed");
 			actions.Add(currentActions);
+
+			Debug.Log("Now saving.");save ();
 		}
-		else if(currentScene == (int)Scene.Relationship2 && currentDay != 4)
+		else if(currentScene == (int)Scene.Evening && currentDay != 4)
 		{
 			audio.clip = bgMusic_Relationship;
 			audio.volume = 0.25f;
@@ -349,7 +391,7 @@ public class DialogueManager : MonoBehaviour {
 			GameObject.Find("ConversationSelect").GetComponent<ConversationSelectManager>().disable();
 
 			speaker.Add("");
-			dialogue.Add("Select a relationship to pursue.");
+			dialogue.Add("Select an action.");
 
 			//dummy values
 			List<string> currentActions = new List<string>();
@@ -362,7 +404,7 @@ public class DialogueManager : MonoBehaviour {
 		name.text = (string)speaker[currentIndex];
 		line.text = (string)dialogue[currentIndex];
 
-		//if(((currentScene != (int)Scene.Relationship1 && currentDay !=4) || (currentScene != (int)Scene.Relationship2 && currentDay !=4)) && (currentScene != (int)Scene.MorningTalks && currentDay !=4) && ((currentScene==(int)End.Evening || currentScene==(int)End.Feedback) && currentDay==4))
+		//if(((currentScene != (int)Scene.Relationship1 && currentDay !=4) || (currentScene != (int)Scene.Evening && currentDay !=4)) && (currentScene != (int)Scene.MorningTalks && currentDay !=4) && ((currentScene==(int)End.Evening || currentScene==(int)End.Feedback) && currentDay==4))
 		if((currentScene==(int)Scene.Morning) || //if it's morning
 		   (currentScene==(int)Scene.Feedback && currentDay != 4) || //feedback not on Day 4
 		   (currentScene==(int)End.Feedback && currentDay == 4) || //feedback on Day 4
@@ -377,14 +419,13 @@ public class DialogueManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(currentScene==(int)Scene.Morning || currentScene==(int)Scene.Feedback || currentScene==(int)Scene.MorningTalks ||
-		   (currentScene==(int)Scene.Relationship1 && chosen!=null) || (currentScene==(int)Scene.Relationship2 && chosen!=null))
+		   (currentScene==(int)Scene.Relationship1 && chosen!=null) || (currentScene==(int)Scene.Evening && chosen!=null))
 		{
 			if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)){
 				if(pause==true)
 				{
-					if((currentScene==(int)Scene.Relationship1 && currentIndex!=0) || (currentScene==(int)Scene.Relationship2 && currentIndex!=0))
+					if((currentScene==(int)Scene.Relationship1 && currentIndex!=0) || (currentScene==(int)Scene.Evening && currentIndex!=0))
 					{
-						Debug.Log("Gotta enable choices");
 						GameObject.Find("ConversationSelect").GetComponent<ConversationSelectManager>().enable();
 					}
 					//do nothing
@@ -428,21 +469,28 @@ public class DialogueManager : MonoBehaviour {
 							line.audio.Play();
 
 							hideUpdate();
-							
+
 							currentIndex++;
 							if(currentIndex==pauseIndex)
+							{
 								pause = true;
+								line.text = (string)dialogue[currentIndex];
+							}
 							else
 							{
 								pause = false;
 							}
-							changeSprites();
-							name.text = (string)speaker[currentIndex];
-							changeColour((string)speaker[currentIndex]);
-							//line.text = (string)dialogue[currentIndex];
-							string[] args = new string[1];
-							args[0] = (string)dialogue[currentIndex];
-							StartCoroutine("TypeText", args);
+
+							if(pause==false)
+							{
+								changeSprites();
+								name.text = (string)speaker[currentIndex];
+								changeColour((string)speaker[currentIndex]);
+								//line.text = (string)dialogue[currentIndex];
+								string[] args = new string[1];
+								args[0] = (string)dialogue[currentIndex];
+								StartCoroutine("TypeText", args);
+							}
 						}
 						if(currentScene==(int)Scene.Feedback)
 						{
@@ -467,7 +515,7 @@ public class DialogueManager : MonoBehaviour {
 					{
 						string toLoad = Application.loadedLevelName;
 						//if end of either day type
-						if((currentScene==(int)Scene.Relationship2 && currentDay!=4) ||
+						if((currentScene==(int)Scene.Evening && currentDay!=4) ||
 						   (currentScene==(int)End.Evening && currentDay==4))
 						{
 							//end of week (4 days in a week!)
@@ -480,8 +528,13 @@ public class DialogueManager : MonoBehaviour {
 							//end of day
 							else
 							{
+								Debug.Log("<<<DELETE>>>");
+								File.Delete(Application.dataPath +"/Resources/Files/Saves/Chosen.txt");
+								File.Delete(Application.dataPath +"/Resources/Files/Saves/Chosen.txt.meta");
+
 								GameObject.Find("Save").GetComponent<SaveScript>().currentDay++;
 								GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+								toLoad = "SaveMenu";
 							}
 						}
 						//go to rhythm mode select menu
@@ -490,13 +543,19 @@ public class DialogueManager : MonoBehaviour {
 							GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
 							toLoad = "CharSelectScreen";
 						}
+						else if((currentScene==(int)Scene.Relationship1 && currentDay!=4) && !clock.text.Equals("5:00 P.M."))
+						{
+							Debug.Log("Refreshing Relationship1");
+							//reload the same level with the same scene
+							toLoad = "StoryScene01";
+						}
 						//still same day
 						else
 						{
 							GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
 						}
 						
-						save ();
+						Debug.Log("Now saving.");save ();
 						fade.GetComponent<FadeScript>().SendMessage("fadeOut");
 						//DontDestroyOnLoad(GameObject.Find("Save"));
 						//insert fading transition here
@@ -509,7 +568,7 @@ public class DialogueManager : MonoBehaviour {
 			{
 				string toLoad = Application.loadedLevelName;
 				//if end of either day type
-				if((currentScene==(int)Scene.Relationship2 && currentDay!=4) ||
+				if((currentScene==(int)Scene.Evening && currentDay!=4) ||
 				   (currentScene==(int)End.Evening && currentDay==4))
 				{
 					//end of week (4 days in a week!)
@@ -522,8 +581,13 @@ public class DialogueManager : MonoBehaviour {
 					//end of day
 					else
 					{
+						Debug.Log("<<<DELETE>>>");
+						File.Delete(Application.dataPath +"/Resources/Files/Saves/Chosen.txt");
+						File.Delete(Application.dataPath +"/Resources/Files/Saves/Chosen.txt.meta");
+
 						GameObject.Find("Save").GetComponent<SaveScript>().currentDay++;
 						GameObject.Find("Save").GetComponent<SaveScript>().currentScene = (int)Scene.Morning;
+						toLoad = "SaveMenu";
 					}
 				}
 				//go to rhythm mode select menu
@@ -533,13 +597,19 @@ public class DialogueManager : MonoBehaviour {
 					GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
 					toLoad = "CharSelectScreen";
 				}
+				else if((currentScene==(int)Scene.Relationship1 && currentDay!=4) && !clock.text.Equals("5:00 P.M."))
+				{
+					Debug.Log("Refreshing Relationship1");
+					//reload the same level with the same scene
+					toLoad = "StoryScene01";
+				}
 				//still same day
 				else
 				{
 					GameObject.Find("Save").GetComponent<SaveScript>().currentScene++;
 				}
 				
-				save ();
+				Debug.Log("Now saving.");save ();
 				fade.GetComponent<FadeScript>().SendMessage("fadeOut");
 				//DontDestroyOnLoad(GameObject.Find("Save"));
 				//insert fading transition here
@@ -551,10 +621,60 @@ public class DialogueManager : MonoBehaviour {
 	IEnumerator TypeText (string[] args) {
 		//char letter;
 		char[] array = args[0].ToCharArray();
-		for(int i=0; i<array.Length; i++) {
-			line.text += array[i];
-			yield return 0;
-			yield return new WaitForSeconds (0.00025f);
+		int length = array.Length;
+		bool inTag = false;
+		int i=0;
+
+		while(i<length) {
+
+			//identify tags in dialogue
+			if(array[i].Equals('<'))
+			{
+				inTag = true;
+			}
+			//regular dialogue
+			if(inTag==false)
+			{
+				line.text += array[i];
+				i++;
+				yield return 0;
+				yield return new WaitForSeconds (0.00025f);
+			}
+			else
+			{
+				string tag = null;
+
+				//get colour tag
+				while(!array[i].Equals('>'))
+				{
+					tag+=array[i];
+					i++;
+				}
+
+				//get that last one
+				tag+=array[i];
+				i++;
+
+				//append until closing tag
+				while(!array[i].Equals('<'))
+				{
+					line.text+=tag+array[i]+"</color>";
+					i++;
+					yield return 0;
+					yield return new WaitForSeconds (0.00025f);
+				}
+
+				//skip closing tag
+				while(!array[i].Equals('>'))
+				{
+					i++;
+				}
+
+				//get that last one
+				i++;
+
+				inTag = false;
+			}
 		}      
 		skip = false;
 	}
@@ -563,6 +683,7 @@ public class DialogueManager : MonoBehaviour {
 	{
 		for(int i=0; i<characters.Length; i++)
 			GameObject.Find("Save").GetComponent<SaveScript>().characters[i] = characters[i];
+		GameObject.Find("Save").GetComponent<SaveScript>().clock.GetComponent<ClockScript>().SetTime(this.clock.GetComponent<ClockScript>().getHour(), this.clock.GetComponent<ClockScript>().getMinute());
 		GameObject.Find("Save").GetComponent<SaveScript>().saveFile();
 	}
 
@@ -616,11 +737,21 @@ public class DialogueManager : MonoBehaviour {
 		fade.GetComponent<FadeScript>().SendMessage("fadeOut");
 		fade.GetComponent<FadeScript>().SendMessage("fadeIn");
 		
-		StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_MorningTalks.txt");
-		StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/Days/Wk" +currentWeek+"_Day"+currentDay+"_MorningTalks_Action.txt");
+		StreamReader file = new StreamReader(Application.dataPath + "/Resources/Files/Weeks/Week"+currentWeek+"/Wk" +currentWeek+"_Day"+currentDay+"_MorningTalks.txt");
+		StreamReader file2 = new StreamReader(Application.dataPath + "/Resources/Files/Weeks/Week"+currentWeek+"/Wk" +currentWeek+"_Day"+currentDay+"_MorningTalks_Action.txt");
+
+		//skip background file
+		file.ReadLine();
 		
-		//skip button strings and prev background file
-		for(int i=0; i<5; i++)
+		//add topic
+		string t = file.ReadLine();
+		Debug.Log("Topic: "+t);
+		if(!t.Equals("null"))
+		{
+			Relationship.addTopic(t, GameObject.Find("Save").GetComponent<SaveScript>().relationships);
+		}
+		//skip button strings
+		for(int i=0; i<4; i++)
 		{
 			file.ReadLine();
 		}
@@ -687,7 +818,7 @@ public class DialogueManager : MonoBehaviour {
 		changeSprites();
 	}
 
-	public void readFreeRelationship()
+	public void readFreeRelationship(int progress)
 	{
 		Relationship current = new Relationship();
 		Relationship[] all = GameObject.Find("Save").GetComponent<SaveScript>().relationships;
@@ -715,16 +846,33 @@ public class DialogueManager : MonoBehaviour {
 			speaker.Add(char1);
 			speaking = char1;
 			other = char2;
-			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
-			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
+			if(current.getProgress() < 0)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Negative_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Negative_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Positive_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Positive_Free_Action.txt");
+			}
 		}
 		else
 		{
 			speaker.Add(char2);
 			speaking = char2;
 			other = char1;
-			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
-			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
+
+			if(current.getProgress() < 0)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Negative_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Negative_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Positive_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Positive_Free_Action.txt");
+			}
 		}
 
 		int feedback = Random.Range(1,8);
@@ -772,15 +920,33 @@ public class DialogueManager : MonoBehaviour {
 		{
 			speaker.Add(char2);
 			other = char1;
-			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free.txt");
-			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Free_Action.txt");
+
+			if(current.getProgress() < 0)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Negative_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Negative_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Positive_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char2+"_Positive_Free_Action.txt");
+			}
 		}
 		else
 		{
 			speaker.Add(char1);
 			other = char2;
-			file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free.txt");
-			file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Free_Action.txt");
+
+			if(current.getProgress() < 0)
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Negative_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Negative_Free_Action.txt");
+			}
+			else
+			{
+				file = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Positive_Free.txt");
+				file2 = new StreamReader(Application.dataPath + "/Resources/Files/"+char1+"_Positive_Free_Action.txt");
+			}
 		}
 		
 		//skip loop
@@ -830,7 +996,7 @@ public class DialogueManager : MonoBehaviour {
 			if(characters[i].name.Equals(char1))
 			{
 				c1 = characters[i];
-				freeUpdate(c1, current.getChar1Value(), nullActions);
+				freeUpdate(c1, progress, nullActions);
 				//Debug.Log("c1 free Actions added");
 
 				if(hasProgressed==false)
@@ -839,11 +1005,13 @@ public class DialogueManager : MonoBehaviour {
 					{
 						//progress +1
 						current.setProgress(current.getProgress()+1);
+						current.setPosProgress(current.getPosProgress()+1);
 					}
 					else
 					{
 						//progress -1
 						current.setProgress(current.getProgress()-1);
+						current.setNegProgress(current.getNegProgress()-1);
 					}
 					hasProgressed = true;
 				}
@@ -851,7 +1019,7 @@ public class DialogueManager : MonoBehaviour {
 			if(characters[i].name.Equals(char2))
 			{
 				c2 = characters[i];
-				freeUpdate(c2, current.getChar2Value(), nullActions);
+				freeUpdate(c2, progress, nullActions);
 				//Debug.Log("c2 free Actions added");
 
 				if(hasProgressed==false)
@@ -860,11 +1028,13 @@ public class DialogueManager : MonoBehaviour {
 					{
 						//progress +1
 						current.setProgress(current.getProgress()+1);
+						current.setPosProgress(current.getPosProgress()+1);
 					}
 					else
 					{
 						//progress -1
 						current.setProgress(current.getProgress()-1);
+						current.setNegProgress(current.getNegProgress()-1);
 					}
 					hasProgressed = true;
 				}
@@ -877,6 +1047,12 @@ public class DialogueManager : MonoBehaviour {
 		line.text = (string)dialogue[currentIndex];
 		changeColour((string)speaker[currentIndex]);
 		changeSprites();
+
+		Debug.Log("<<<CURRENT TIME: "+clock.GetComponent<ClockScript>().GetTimeAsString()+">>>");
+
+		//increment time by 30 mins
+		clock.GetComponent<ClockScript>().IncrementTime(0, 30);
+		clock.text = clock.GetComponent<ClockScript>().GetTimeAsString();
 	}
 
 	public void readScriptedRelationship(int level)
@@ -959,17 +1135,19 @@ public class DialogueManager : MonoBehaviour {
 			}
 		} 
 
-		scriptedUpdate(c1, c2, current.getChar1Value(), current.getChar2Value(), level, nullActions);
+		scriptedUpdate(c1, c2, level, nullActions);
 		//if either char is upset, negative, else positive
 		if(c1.mood < 0 || c2.mood < 0)
 		{
 			//progress -1
-			current.setProgress(current.getProgress()-1);
+			current.setProgress(current.getProgress()-4);
+			current.setNegProgress(current.getNegProgress()-4);
 		}
 		else
 		{
 			//progress +1
-			current.setProgress(current.getProgress()+1);
+			current.setProgress(current.getProgress()+4);
+			current.setPosProgress(current.getPosProgress()+4);
 		}
 		
 		actions.Add(nullActions);
@@ -978,6 +1156,10 @@ public class DialogueManager : MonoBehaviour {
 		line.text = (string)dialogue[currentIndex];
 		changeColour((string)speaker[currentIndex]);
 		changeSprites();
+
+		//increment time by 1.5 hrs
+		clock.GetComponent<ClockScript>().IncrementTime(1, 30);
+		clock.text = clock.GetComponent<ClockScript>().GetTimeAsString();
 	}
 
 	//talk about a specific topic
@@ -1199,12 +1381,14 @@ public class DialogueManager : MonoBehaviour {
 					if(characters[i].mood > 0)
 					{
 						//progress +1
-						current.setProgress(current.getProgress()+1);
+						current.setProgress(current.getProgress()+2);
+						current.setPosProgress(current.getPosProgress()+2);
 					}
 					else
 					{
 						//progress -1
-						current.setProgress(current.getProgress()-1);
+						current.setProgress(current.getProgress()-2);
+						current.setNegProgress(current.getNegProgress()-2);
 					}
 					hasProgressed = true;
 				}
@@ -1221,12 +1405,14 @@ public class DialogueManager : MonoBehaviour {
 					if(characters[i].mood > 0)
 					{
 						//progress +1
-						current.setProgress(current.getProgress()+1);
+						current.setProgress(current.getProgress()+2);
+						current.setPosProgress(current.getPosProgress()+2);
 					}
 					else
 					{
 						//progress -1
-						current.setProgress(current.getProgress()-1);
+						current.setProgress(current.getProgress()-2);
+						current.setNegProgress(current.getNegProgress()-2);
 					}
 					hasProgressed = true;
 				}
@@ -1239,11 +1425,14 @@ public class DialogueManager : MonoBehaviour {
 		line.text = (string)dialogue[currentIndex];
 		changeColour((string)speaker[currentIndex]);
 		changeSprites();
-	}
 
+		//increment time by 1 hr
+		clock.GetComponent<ClockScript>().IncrementTime(1, 0);
+		clock.text = clock.GetComponent<ClockScript>().GetTimeAsString();
+	}
+	
 	void freeUpdate(Character c, int value, List<string> nullActions)
 	{
-		//if the character is feeling positive about the interaction
 		if(value == 1)
 		{
 			speaker.Add("");
@@ -1251,6 +1440,16 @@ public class DialogueManager : MonoBehaviour {
 			c.mood +=2;
 			nullActions.Add("null");
 			updateText.material = goodMaterial;
+			
+			actions.Add(nullActions);
+		}
+		else if(value == -1)
+		{
+			speaker.Add("");
+			dialogue.Add(c.name +"'s mood: -" +2+"%");
+			c.mood -=2;
+			nullActions.Add("null");
+			updateText.material = badMaterial;
 			
 			actions.Add(nullActions);
 		}
@@ -1274,11 +1473,12 @@ public class DialogueManager : MonoBehaviour {
 			
 			actions.Add(nullActions);
 		}
-		save ();
+		
+		Debug.Log("Now saving.");save ();
 	}
 
-	//see if I can change the colour of inc/dec
-	void scriptedUpdate(Character c1, Character c2, int v1, int v2, int level, List<string> nullActions)
+	//consider changing values depending on tier
+	void scriptedUpdate(Character c1, Character c2, int level, List<string> nullActions)
 	{
 		//Debug.Log("Scripted mood update");
 		//friendship
@@ -1297,48 +1497,18 @@ public class DialogueManager : MonoBehaviour {
 		//rivalry
 		else
 		{
-			int small = 5;
-			int large = 15;
-			switch(level)
-			{
-			case -12:
-				large = 35;
-				break;
-			case -8:
-				large = 25;
-				break;
-			case -4:
-				large = 15;
-				break;
-			}
-
-			//give the "happier" one a smaller mood decrement
-			if(v1==1)
-			{
-				speaker.Add("");
-				speaker.Add("");
-				dialogue.Add(c1.name +"'s mood: -" +small +"%");
-				dialogue.Add (c2.name +"'s mood: -" +large+"%");
-				c1.mood -= small;
-				c2.mood -= large;
-				nullActions.Add("null");
-				nullActions.Add("null");
-				updateText.material = badMaterial;
-			}
-			else
-			{
-				speaker.Add("");
-				speaker.Add("");
-				dialogue.Add(c1.name +"'s mood: -" +large +"%");
-				dialogue.Add(c2.name +"'s mood: -" +small+"%");
-				c1.mood -= large;
-				c2.mood -= small;
-				nullActions.Add("null");
-				nullActions.Add("null");
-				updateText.material = badMaterial;
-			}
+			speaker.Add("");
+			speaker.Add("");
+			dialogue.Add(c1.name +"'s mood: -" +10 +"%");
+			dialogue.Add (c2.name +"'s mood: -" +10+"%");
+			c1.mood -= 10;
+			c2.mood -= 10;
+			nullActions.Add("null");
+			nullActions.Add("null");
+			updateText.material = badMaterial;
 		}
-		save ();
+		
+		Debug.Log("Now saving.");save ();
 	}
 
 	void showUpdate()

@@ -68,7 +68,7 @@ public class RelationshipButtonScript : MonoBehaviour {
 					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readScriptedRelationship(3);
 					break;
 				default:
-					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readFreeRelationship();
+					GameObject.Find("DialogueManager").GetComponent<DialogueManager>().readFreeRelationship(1);
 					break;
 				}
 			}
