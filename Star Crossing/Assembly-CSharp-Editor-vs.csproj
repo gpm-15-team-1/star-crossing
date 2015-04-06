@@ -90,6 +90,7 @@
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAlphaBlend_Alpha8.shader" />
      <None Include="Assets\Resources\Files\Carol_Positive_Free.txt" />
      <None Include="Assets\Resources\Files\Songs\Song1_Julie - Amanda.txt" />
+     <None Include="Assets\Resources\Files\Saves\Chosen.txt" />
      <None Include="Assets\Resources\Files\Topics\Randall_Nikolai_Coffee_Action.txt" />
      <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Resources\Files\Feedback\Tani_Awesome_Action.txt" />

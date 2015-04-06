@@ -643,7 +643,8 @@ public class DialogueManager : MonoBehaviour {
 			else
 			{
 				string tag = null;
-
+				string endTag = null;
+				
 				//get colour tag
 				while(!array[i].Equals('>'))
 				{
@@ -658,7 +659,14 @@ public class DialogueManager : MonoBehaviour {
 				//append until closing tag
 				while(!array[i].Equals('<'))
 				{
-					line.text+=tag+array[i]+"</color>";
+					if(tag.Equals("<color>"))
+					   endTag = "</color>";
+					else if(tag.Equals("<i>"))
+						endTag = "</i>";
+					else if(tag.Equals("<b>"))
+						endTag = "</b>";
+					
+					line.text+=tag+array[i]+endTag;
 					i++;
 					yield return 0;
 					yield return new WaitForSeconds (0.00025f);
